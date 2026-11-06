@@ -27,7 +27,7 @@ Every page has a unique title and a unique meta description of up to 160 charact
 
 ## Sitemaps and crawling
 
-- `sitemap.xml` lists all 1,560 pages that should appear in search, with each game's image and a last-changed date that only changes when the page really changes (tracked in `data/lastmod.json`).
+- `sitemap.xml` lists all 1,599 pages that should appear in search, with each game's image and a last-changed date that only changes when the page really changes (tracked in `data/lastmod.json`).
 - `/sitemap/` is a site map page that links every game, grouped by category.
 - `robots.txt` lets every search engine and AI assistant read the site (Google, Bing, DuckDuckGo, Apple, ChatGPT, Claude, Perplexity and others). It blocks only the search results page and the raw game files in `/games/`, so the game pages themselves are what get listed.
 - `llms.txt` is a plain-text summary of the site with its categories and popular games, which some AI assistants read.
@@ -39,11 +39,15 @@ Every page has a unique title and a unique meta description of up to 160 charact
 |---|---|---|---|
 | Game page | 100 | 100 | 99 |
 | Homepage | 100 | 100 | 92 |
-| Category page (typical) | 100 | 100 | 95 |
-| Arcade category (897 games on one page) | 100 | 100 | 77 |
-| All games A–Z (1,562 games on one page) | 100 | 100 | 65 |
+| Category page | 100 | 100 | 95–98 |
+| All games A–Z (one page per letter) | 100 | 100 | 92–95 |
 
-Thumbnails are served as WebP (72% smaller), the game only loads when someone clicks Play, off-screen cards aren't drawn until scrolled to, and fonts don't block the first paint. The two long list pages are slower only because of their size; splitting them into numbered pages would speed them up.
+Thumbnails are served as WebP (72% smaller), the game only loads when someone clicks Play, off-screen cards aren't drawn until scrolled to, and fonts don't block the first paint.
+
+Big lists are split into numbered pages so they load quickly:
+- Categories with more than 200 games (currently only Arcade, with 897) show 60 games per page: `/category/arcade/`, then `/category/arcade/page/2/` up to page 15. Page 1 has the introduction and FAQ; later pages have their own title and description. To change the numbers, edit `PER_PAGE` and `PAGINATE_OVER` in `build.py`.
+- The A–Z list has one page per letter: `/all-games/` (numbers and A), then `/all-games/b/` to `/all-games/z/`, each titled for searches like "games starting with B".
+- The filter box on these pages searches the whole category or all games, not just the page you're on.
 
 ## When the site goes live
 

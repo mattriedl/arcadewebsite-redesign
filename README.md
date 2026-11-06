@@ -4,7 +4,7 @@ The redesigned arcadewebsite.com: all 1,562 games and 12 categories from the liv
 
 - **Homepage** with an auto-rotating featured area that picks a new set of games every 2 days by itself, category tiles, editorial shelves and a shelf for every category.
 - **Game pages** with a click-to-play player, fullscreen and restart buttons, game info, sharing and more games from the same category.
-- **Category pages**, an **A–Z page of every game**, **search** and a **404 page**.
+- **Category pages** (split into numbered pages of 60 when a category has more than 200 games), an **A–Z list** with one page per letter, **search** and a **404 page**.
 - **Ad spots on every page** in standard sizes (14 on each game page, more on the homepage and category pages), all controlled from one file.
 - **Google Tag Manager** (container `GTM-TVMCJHRM`) on every page.
 
@@ -114,7 +114,7 @@ To show a different banner in one spot, add it under `bySlot`, for example `'gam
 | Category | `category-side-top`, `category-side` | 300×600, 300×250 |
 | Category | `category-in-grid-N` / `-mobile` (every 20 games) | 728×90 / 300×250 |
 | All games | `all-side-top`, `all-side` | 300×600, 300×250 |
-| All games | `all-between-N` / `-mobile`, and in-grid spots per letter | 728×90 / 300×250 |
+| All games | `all-in-grid-N` / `-mobile` (every 60 games on a letter page) | 728×90 / 300×250 |
 | Search | `search-side-top`, `search-side`, `search-bottom` | 300×600, 300×250, 728×90 |
 
 To switch to a different network later, change `networkScript` and the codes under `bySize`. Check the network's rules on ad density, and your privacy and consent requirements.

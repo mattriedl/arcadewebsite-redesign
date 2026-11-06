@@ -519,43 +519,67 @@ def page_game(g):
           + header(cat=c["slug"]) + body + footer())
 
 
+PER_PAGE = 60          # games per numbered page on big categories
+PAGINATE_OVER = 200    # categories with more games than this are split into numbered pages
+
+
+def cat_page_path(c, n):
+    return f'/category/{c["slug"]}/' if n == 1 else f'/category/{c["slug"]}/page/{n}/'
+
+
+def pager(pages, current, path_for, label):
+    """Previous / 1 2 3 … / Next links."""
+    if pages <= 1:
+        return ""
+    show = sorted({1, 2, pages - 1, pages, current - 1, current, current + 1} & set(range(1, pages + 1)))
+    parts, last = [], 0
+    for n in show:
+        if n - last > 1:
+            parts.append('<span class="gap" aria-hidden="true">…</span>')
+        cur = ' aria-current="page"' if n == current else ""
+        parts.append(f'<a href="{path_for(n)}"{cur} aria-label="{label} page {n}">{n}</a>')
+        last = n
+    prev = f'<a class="step" href="{path_for(current - 1)}" rel="prev">{I_LEFT}Previous</a>' if current > 1 else ""
+    nxt = f'<a class="step" href="{path_for(current + 1)}" rel="next">Next{I_RIGHT}</a>' if current < pages else ""
+    return f'<nav class="pager" aria-label="{label} pages">{prev}<span class="nums">{"".join(parts)}</span>{nxt}</nav>'
+
+
 def page_category(c):
-    path = f'/category/{c["slug"]}/'
-    title = COPY.category_title(c)
-    meta = COPY.category_meta(c)
     n = len(c["games"])
+    pages = -(-n // PER_PAGE) if n > PAGINATE_OVER else 1
+    per = PER_PAGE if pages > 1 else n
     faq = [(f["q"], e(f["a"])) for f in c["faq"]]
-    ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": f'{c["name"]} Games',
-           "description": meta, "url": SITE + path, "inLanguage": "en",
-           "isPartOf": {"@type": "WebSite", "name": BRAND, "url": SITE + "/"},
-           "mainEntity": {"@type": "ItemList", "numberOfItems": n,
-                          "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": SITE + f"/game/{s}/", "name": G[s]["title"]}
-                                              for i, s in enumerate(c["games"][:50])]}},
-          breadcrumbs_ld([("Home", "/"), (f'{c["name"]} games', path)]),
-          faq_ld(faq)]
     top = [s for s in c["games"] if COPY.has_writeup(s)][:6]
     top_html = (f'<p>Popular {e(c["name"].lower())} games include ' + ", ".join(game_link(s) for s in top) + ".</p>") if top else ""
     intro = "".join(f"<p>{e(p)}</p>" for p in c["intro"])
-    body = f"""<main id="main" class="c-{c['slug']}">
-<div class="wrap">
-  {ad_banner("category-top", "728x90", "320x50", tight=True)}
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">{e(c['name'])} games</span></nav>
-  <header class="cat-hero c-{c['slug']}">
-    <span class="big-icon">{ICONS[c['slug']]}</span>
-    <h1>{e(c['name'])} games</h1>
-    <p>{e(c['intro'][0])}</p>
-    <span class="count">{n:,} free games</span>
-  </header>
-  {ad_banner("category-below-header", "728x90", "320x50")}
-  <div class="with-rail">
-    <div>
-      <div class="filter"><label class="sr-only" for="f">Filter {e(c['name'])} games</label>
-        <input id="f" type="search" placeholder="Filter {n:,} {e(c['name'].lower())} games" data-filter="cat-grid" autocomplete="off"><output>{n:,} games</output></div>
-      {grid(c["games"], "category-in-grid", 20, gid="cat-grid", eager=12)}
-    </div>
-    <aside class="side-rail" aria-label="Advertisements">{ad("category-side-top", "300x600")}{ad("category-side", "300x250")}</aside>
-  </div>
-  <section class="section cat-about" aria-labelledby="cat-about-h">
+    for p in range(1, pages + 1):
+        path = cat_page_path(c, p)
+        chunk = c["games"][(p - 1) * per: p * per]
+        first, last_n = (p - 1) * per + 1, (p - 1) * per + len(chunk)
+        if p == 1:
+            title, meta = COPY.category_title(c), COPY.category_meta(c)
+        else:
+            title = f'{c["name"]} Games - Page {p} of {pages} | {BRAND}'
+            names = ", ".join(G[s]["title"] for s in chunk[:3])
+            meta = clip(f'Free {c["name"].lower()} games {first}–{last_n} of {n:,} on ArcadeWebsite, including {names}. Play online, no download.', 158)
+        crumbs = [("Home", "/"), (f'{c["name"]} games', cat_page_path(c, 1))] + ([(f"Page {p}", path)] if p > 1 else [])
+        ld = [{"@context": "https://schema.org", "@type": "CollectionPage", "name": f'{c["name"]} Games' + (f" - Page {p}" if p > 1 else ""),
+               "description": meta, "url": SITE + path, "inLanguage": "en",
+               "isPartOf": {"@type": "WebSite", "name": BRAND, "url": SITE + "/"},
+               "mainEntity": {"@type": "ItemList", "numberOfItems": len(chunk),
+                              "itemListElement": [{"@type": "ListItem", "position": first + i, "url": SITE + f"/game/{s}/", "name": G[s]["title"]}
+                                                  for i, s in enumerate(chunk)]}},
+              breadcrumbs_ld(crumbs)]
+        if p == 1:
+            ld.append(faq_ld(faq))
+        crumb_html = ('<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>'
+                      + (f'<span aria-current="page">{e(c["name"])} games</span>' if p == 1 else
+                         f'<a href="{cat_page_path(c, 1)}">{e(c["name"])} games</a><span aria-hidden="true">/</span><span aria-current="page">Page {p}</span>')
+                      + "</nav>")
+        h1 = f'{e(c["name"])} games' + (f' <span class="page-no">page {p} of {pages}</span>' if p > 1 else "")
+        showing = f"Showing {first}–{last_n} of {n:,} games" if pages > 1 else f"{n:,} games"
+        filter_attr = f'data-filter-remote="{c["slug"]}"' if pages > 1 else 'data-filter="cat-grid"'
+        about = f"""<section class="section cat-about" aria-labelledby="cat-about-h">
     <article class="about">
       <h2 id="cat-about-h">About our {e(c['name'].lower())} games</h2>
       {intro}{top_html}
@@ -563,48 +587,113 @@ def page_category(c):
       <h2 id="cat-faq-h">{e(c['name'])} games FAQ</h2>
       <div class="faq">{faq_html(faq, "cat-faq-h")}</div>
     </article>
-  </section>
+  </section>""" if p == 1 else f"""<p class="lede">More free {e(c['name'].lower())} games. Start from <a href="{cat_page_path(c, 1)}">page 1</a> for the most popular ones, or use the filter to search all {n:,}.</p>"""
+        body = f"""<main id="main" class="c-{c['slug']}">
+<div class="wrap">
+  {ad_banner("category-top", "728x90", "320x50", tight=True)}
+  {crumb_html}
+  <header class="cat-hero c-{c['slug']}">
+    <span class="big-icon">{ICONS[c['slug']]}</span>
+    <h1>{h1}</h1>
+    <p>{e(c['intro'][0])}</p>
+    <span class="count">{n:,} free games</span>
+  </header>
+  {ad_banner("category-below-header", "728x90", "320x50")}
+  <div class="with-rail">
+    <div>
+      <div class="filter"><label class="sr-only" for="f">Filter {e(c['name'])} games</label>
+        <input id="f" type="search" placeholder="Filter all {n:,} {e(c['name'].lower())} games" {filter_attr} autocomplete="off"><output data-default="{showing}">{showing}</output></div>
+      <div id="cat-results">
+        {grid(chunk, "category-in-grid", 20, gid="cat-grid", eager=12)}
+        {pager(pages, p, lambda k: cat_page_path(c, k), c["name"] + " games")}
+      </div>
+    </div>
+    <aside class="side-rail" aria-label="Advertisements">{ad("category-side-top", "300x600")}{ad("category-side", "300x250")}</aside>
+  </div>
+  {about}
   {ad_banner("category-bottom", "728x90", "320x50")}
 </div>
 </main>
 """
-    write(path, head(title, meta, path, G[c["games"][0]]["thumbnail"], ld, image_alt=f'{c["name"]} games')
-          + header(cat=c["slug"]) + body + footer())
+        write(path, head(title, meta, path, G[chunk[0]]["thumbnail"], ld, image_alt=f'{c["name"]} games')
+              + header(cat=c["slug"]) + body + footer())
+    c["pages"] = pages
+
+
+def letter_of(title):
+    k = title[:1].upper()
+    return k if "A" <= k <= "Z" else "#"
+
+
+def all_page_path(k):
+    """'#' and 'A' share the first page at /all-games/; every other letter has its own page."""
+    return "/all-games/" if k in ("#", "A") else f"/all-games/{k.lower()}/"
 
 
 def page_all():
-    path = "/all-games/"
     ordered = sorted(games, key=lambda g: g["title"].lower())
     groups = {}
     for g in ordered:
-        k = g["title"][:1].upper()
-        k = k if k.isalpha() else "#"
-        groups.setdefault(k, []).append(g["slug"])
+        groups.setdefault(letter_of(g["title"]), []).append(g["slug"])
     keys = sorted(groups, key=lambda k: (k != "#", k))
-    letters = "".join(f'<a href="#l-{"0" if k == "#" else k}">{k}</a>' for k in keys)
-    sections = []
-    for i, k in enumerate(keys):
-        sections.append(f'<h2 class="letter-head" id="l-{"0" if k == "#" else k}">{k}</h2>' + grid(groups[k], dense=True, eager=12 if i == 0 else 0))
-        if i % 3 == 2:
-            sections.append(ad_banner(f"all-between-{i // 4 + 1}", "728x90", "300x250"))
-    desc = f"Browse the complete ArcadeWebsite catalog: {TOTAL:,} free browser games across {len(cats)} categories. Open any game on its own dedicated page."
-    body = f"""<main id="main">
+    pages = []                                       # [(path, [letters])]
+    for k in keys:
+        p = all_page_path(k)
+        if pages and pages[-1][0] == p:
+            pages[-1][1].append(k)
+        else:
+            pages.append((p, [k]))
+    for idx, (path, ks) in enumerate(pages):
+        count = sum(len(groups[k]) for k in ks)
+        label = " and ".join("numbers" if k == "#" else k for k in ks)
+        nav = "".join(f'<a href="{all_page_path(k)}#l-{"0" if k == "#" else k}"{" aria-current=page" if k in ks else ""}>{k}</a>' for k in keys)
+        sections = []
+        for i, k in enumerate(ks):
+            if i:
+                sections.append(ad_banner(f"all-between-{i}", "728x90", "300x250"))
+            sections.append(f'<h2 class="letter-head" id="l-{"0" if k == "#" else k}">{"Games starting with a number or symbol" if k == "#" else "Games starting with " + k}</h2>'
+                            + grid(groups[k], "all-in-grid", 60, dense=True, eager=12 if i == 0 else 0))
+        prev_p = pages[idx - 1][0] if idx else None
+        next_p = pages[idx + 1][0] if idx + 1 < len(pages) else None
+        step = (f'<nav class="pager" aria-label="A to Z pages">'
+                + (f'<a class="step" href="{prev_p}" rel="prev">{I_LEFT}{" / ".join(pages[idx - 1][1])}</a>' if prev_p else "")
+                + '<span class="nums"></span>'
+                + (f'<a class="step" href="{next_p}" rel="next">{" / ".join(pages[idx + 1][1])}{I_RIGHT}</a>' if next_p else "") + "</nav>")
+        if idx == 0:
+            title = f"All {TOTAL:,} Free Online Games A to Z | {BRAND}"
+            desc = f"Browse the complete ArcadeWebsite catalog: {TOTAL:,} free browser games across {len(cats)} categories, A to Z. Open any game on its own page."
+            h1 = f"All {TOTAL:,} games, A to Z"
+        else:
+            title = f"Free Online Games Starting with {label} ({count}) | {BRAND}"
+            names = ", ".join(G[s]["title"] for s in groups[ks[0]][:3])
+            desc = clip(f"{count} free online games starting with {label} on ArcadeWebsite, including {names}. Play in your browser, no download.", 158)
+            h1 = f"Games starting with {label}"
+        crumbs = [("Home", "/"), ("All games", "/all-games/")] + ([(f"Letter {label}", path)] if idx else [])
+        crumb_html = ('<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span>'
+                      + ('<span aria-current="page">All games</span>' if idx == 0 else
+                         f'<a href="/all-games/">All games</a><span aria-hidden="true">/</span><span aria-current="page">{label}</span>') + "</nav>")
+        body = f"""<main id="main">
 <div class="wrap">
   {ad_banner("all-top", "728x90", "320x50", tight=True)}
-  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">All games</span></nav>
-  <h1>All {TOTAL:,} games, A to Z</h1>
+  {crumb_html}
+  <h1>{h1}</h1>
+  <p class="lede">{"Every game on ArcadeWebsite in alphabetical order, one letter per page. Pick a letter or filter by name." if idx == 0 else f"{count} free games whose names start with {label}. Pick another letter below, or filter all {TOTAL:,} games by name."}</p>
   <div class="filter"><label class="sr-only" for="f">Filter all games</label>
-    <input id="f" type="search" placeholder="Filter by name" data-filter="all-grid" autocomplete="off"><output>{TOTAL:,} games</output></div>
-  <nav class="letters" aria-label="Jump to letter">{letters}</nav>
+    <input id="f" type="search" placeholder="Filter all {TOTAL:,} games by name" data-filter-remote="all" autocomplete="off"><output data-default="{count} games on this page">{count} games on this page</output></div>
+  <nav class="letters" aria-label="Jump to letter">{nav}</nav>
   <div class="with-rail">
-    <div id="all-grid">{"".join(sections)}</div>
+    <div id="cat-results">{"".join(sections)}{step}</div>
     <aside class="side-rail" aria-label="Advertisements">{ad("all-side-top", "300x600")}{ad("all-side", "300x250")}</aside>
   </div>
 </div>
 </main>
 """
-    write(path, head(f"All {TOTAL:,} Free Online Games A to Z | {BRAND}", desc, path, ld=[breadcrumbs_ld([("Home", "/"), ("All games", path)])])
-          + header("all") + body + footer())
+        write(path, head(title, desc, path, G[groups[ks[0]][0]]["thumbnail"], ld=[breadcrumbs_ld(crumbs)]) + header("all") + body + footer())
+    global ALL_PAGES
+    ALL_PAGES = [p for p, _ in pages]
+
+
+ALL_PAGES = ["/all-games/"]
 
 
 def page_search():
@@ -666,7 +755,8 @@ def page_html_sitemap():
 
 def indexable_urls():
     """Every page that should be in the sitemap (search and duplicate pages are left out)."""
-    urls = ["/", "/all-games/", "/sitemap/"] + [f'/category/{c["slug"]}/' for c in cats]
+    urls = ["/", "/sitemap/"] + ALL_PAGES
+    urls += [cat_page_path(c, n) for c in cats for n in range(1, c.get("pages", 1) + 1)]
     urls += [f'/game/{g["slug"]}/' for g in games if g["slug"] not in CANONICAL and g.get("index") is not False]
     return urls
 

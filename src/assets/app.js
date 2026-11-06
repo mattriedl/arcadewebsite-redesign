@@ -135,6 +135,34 @@
     });
   });
 
+  /* ---------- Filter across every page (split categories and the A–Z pages) ----------
+     The page shows one slice of the list; filtering searches the whole list from the search index. */
+  $$("[data-filter-remote]").forEach(input => {
+    const scope = input.dataset.filterRemote;            // a category slug, or "all"
+    const out = input.parentElement.querySelector("output");
+    const pageList = $("#cat-results");
+    let index = null, box = null, timer = 0;
+    const load = () => index || (index = fetch("/assets/search-index.json").then(r => r.json())
+      .then(all => all.filter(g => scope === "all" || g.category === scope)));
+    const render = list => {
+      if (!box) { box = document.createElement("div"); box.className = "grid"; box.id = "filter-results"; pageList.before(box); }
+      box.innerHTML = list.slice(0, 120).map(g => `<a class="card c-${esc(g.category)}" href="${esc(g.url)}">
+          <span class="thumb"><picture><source type="image/webp" srcset="${esc(g.image.replace(/\.[^.]+$/, ".webp"))}"><img src="${esc(g.image)}" alt="" width="400" height="300" loading="lazy"></picture></span>
+          <span class="name">${esc(g.title)}</span><span class="cat">${esc(g.categoryName)}</span></a>`).join("")
+        || '<div class="empty">No games match that name. Check the spelling, or try fewer letters.</div>';
+    };
+    input.addEventListener("input", () => {
+      clearTimeout(timer);
+      timer = setTimeout(async () => {
+        const terms = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
+        if (!terms.length) { if (box) box.hidden = true; pageList.hidden = false; out.textContent = out.dataset.default; return; }
+        const list = (await load()).filter(g => terms.every(t => g.title.toLowerCase().includes(t)));
+        render(list); box.hidden = false; pageList.hidden = true;
+        out.textContent = list.length > 120 ? `First 120 of ${list.length} matches` : `${list.length} ${list.length === 1 ? "match" : "matches"}`;
+      }, 150);
+    });
+  });
+
   /* ---------- Search page ---------- */
   const results = $("#search-results");
   if (results) {

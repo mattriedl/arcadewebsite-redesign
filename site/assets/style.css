@@ -406,3 +406,16 @@ a.chip:hover { background: color-mix(in srgb, var(--cat) 26%, transparent); }
 /* Long pages: let the browser skip drawing cards and sections that are off screen */
 .grid .card { content-visibility: auto; contain-intrinsic-size: auto 200px; }
 .letter-head + .grid, .site-footer, .cat-about { content-visibility: auto; contain-intrinsic-size: auto 600px; }
+
+/* ---------- Numbered pages ---------- */
+.pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin: 32px 0 8px; }
+.pager .nums { display: flex; flex-wrap: wrap; gap: 6px; }
+.pager a { min-width: 42px; height: 42px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--deck); text-decoration: none; font-weight: 600; font-size: .92rem; }
+.pager a:hover { background: var(--rail); }
+.pager a[aria-current="page"] { background: var(--cat, var(--coin)); border-color: var(--cat, var(--coin)); color: var(--ink); }
+.pager a svg { width: 16px; height: 16px; }
+.pager .gap { color: var(--faint); padding: 0 4px; }
+.page-no { display: block; font-size: .5em; color: var(--muted); font-weight: 500; margin-top: 6px; }
+.letters a[aria-current] { background: var(--coin); color: var(--ink); }
+#filter-results { margin-bottom: 20px; }
