@@ -1,0 +1,23 @@
+{
+ "_help": "Featured games on the homepage. The set changes every daysPerRotation days by itself, no rebuild needed. favorites are featured first; after them the rest of the library is cycled through in a fixed shuffled order so every game gets a turn before any repeats. pinned games are always shown first.",
+ "daysPerRotation": 2,
+ "gamesPerRotation": 6,
+ "secondsPerSlide": 7,
+ "startDate": "2026-11-06",
+ "includeWholeLibrary": true,
+ "pinned": [],
+ "favorites": [
+  "slope",
+  "run-3",
+  "2048",
+  "1v1-lol",
+  "among-us",
+  "happy-wheels",
+  "8-ball-pool",
+  "retro-bowl",
+  "cookie-clicker-359",
+  "pac-man",
+  "tetris",
+  "crossy-road"
+ ]
+}
