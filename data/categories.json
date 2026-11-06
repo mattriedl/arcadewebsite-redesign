@@ -902,6 +902,20 @@
    "zuma",
    "ooo-1557",
    "game-1558"
+  ],
+  "intro": [
+   "Arcade games are quick to learn and hard to put down. This collection has everything from classic coin-op favorites and retro console adventures to modern browser hits, fan-made games and quirky experiments.",
+   "Most arcade games here start in seconds and play right in your browser, with no download or account needed. Use the filter box to find a title, or browse the list to discover something new."
+  ],
+  "faq": [
+   {
+    "q": "What are arcade games?",
+    "a": "Arcade games are short, action-focused games built around reflexes, high scores and quick restarts, in the spirit of the classic coin-operated machines."
+   },
+   {
+    "q": "Are these arcade games free?",
+    "a": "Yes. Every arcade game on ArcadeWebsite is free to play in your browser."
+   }
   ]
  },
  {
@@ -1063,6 +1077,20 @@
    "worlds-hardest-game-4",
    "mario-builder-64",
    "vvvvvv-1562"
+  ],
+  "intro": [
+   "Platformer games are all about running, jumping and timing. Climb towers, dodge spikes and saw blades, wall-jump through tight corridors and race to the exit in some of the best-known platform games on the web.",
+   "You'll find precision challenges like Big Tower Tiny Square and Vex, speedy runners like Run 3 and OvO, and co-op puzzlers like Fireboy and Watergirl that you can play with a friend on one keyboard."
+  ],
+  "faq": [
+   {
+    "q": "What is a platformer game?",
+    "a": "A platformer is a game where you move a character across platforms, jumping over gaps and obstacles to reach the end of each level."
+   },
+   {
+    "q": "Can I play platformer games with a friend?",
+    "a": "Yes. Games like Fireboy and Watergirl let two players share one keyboard."
+   }
   ]
  },
  {
@@ -1165,6 +1193,20 @@
    "warioware-diy",
    "warioware-inc",
    "you-vs100-skibidi"
+  ],
+  "intro": [
+   "Battle games put you head to head with an opponent, whether it's a friend on the same keyboard or the computer. Fight with fists, swords, guns or tanks in fast rounds that are easy to start and hard to master.",
+   "Many of these games support two players on one keyboard, making them perfect for a quick match with a friend."
+  ],
+  "faq": [
+   {
+    "q": "Can two people play battle games on one computer?",
+    "a": "Many of them, yes. Look for two-player games where each player uses a different side of the keyboard."
+   },
+   {
+    "q": "Do I need to download anything?",
+    "a": "No. All battle games play directly in your browser."
+   }
   ]
  },
  {
@@ -1250,6 +1292,20 @@
    "war-the-knight",
    "yars-revenge",
    "zuma-shooter"
+  ],
+  "intro": [
+   "Shooting games test your aim and reflexes. Take on waves of enemies, snipe from rooftops, defend your base or build and fight in fast online-style duels.",
+   "This collection includes top-down shooters, side-scrolling action games, sniper challenges and classic first-person shooters you can play in your browser."
+  ],
+  "faq": [
+   {
+    "q": "What kinds of shooting games are there?",
+    "a": "You'll find first-person shooters, top-down and side-scrolling shooters, sniper games, tank games and defense games."
+   },
+   {
+    "q": "How do I aim in shooting games?",
+    "a": "Most shooting games use the mouse to aim and click to shoot, with WASD or the arrow keys to move. Each game shows its controls."
+   }
   ]
  },
  {
@@ -1335,6 +1391,20 @@
    "wheel-y7",
    "wheel-y8",
    "marble-racer"
+  ],
+  "intro": [
+   "Racing games let you drift around corners, launch off ramps and race against the clock. Drive stunt bikes, supercars, monster trucks and even a car with an egg on top.",
+   "From stunt series like Moto X3M to drifting games like Drift Hunters and physics challenges like Drive Mad, there's a racing game for every kind of driver."
+  ],
+  "faq": [
+   {
+    "q": "What are the best racing games to start with?",
+    "a": "Moto X3M, Drift Hunters, Drive Mad and Madalin Stunt Cars are popular places to start."
+   },
+   {
+    "q": "Do racing games work with the keyboard?",
+    "a": "Yes. Most racing games use the arrow keys or WASD to drive."
+   }
   ]
  },
  {
@@ -1403,6 +1473,20 @@
    "twoball3d",
    "vol-ly-ball-challenge",
    "web-fishing"
+  ],
+  "intro": [
+   "Casual games are relaxed and easy to pick up, perfect for a short break. Drop fruit, stack blocks, draw lines, bounce balls and solve light puzzles at your own pace.",
+   "These games are simple to learn, quick to play and don't need fast reflexes, though many have a high score to beat."
+  ],
+  "faq": [
+   {
+    "q": "What is a casual game?",
+    "a": "A casual game has simple rules and short sessions, so anyone can start playing right away."
+   },
+   {
+    "q": "Are casual games good for a quick break?",
+    "a": "Yes. Most casual games can be played in a few minutes and picked up again any time."
+   }
   ]
  },
  {
@@ -1467,6 +1551,20 @@
    "territory-war",
    "tower-crash-3d",
    "witchcraft-td"
+  ],
+  "intro": [
+   "Strategy games reward planning. Build defenses, manage resources, command armies and outthink your opponent in tower defense, real-time strategy and turn-based games.",
+   "Favorites include the Bloons Tower Defense series, Age of War, Stick War and territory games like Territorial.io and State.io."
+  ],
+  "faq": [
+   {
+    "q": "What is a tower defense game?",
+    "a": "In a tower defense game you place towers along a path to stop waves of enemies from reaching the end."
+   },
+   {
+    "q": "Which strategy games are good for beginners?",
+    "a": "Bloons Tower Defense and Age of War are easy to learn and get deeper as you play."
+   }
   ]
  },
  {
@@ -1522,6 +1620,20 @@
    "super-liquid-soccer",
    "table-tennis-world-tour",
    "water-pool-io"
+  ],
+  "intro": [
+   "Sports games bring basketball, soccer, football, baseball, golf, tennis and more to your browser. Play realistic matches, arcade-style showdowns or silly physics games with floppy players.",
+   "Many sports games here support two players on one keyboard, so you can challenge a friend to a quick game."
+  ],
+  "faq": [
+   {
+    "q": "Can I play sports games against a friend?",
+    "a": "Yes. Games like Basket Random, Soccer Random and Basketball Legends support two players on one keyboard."
+   },
+   {
+    "q": "What sports are included?",
+    "a": "Basketball, soccer, American football, baseball, hockey, golf, tennis, pool, boxing and more."
+   }
   ]
  },
  {
@@ -1573,6 +1685,20 @@
    "tower-blocks",
    "word-le",
    "zen-word"
+  ],
+  "intro": [
+   "Puzzle games make you think. Merge numbers, roll blocks into holes, sort colors, guess words and solve brain teasers that start easy and get tricky fast.",
+   "Classics like 2048 and Wordle sit alongside block puzzles, logic games and daily-style word games you can play in a few minutes."
+  ],
+  "faq": [
+   {
+    "q": "What are the most popular puzzle games?",
+    "a": "2048, Wordle, Bloxorz and Block Blast are some of the most played puzzle games here."
+   },
+   {
+    "q": "Are puzzle games good for your brain?",
+    "a": "Puzzle games exercise planning, pattern recognition and problem solving, and many people play them to relax."
+   }
   ]
  },
  {
@@ -1607,6 +1733,20 @@
    "omega-nugget-clicker",
    "room-clicker",
    "spacebar-clicker"
+  ],
+  "intro": [
+   "Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away.",
+   "Start with Cookie Clicker, the game that made the genre famous, then try Doge Miner, Idle Breakout and more."
+  ],
+  "faq": [
+   {
+    "q": "What is an idle game?",
+    "a": "An idle game keeps progressing on its own once you've bought upgrades, so you earn even while you're not clicking."
+   },
+   {
+    "q": "Do idle games save my progress?",
+    "a": "Most idle games save progress in your browser automatically. Clearing your browser data will reset it."
+   }
   ]
  },
  {
@@ -1634,6 +1774,20 @@
    "granny-22",
    "granny-3",
    "skibidi-in-the-backrooms"
+  ],
+  "intro": [
+   "Horror games are built to make you jump. Escape haunted houses, survive the night against animatronics and explore unsettling places like the Backrooms.",
+   "Play with the lights off if you dare. Most horror games here use the mouse to look around and the keyboard to move."
+  ],
+  "faq": [
+   {
+    "q": "What are popular horror games to play?",
+    "a": "Five Nights at Freddy's, Granny, Baldi's Basics and The Backrooms are favorites."
+   },
+   {
+    "q": "Are horror games scary for kids?",
+    "a": "Some horror games include jump scares and creepy themes. Check the game description before playing."
+   }
   ]
  },
  {
@@ -1655,6 +1809,20 @@
    "b3313",
    "minecraft1-8-8",
    "eaglercraft-1-5-2"
+  ],
+  "intro": [
+   "Minecraft-style games let you mine, craft and build in block worlds right in your browser. This collection includes Eaglercraft versions and other block-building games.",
+   "Build a house, explore caves or survive the night. No download or installation is needed."
+  ],
+  "faq": [
+   {
+    "q": "Can I play Minecraft in my browser?",
+    "a": "The Eaglercraft games here are fan-made browser versions of Minecraft that run without installing anything."
+   },
+   {
+    "q": "Do Minecraft browser games save my world?",
+    "a": "Worlds are usually saved in your browser, so use the same browser to come back to them."
+   }
   ]
  }
 ]

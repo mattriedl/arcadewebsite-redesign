@@ -9,7 +9,7 @@
   --line: #30356b;       /* borders */
   --text: #f2f3ff;
   --muted: #a4a8d4;
-  --faint: #6f74a8;
+  --faint: #8b90c4;
   --coin: #ffc83d;       /* primary action */
   --coin-ink: #2a1d00;
   --cat: #8b90ff;        /* overridden per category */
@@ -378,3 +378,31 @@ a.chip:hover { background: color-mix(in srgb, var(--cat) 26%, transparent); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- SEO content blocks ---------- */
+.lede { color: var(--muted); max-width: 70ch; margin-top: 10px; font-size: 1.02rem; }
+.home-intro { margin: 18px 0 4px; }
+.home-intro h1 { font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.2rem); }
+.home-intro p { color: var(--muted); max-width: 72ch; margin-top: 6px; }
+.about h2 + p, .about h2 + .faq { margin-top: 0; }
+.about h2:not(:first-child) { margin-top: 26px; }
+.about a { color: var(--text); text-decoration-color: var(--cat); text-underline-offset: 3px; }
+.about a:hover { color: var(--cat); }
+.faq { display: flex; flex-direction: column; gap: 8px; }
+.faq details { background: var(--rail); border: 1px solid var(--line); border-radius: var(--r-md); padding: 0 16px; }
+.faq summary { cursor: pointer; padding: 13px 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--cat); font: 600 1.2rem/1 var(--display); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { padding: 0 0 14px; margin: 0; }
+.cat-about { max-width: 900px; }
+.sitemap-list { columns: 4 200px; gap: 24px; padding: 0; list-style: none; margin: 12px 0 0; }
+.sitemap-list li { margin-bottom: 6px; break-inside: avoid; font-size: .92rem; }
+.sitemap-list a { color: var(--muted); text-decoration: none; }
+.sitemap-list a:hover { color: var(--text); text-decoration: underline; }
+.section h2 a { text-decoration: none; }
+.section h2 small { color: var(--faint); font-size: .8em; font-weight: 500; }
+
+/* Long pages: let the browser skip drawing cards and sections that are off screen */
+.grid .card { content-visibility: auto; contain-intrinsic-size: auto 200px; }
+.letter-head + .grid, .site-footer, .cat-about { content-visibility: auto; contain-intrinsic-size: auto 600px; }

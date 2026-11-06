@@ -38,9 +38,10 @@ window.ARCADE_ADS = {
 (() => {
   const cfg = window.ARCADE_ADS;
   const fill = () => {
-    document.querySelectorAll('.ad[data-slot]').forEach(slot => {
-      if (slot.dataset.done) return;
-      if (!slot.getClientRects().length) return;   // not shown at this screen size (it or a parent is hidden)
+    // Check which spots are shown first, then fill them, so the page is measured only once
+    const shown = [...document.querySelectorAll('.ad[data-slot]')]
+      .filter(slot => !slot.dataset.done && slot.getClientRects().length);   // hidden at this screen size: skip
+    shown.forEach(slot => {
       slot.dataset.done = '1';
       const html = cfg.bySlot[slot.dataset.slot] || cfg.bySize[slot.dataset.size] || '';
       if (!html) { if (cfg.hidePlaceholders) slot.hidden = true; return; }

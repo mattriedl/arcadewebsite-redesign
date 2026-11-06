@@ -1,0 +1,87 @@
+# ArcadeWebsite
+
+> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,562 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
+
+## Categories
+
+- [Arcade games](https://arcadewebsite.com/category/arcade/): Arcade games are quick to learn and hard to put down. This collection has everything from classic coin-op favorites and retro console adventures to modern… (897 games)
+- [Platformer games](https://arcadewebsite.com/category/platformer/): Platformer games are all about running, jumping and timing. Climb towers, dodge spikes and saw blades, wall-jump through tight corridors and race to the exit… (153 games)
+- [Battle games](https://arcadewebsite.com/category/battle/): Battle games put you head to head with an opponent, whether it's a friend on the same keyboard or the computer. Fight with fists, swords, guns or tanks in… (94 games)
+- [Shooting games](https://arcadewebsite.com/category/shooting/): Shooting games test your aim and reflexes. Take on waves of enemies, snipe from rooftops, defend your base or build and fight in fast online-style duels. (77 games)
+- [Racing games](https://arcadewebsite.com/category/racing/): Racing games let you drift around corners, launch off ramps and race against the clock. Drive stunt bikes, supercars, monster trucks and even a car with an… (77 games)
+- [Casual games](https://arcadewebsite.com/category/casual/): Casual games are relaxed and easy to pick up, perfect for a short break. Drop fruit, stack blocks, draw lines, bounce balls and solve light puzzles at your… (60 games)
+- [Strategy games](https://arcadewebsite.com/category/strategy/): Strategy games reward planning. Build defenses, manage resources, command armies and outthink your opponent in tower defense, real-time strategy and… (56 games)
+- [Sports games](https://arcadewebsite.com/category/sports/): Sports games bring basketball, soccer, football, baseball, golf, tennis and more to your browser. Play realistic matches, arcade-style showdowns or silly… (47 games)
+- [Puzzle games](https://arcadewebsite.com/category/puzzle/): Puzzle games make you think. Merge numbers, roll blocks into holes, sort colors, guess words and solve brain teasers that start easy and get tricky fast. (43 games)
+- [Idle/Clicker games](https://arcadewebsite.com/category/idle-clicker/): Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away. (26 games)
+- [Horror games](https://arcadewebsite.com/category/horror/): Horror games are built to make you jump. Escape haunted houses, survive the night against animatronics and explore unsettling places like the Backrooms. (19 games)
+- [Minecraft games](https://arcadewebsite.com/category/minecraft/): Minecraft-style games let you mine, craft and build in block worlds right in your browser. This collection includes Eaglercraft versions and other… (13 games)
+
+## Popular games
+
+- [Slope](https://arcadewebsite.com/game/slope/): Slope is an endless 3D running game where you steer a ball down a neon track that gets faster the longer you survive. Gaps, ramps and red blocks…
+- [Slope 3](https://arcadewebsite.com/game/slope3/): Slope 3 continues the fast-rolling formula of Slope with new track layouts and tighter turns. The ball keeps speeding up, so a single late move ends…
+- [Slope 2 Player](https://arcadewebsite.com/game/slope2-player/): Slope 2 Player puts two balls on the same speeding track so you can race a friend on one keyboard. Whoever stays on the course longest wins the round.
+- [Run 3](https://arcadewebsite.com/game/run-3/): Run 3 sends a small grey alien running through tunnels floating in space. Walls become floors as you rotate the tunnel, and the game mixes an…
+- [Run 2](https://arcadewebsite.com/game/run2/): Run 2 is the second game in the Run series: guide the alien through space tunnels full of holes, rotating the tunnel to find solid ground.
+- [Run](https://arcadewebsite.com/game/run/): Run is the original space-tunnel runner that started the Run series. Run along the walls of a floating tunnel and jump over the gaps.
+- [2048](https://arcadewebsite.com/game/2048/): 2048 is the classic number puzzle: slide numbered tiles on a 4×4 grid, and when two tiles with the same number touch, they merge into one. Keep…
+- [Cookie Clicker](https://arcadewebsite.com/game/cookie-clicker/): Cookie Clicker is the idle game that made clicking famous. Click the giant cookie to bake, then spend your cookies on cursors, grandmas, farms and…
+- [Moto X3M](https://arcadewebsite.com/game/moto-x3m/): Moto X3M is a stunt bike racing game with short, obstacle-packed levels full of loops, ramps, saws and explosives. Finish fast for three stars, and…
+- [Moto X3M 2](https://arcadewebsite.com/game/motox3m2/): Moto X3M 2 adds new tracks and tougher stunts to the stunt bike series, with more traps and timed jumps to master.
+- [Moto X3M 3](https://arcadewebsite.com/game/motox3m3/): Moto X3M 3 brings another set of stunt bike levels with new obstacles and bike unlocks.
+- [Moto X3M Pool Party](https://arcadewebsite.com/game/moto-x3m-pool-party/): Moto X3M Pool Party takes the stunt bike series to a summer setting full of pools, slides and inflatables.
+- [Moto X3M Winter](https://arcadewebsite.com/game/moto-x3m-winter/): Moto X3M Winter is the snowy edition of the stunt bike series, with icy ramps and Christmas-themed traps.
+- [Moto X3M Spooky Land](https://arcadewebsite.com/game/moto-x3m-spooky-land/): Moto X3M Spooky Land is the Halloween edition of the stunt bike series, with haunted tracks, pumpkins and graveyards to race through.
+- [Fireboy and Watergirl](https://arcadewebsite.com/game/fireboy-and-water-girl/): Fireboy and Watergirl in the Forest Temple is a co-op puzzle platformer. Guide both characters to their exits: Fireboy can cross lava but not water…
+- [Fireboy and Watergirl 2](https://arcadewebsite.com/game/fireboy-and-water-girl2/): Fireboy and Watergirl 2: The Light Temple adds light beams and mirrors to the co-op puzzle series. Redirect the light to open doors while keeping…
+- [Fireboy and Watergirl 3](https://arcadewebsite.com/game/fireboy-and-water-girl3/): Fireboy and Watergirl 3: The Ice Temple introduces slippery ice and freezing water, so both heroes have new hazards to work around together.
+- [Fireboy and Watergirl 5](https://arcadewebsite.com/game/fireboy-and-water-girl5/): Fireboy and Watergirl 5: Elements combines the hazards from the earlier temples into one adventure across several themed areas.
+- [Fireboy and Watergirl 6](https://arcadewebsite.com/game/fireboy-and-water-girl6/): Fireboy and Watergirl 6: Fairy Tales brings the co-op duo into a fairy-tale world with new puzzles built around teamwork.
+- [Papa's Pizzeria](https://arcadewebsite.com/game/papa-pizza-good/): Papa's Pizzeria is the time-management cooking game where you run Papa Louie's pizza shop. Take orders, add toppings in the right places, bake for…
+- [Papa's Burgeria](https://arcadewebsite.com/game/papas-burger-iiiaaaaa/): Papa's Burgeria puts you in charge of Papa Louie's burger restaurant. Grill patties to the right doneness, build each burger in the order the…
+- [Papa's Freezeria](https://arcadewebsite.com/game/papas-freezer-i-a/): Papa's Freezeria is a cooking game set in an island sundae shop. Pick the cup, blend the flavors and add whipped cream, sauces and toppings exactly…
+- [Papa's Taco Mia!](https://arcadewebsite.com/game/papas-taco-mia/): Papa's Taco Mia! has you running a taco restaurant: cook meats, assemble the shells and add toppings and sauces in the order each customer requests.
+- [Papa's Cupcakeria](https://arcadewebsite.com/game/papas-cupcake-ria/): Papa's Cupcakeria is a bakery cooking game. Bake cupcakes, frost them and decorate them with toppings for seasonal orders.
+- [Papa's Pancakeria](https://arcadewebsite.com/game/papas-pancake-ria/): Papa's Pancakeria is a breakfast cooking game where you flip pancakes, French toast and waffles and pour drinks for a busy morning crowd.
+- [Papa's Sushiria](https://arcadewebsite.com/game/papas-sushi-ria/): Papa's Sushiria lets you run a sushi restaurant: cook the rice, roll the fillings, cut the rolls and serve them with bubble tea.
+- [Papa's Cheeseria](https://arcadewebsite.com/game/papas-cheese-ria/): Papa's Cheeseria is about grilled cheese sandwiches: choose breads and cheeses, toast them, cook fries and add toppings to order.
+- [Papa's Hot Doggeria](https://arcadewebsite.com/game/papas-hot-dog-geri-a/): Papa's Hot Doggeria puts you in a ballpark hot dog stand serving hot dogs, popcorn and drinks to fans.
+- [Papa's Pastaria](https://arcadewebsite.com/game/papas-past-aria/): Papa's Pastaria is an Italian restaurant cooking game: cook pasta, simmer sauces and bake bread for each table.
+- [Papa's Bakeria](https://arcadewebsite.com/game/papa-baker-i-a/): Papa's Bakeria has you baking pies: make the crust, add fillings, bake and decorate each pie to order.
+- [Papa's Scooperia](https://arcadewebsite.com/game/pa-pass-cooper-i-a/): Papa's Scooperia is an ice cream shop cooking game where you bake cookies and scoop ice cream into sundaes.
+- [Papa's Wingeria](https://arcadewebsite.com/game/papa-swinger-i-a/): Papa's Wingeria is a chicken wing restaurant game: fry wings, toss them in sauces and plate them with sides and dips.
+- [Papa Louie: When Pizzas Attack!](https://arcadewebsite.com/game/papa-louie-when-pizzas-attack/): Papa Louie: When Pizzas Attack! is a platform adventure where Papa Louie fights pizza monsters to rescue his customers.
+- [Bloons TD 1](https://arcadewebsite.com/game/b-loons-td1/): Bloons Tower Defense is the first game in Ninja Kiwi's tower defense series. Place dart monkeys along the track to pop every balloon before it…
+- [Bloons TD 2](https://arcadewebsite.com/game/b-loons-td2/): Bloons Tower Defense 2 adds new tower types and upgrades to the balloon-popping tower defense series.
+- [Bloons TD 3](https://arcadewebsite.com/game/b-loons-td3/): Bloons Tower Defense 3 brings more tracks, stronger bloons and new monkey towers to the series.
+- [Bloons TD 4](https://arcadewebsite.com/game/b-loons-td4/): Bloons Tower Defense 4 is one of the most popular entries in the series, with branching upgrades and tough later rounds.
+- [Bloons TD 5](https://arcadewebsite.com/game/b-loons-td5/): Bloons Tower Defense 5 offers two upgrade paths per tower, special agents and many tracks to master.
+- [Bloons](https://arcadewebsite.com/game/b-loons/): Bloons is the original Ninja Kiwi puzzle game: throw darts to pop as many balloons as possible with a limited number of shots.
+- [Vex](https://arcadewebsite.com/game/vex/): Vex is a stickman platformer about precise jumps, wall slides and spinning saw blades. Each act is a gauntlet of traps with checkpoints along the way.
+- [Vex 2](https://arcadewebsite.com/game/vex2/): Vex 2 continues the stickman platformer with new acts, harder traps and more ways to move.
+- [Vex 3](https://arcadewebsite.com/game/vex3/): Vex 3 adds new acts and a challenge mode to the precision stickman platformer series.
+- [Vex 4](https://arcadewebsite.com/game/vex4/): Vex 4 brings more acts of saws, spikes and moving platforms for the stickman runner.
+- [Vex 5](https://arcadewebsite.com/game/vex5/): Vex 5 continues the series with new movement tricks and tougher obstacle courses.
+- [Vex 6](https://arcadewebsite.com/game/vex6/): Vex 6 is a later entry in the stickman platformer series with new acts to beat.
+- [Vex 7](https://arcadewebsite.com/game/vex7/): Vex 7 adds another round of acts and challenges to the stickman platformer series.
+- [Vex 8](https://arcadewebsite.com/game/vex8/): Vex 8 brings new levels and traps to the long-running stickman platformer series.
+- [Duck Life](https://arcadewebsite.com/game/duck-life/): Duck Life is a training game: raise a duck, train it in running, swimming and flying mini-games, and enter it in races to win coins and the…
+- [Duck Life 2](https://arcadewebsite.com/game/ducklife2/): Duck Life 2: World Champion continues the duck-training series with new skills, more races and a world championship to win.
+- [Duck Life 3](https://arcadewebsite.com/game/ducklife3/): Duck Life 3: Evolution lets you breed and train ducks with different abilities and races for each.
+- [Duck Life 4](https://arcadewebsite.com/game/ducklife4/): Duck Life 4 adds climbing and jumping skills, a bigger world and more races to the duck-training series.
+- [Duck Life 5](https://arcadewebsite.com/game/ducklfe5/): Duck Life 5: Treasure Hunt has you training your duck while searching for treasure across a new world.
+- [Happy Wheels](https://arcadewebsite.com/game/happy-wheels/): Happy Wheels is a ragdoll physics game where you ride wheelchairs, bikes and carts through deadly obstacle courses. It's known for its over-the-top…
+- [Learn to Fly](https://arcadewebsite.com/game/learn-to-fly/): Learn to Fly is an upgrade game about a penguin determined to fly. Launch off a ramp, earn money from each attempt and buy better gliders, rockets…
+- [Learn to Fly 2](https://arcadewebsite.com/game/learn-to-fly2/): Learn to Fly 2 sends the penguin back up the ramp with new upgrades, a story mode and a sandbox.
+- [Learn to Fly 3](https://arcadewebsite.com/game/learn-to-fly3/): Learn to Fly 3 takes the penguin into space with a modular rocket builder and many more goals.
+- [Learn to Fly Idle](https://arcadewebsite.com/game/learn-to-fly-idle/): Learn to Fly Idle is the idle version of the series: your penguin keeps launching and earning while you invest in upgrades.
+- [Earn to Die](https://arcadewebsite.com/game/earn-to-die/): Earn to Die is a zombie driving game: build up your car, drive as far as you can through crowds of zombies, and spend your earnings on armor…
+- [Earn to Die 2](https://arcadewebsite.com/game/earntodie2/): Earn to Die 2 continues the zombie road trip with new vehicles, longer levels and more upgrades.
+- [Bob the Robber](https://arcadewebsite.com/game/bob-the-robber/): Bob the Robber is a stealth puzzle game: sneak through buildings, avoid guards and cameras, and grab the loot without getting caught.
+
+## All pages
+
+- [All games A to Z](https://arcadewebsite.com/all-games/)
+- [Site map](https://arcadewebsite.com/sitemap/)
+- [XML sitemap](https://arcadewebsite.com/sitemap.xml)

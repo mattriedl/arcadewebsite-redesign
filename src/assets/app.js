@@ -17,7 +17,7 @@
     let seconds = Number(stage.dataset.seconds) || 7;
     let current = 0, timer = null, paused = reduce, hovering = false;
 
-    const card = (g, i) => `<li><button type="button" class="c-${esc(g.category)}" data-i="${i}" aria-label="Show ${esc(g.title)}">
+    const card = (g, i) => `<li><button type="button" class="c-${esc(g.category)}" data-i="${i}">
         <img src="${esc(g.thumbnail)}" alt="" width="72" height="48" loading="lazy">
         <span><strong>${esc(g.title)}</strong><small>${esc(g.categoryName)}</small></span></button></li>`;
 

@@ -18,7 +18,9 @@ data/        The game list, categories and homepage settings (edit these).
 src/         Styles, scripts, ad settings and the Tag Manager snippet.
 public/      Game files, thumbnails and robots.txt, copied into site/ as-is.
 build.py     Turns data/ + src/ + public/ into site/.
-docs/        Notes, including files the live site is missing.
+content.py   Writes page titles, descriptions, how-to-play text and FAQs (see docs/seo.md).
+tools/       seo_check.py checks every page for search engines; indexnow.py notifies Bing.
+docs/        SEO guide, game name changes, copyright review list, files the live site is missing.
 ```
 
 ## Preview it on your computer
@@ -51,8 +53,8 @@ All game info is in `data/games.json`, one entry per game:
   "slug": "drive-mad",                         // the address: /game/drive-mad/
   "title": "Drive Mad",
   "category": "racing",                        // a slug from data/categories.json
-  "description": "...",                        // search engine description and page text
-  "about": ["..."],                            // paragraphs in the About section
+  "description": "...",                        // the live site's old description (no longer shown)
+  "about": ["..."],                            // the live site's old text (no longer shown)
   "thumbnail": "/thumbnails/cldrivemad.png",
   "src": "/games/cldrivemad.html",             // the file the player loads
   "related": ["wheel-y6", "..."]               // games shown under the player
@@ -60,6 +62,12 @@ All game info is in `data/games.json`, one entry per game:
 ```
 
 To add a game, put its file in `public/games/` and its 480×320 thumbnail in `public/thumbnails/`, add an entry, and run `python3 build.py`. Categories, their descriptions and their game order are in `data/categories.json`.
+
+## Search engines
+
+Every page has its own title, description, content, FAQ and structured data, and there's an XML sitemap, a site map page, robots.txt and llms.txt for AI assistants. See `docs/seo.md` for what was done and the steps to take when the site goes live. After each build, run `python3 tools/seo_check.py`; it should end with `Problems: 0`.
+
+Hand-written game descriptions live in `data/descriptions.json` as `"slug": ["what the game is", "how to play"]`. To hide a game from search engines without removing it, add `"index": false` to it in `data/games.json`.
 
 ## Featured games
 
