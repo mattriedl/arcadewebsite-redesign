@@ -112,7 +112,15 @@ async def main(slugs):
             browser, n = await new_browser(), 0
             while not queue.empty():
                 s = queue.get_nowait()
-                slug, path, result = await capture(browser, s)
+                try:   # never let one game stall the run
+                    slug, path, result = await asyncio.wait_for(capture(browser, s), timeout=90)
+                except asyncio.TimeoutError:
+                    slug, path, result = s, None, "error: took longer than 90 seconds"
+                    try:
+                        await browser.close()
+                    except Exception:
+                        pass
+                    browser = await new_browser()
                 async with lock:
                     if path:
                         index[slug] = path
