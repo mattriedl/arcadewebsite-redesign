@@ -39,7 +39,7 @@ def probe(url):
     if "is blocked" in b: why = "host banned the account"
     elif "package size exceeded" in b: why = "files too large for the host"
     elif "failed to fetch" in b or "couldn't find the requested" in b or code.strip() == "404": why = "files deleted or moved"
-    elif code.strip() in ("200", "206"): why = "ok"
+    elif code.strip() in ("200", "206") or code.strip().startswith("3"): why = "ok"   # 3xx: browsers follow the redirect
     elif code.strip() == "000": why = "no response"
     else: why = f"refused (HTTP {code.strip()})"
     return url, why
