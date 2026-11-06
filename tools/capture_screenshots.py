@@ -15,6 +15,7 @@ so the run can be stopped and started again.
 import asyncio
 import io
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -27,6 +28,7 @@ INDEX = ROOT / "data" / "screenshots.json"          # slug -> image path, for ga
 STATUS = ROOT / "data" / "screenshots-status.json"  # slug -> what happened, for every game tried
 BASE = "http://localhost:8765"
 WORKERS = 3
+SKIP = {"host banned the account", "files too large for the host", "files deleted or moved"}  # from tools/check_game_files.py
 RESTART_EVERY = 60   # restart the browser now and then so memory doesn't build up
 
 
@@ -50,8 +52,14 @@ async def capture(browser, slug):
         frame = page.locator(".player-frame")
         box = await frame.bounding_box()
         cx, cy = box["x"] + box["width"] / 2, box["y"] + box["height"] / 2
+        game = page.frame_locator(".player-frame iframe")
         for wait, keys in ((7000, []), (6000, ["Enter"]), (7000, ["Space", "Enter"])):
-            await page.mouse.click(cx, cy)
+            # Press a visible Play / Start button inside the game if there is one, otherwise click the middle
+            try:
+                btn = game.get_by_text(re.compile(r"^\s*(play|start|play now|start game|click to play|tap to play)\s*!?$", re.I)).first
+                await btn.click(timeout=1500)
+            except Exception:
+                await page.mouse.click(cx, cy)
             for k in keys:
                 await page.keyboard.press(k)
                 await page.wait_for_timeout(300)
@@ -132,6 +140,7 @@ if __name__ == "__main__":
         todo = sys.argv[1:]
     else:
         tried = load(STATUS)
-        todo = [g["slug"] for g in games if g["slug"] not in tried]
+        checked = load(ROOT / "data" / "game-file-check.json")      # games whose files can't download can't be captured
+        todo = [g["slug"] for g in games if g["slug"] not in tried and checked.get(g["slug"]) not in SKIP]
     print(f"{len(todo)} games to capture", flush=True)
     asyncio.run(main(todo))
