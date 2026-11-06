@@ -37,7 +37,7 @@ To test on the real server before switching over, upload `site/` to a test locat
 ## Going live
 
 1. Run `python3 build.py`.
-2. In `src/assets/ads.js`, add your ad code and set `hidePlaceholders: true` so any empty spots disappear (then build again).
+2. Ads are already set up (see Ads below). If you remove a size's code, set `hidePlaceholders: true` in `src/assets/ads.js` so empty spots disappear.
 3. Upload everything **inside** `site/` to the web root, replacing the old files. The game files and thumbnails are the same as the live ones.
 4. Point your server's 404 page at `/404.html` if it isn't picked up automatically.
 5. In Google Search Console, resubmit `https://arcadewebsite.com/sitemap.xml`.
@@ -79,33 +79,37 @@ The set changes on its own in each visitor's browser based on the date; you don'
 
 ## Ads
 
-Every ad spot reads from `src/assets/ads.js`. Paste ad code under `bySize` to fill every spot of that size, or under `bySlot` to fill one spot. Until then each spot shows a grey "Advertisement" placeholder with its size. For AdSense, set `networkScript` to your adsbygoogle.js link and `adsense: true`.
+Ads come from BannerPromote. Every ad spot reads from `src/assets/ads.js`, which gives each size its BannerPromote embed name and loads `https://bannerpromote.com/embed.js.php` once per page:
 
-Wide banners swap for a phone-sized spot on small screens (named the same with `-mobile` on the end), so each wide spot has two names.
+| Size | BannerPromote name |
+|---|---|
+| 728×90 | `leaderboard` |
+| 300×250 | `medium-rectangle` |
+| 300×600 | `half-page` |
+| 160×600 | `skyscraper` |
+| 320×50 | `mobile-banner` |
+
+To show a different banner in one spot, add it under `bySlot`, for example `'game-beside-about': spot('large-rectangle')`. Wide banners swap for a phone-sized spot on small screens (named the same with `-mobile` on the end), and spots that are hidden at the current screen size don't request a banner.
 
 | Page | Spot name | Size |
 |---|---|---|
-| Every page | `*-top` / `*-top-mobile` | 970×90 / 320×50 |
+| Every page | `*-top` / `*-top-mobile` | 728×90 / 320×50 |
 | Home | `home-beside-categories` | 300×250 |
-| Home | `home-after-categories` / `-mobile` | 728×90 / 320×100 |
-| Home | `home-after-trending` / `-mobile` | 970×250 / 300×250 |
-| Home | `home-between-1` … `home-between-3` / `-mobile` | 970×250 or 728×90 / 320×100 |
-| Home | `home-bottom` / `-mobile` | 728×90 / 320×50 |
+| Home | `home-after-categories`, `home-after-trending`, `home-between-1` … `3`, `home-bottom` | 728×90 (phones: 320×50, or 300×250 after trending) |
 | Game | `game-left` | 160×600 |
 | Game | `game-right-top`, `game-right` | 300×600, 300×250 |
 | Game | `game-below-player` / `-mobile` | 728×90 / 300×250 |
 | Game | `game-beside-about` | 300×250 |
 | Game | `game-related-1`, `-2` / `-mobile` (inside the game grid) | 728×90 / 300×250 |
-| Game | `game-bottom` / `-mobile` | 728×90 / 320×100 |
-| Category | `category-below-header` / `-mobile` | 728×90 / 320×100 |
+| Game | `game-bottom` / `-mobile` | 728×90 / 320×50 |
+| Category | `category-below-header`, `category-bottom` / `-mobile` | 728×90 / 320×50 |
 | Category | `category-side-top`, `category-side` | 300×600, 300×250 |
 | Category | `category-in-grid-N` / `-mobile` (every 20 games) | 728×90 / 300×250 |
-| Category | `category-bottom` / `-mobile` | 728×90 / 320×100 |
 | All games | `all-side-top`, `all-side` | 300×600, 300×250 |
 | All games | `all-between-N` / `-mobile`, and in-grid spots per letter | 728×90 / 300×250 |
 | Search | `search-side-top`, `search-side`, `search-bottom` | 300×600, 300×250, 728×90 |
 
-Check each ad network's rules on ad density, and your privacy and consent requirements, before turning ads on.
+To switch to a different network later, change `networkScript` and the codes under `bySize`. Check the network's rules on ad density, and your privacy and consent requirements.
 
 ## Google Tag Manager
 

@@ -275,7 +275,7 @@ def page_home(rot):
         shelves.append(shelf(f"cat-{c['slug']}", f"{c['name']} games", None, c["games"][:18],
                              more=(f"/category/{c['slug']}/", f"See all {len(c['games']):,}"), cat=c["slug"]))
         if i % 3 == 2 and i < len(cats) - 1:
-            shelves.append(ad_banner(f"home-between-{i // 3 + 1}", "970x250" if i // 3 % 2 == 0 else "728x90", "320x100"))
+            shelves.append(ad_banner(f"home-between-{i // 3 + 1}", "728x90", "320x50"))
     desc = f"Discover {TOTAL:,} free arcade games. Explore puzzle, racing, action and platform games, each with its own player page. Find your next favorite at ArcadeWebsite."
     ld = [{"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": SITE + "/",
            "potentialAction": {"@type": "SearchAction", "target": SITE + "/search/?q={search_term_string}",
@@ -284,7 +284,7 @@ def page_home(rot):
     initial_js = json.dumps(picks, ensure_ascii=False).replace("</", "<\\/")
     body = f"""<main id="main">
 <div class="wrap">
-  {ad_banner("home-top", "970x90", "320x50", tight=True)}
+  {ad_banner("home-top", "728x90", "320x50", tight=True)}
   <h1 class="sr-only">Free online games</h1>
   <section id="featured" class="stage-wrap" aria-roledescription="carousel" aria-label="Featured games">
     <div class="stage c-{g0['category']}" data-seconds="{featured_cfg['secondsPerSlide']}" aria-live="polite">
@@ -312,10 +312,10 @@ def page_home(rot):
     <div class="tiles-row"><div class="cat-tiles">{tiles}</div>{ad("home-beside-categories", "300x250", "only-desktop")}</div>
   </section>
 
-  {ad_banner("home-after-categories", "728x90", "320x100")}
+  {ad_banner("home-after-categories", "728x90", "320x50")}
   {shelf("spotlight", "Spotlight", "Our favorites to start with.", home_picks["spotlight"])}
   {shelf("trending", "Trending picks", "Games players keep coming back to.", home_picks["trending"])}
-  {ad_banner("home-after-trending", "970x250", "300x250")}
+  {ad_banner("home-after-trending", "728x90", "300x250")}
   {shelf("new", "New to your rotation", "Classics worth another round.", home_picks["new"])}
   {"".join(shelves)}
   {ad_banner("home-bottom", "728x90", "320x50")}
@@ -342,7 +342,7 @@ def page_game(g):
     share_url = (SITE + path).replace(":", "%3A").replace("/", "%2F")
     body = f"""<main id="main" class="c-{c['slug']}">
 <div class="wrap">
-  {ad_banner("game-top", "970x90", "320x50", tight=True)}
+  {ad_banner("game-top", "728x90", "320x50", tight=True)}
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/category/{c['slug']}/">{e(c['name'])}</a><span aria-hidden="true">/</span><span aria-current="page">{e(g['title'])}</span></nav>
   <div class="game-top">
     <div><a class="chip c-{c['slug']}" href="/category/{c['slug']}/"><span class="icon">{ICONS[c['slug']]}</span>{e(c['name'])}</a><h1>{e(g['title'])}</h1></div>
@@ -393,7 +393,7 @@ def page_game(g):
       <a class="more" href="/category/{c['slug']}/">See all {len(c['games']):,}</a></div>
     {grid(related, "game-related", 8)}
   </section>
-  {ad_banner("game-bottom", "728x90", "320x100")}
+  {ad_banner("game-bottom", "728x90", "320x50")}
 </div>
 </main>
 """
@@ -409,7 +409,7 @@ def page_category(c):
           breadcrumbs_ld([("Home", "/"), (c["name"], path)])]
     body = f"""<main id="main" class="c-{c['slug']}">
 <div class="wrap">
-  {ad_banner("category-top", "970x90", "320x50", tight=True)}
+  {ad_banner("category-top", "728x90", "320x50", tight=True)}
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">{e(c['name'])}</span></nav>
   <header class="cat-hero c-{c['slug']}">
     <span class="big-icon">{ICONS[c['slug']]}</span>
@@ -417,7 +417,7 @@ def page_category(c):
     <p>{e(c['description'])}</p>
     <span class="count">{n:,} free games</span>
   </header>
-  {ad_banner("category-below-header", "728x90", "320x100")}
+  {ad_banner("category-below-header", "728x90", "320x50")}
   <div class="with-rail">
     <div>
       <div class="filter"><label class="sr-only" for="f">Filter {e(c['name'])} games</label>
@@ -426,7 +426,7 @@ def page_category(c):
     </div>
     <aside class="side-rail" aria-label="Advertisements">{ad("category-side-top", "300x600")}{ad("category-side", "300x250")}</aside>
   </div>
-  {ad_banner("category-bottom", "728x90", "320x100")}
+  {ad_banner("category-bottom", "728x90", "320x50")}
 </div>
 </main>
 """
@@ -451,7 +451,7 @@ def page_all():
     desc = f"Browse the complete ArcadeWebsite catalog: {TOTAL:,} free browser games across {len(cats)} categories. Open any game on its own dedicated page."
     body = f"""<main id="main">
 <div class="wrap">
-  {ad_banner("all-top", "970x90", "320x50", tight=True)}
+  {ad_banner("all-top", "728x90", "320x50", tight=True)}
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">All games</span></nav>
   <h1>All {TOTAL:,} games, A to Z</h1>
   <div class="filter"><label class="sr-only" for="f">Filter all games</label>
@@ -472,7 +472,7 @@ def page_search():
     path = "/search/"
     body = f"""<main id="main">
 <div class="wrap">
-  {ad_banner("search-top", "970x90", "320x50", tight=True)}
+  {ad_banner("search-top", "728x90", "320x50", tight=True)}
   <div class="with-rail">
     <div>
       <h1 id="search-heading" style="margin-top:22px">Search games</h1>
@@ -481,7 +481,7 @@ def page_search():
     </div>
     <aside class="side-rail" aria-label="Advertisements">{ad("search-side-top", "300x600")}{ad("search-side", "300x250")}</aside>
   </div>
-  {ad_banner("search-bottom", "728x90", "320x100")}
+  {ad_banner("search-bottom", "728x90", "320x50")}
 </div>
 </main>
 """
