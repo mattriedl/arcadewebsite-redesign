@@ -41,6 +41,13 @@ for c in cats:
     rest = [g["slug"] for g in games if g["category"] == c["slug"] and g["slug"] not in seen]
     c["games"] = seen + rest
 TOTAL = len(games)
+# Real screenshots of the games (tools/capture_screenshots.py) replace the old text thumbnails,
+# except ones checked by eye and rejected (data/screenshot-rejects.json).
+_shots = load("screenshots.json") if (ROOT / "data/screenshots.json").exists() else {}
+_rejected = set(load("screenshot-rejects.json")["rejected"]) if (ROOT / "data/screenshot-rejects.json").exists() else set()
+for g in games:
+    if g["slug"] in _shots and g["slug"] not in _rejected and (ROOT / "public" / _shots[g["slug"]].lstrip("/")).exists():
+        g["thumbnail"] = _shots[g["slug"]]
 COPY = Copy(games, cats, load("descriptions.json"))
 # Hand-described (well-known) games first in each category, then the rest in the live site's order
 for c in cats:
