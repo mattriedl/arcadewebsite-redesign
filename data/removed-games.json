@@ -1,29 +1,11 @@
 {
- "_help": "Game pages that were removed because they couldn't play (a Word document, an exact duplicate, or a Flash file its host refuses). Each old address sends visitors and search engines to a working version of the same game, or to the game's category page.",
+ "_help": "Game pages removed from the site. 'redirects': pages removed because their file couldn't play but a working copy of the same game exists; the old address forwards there. 'broken_flash': games removed completely (their Flash file can't be downloaded); their old addresses show the 404 page.",
  "redirects": {
   "cookie-clicker-357": "cookie-clicker",
   "cookie-clicker-359": "cookie-clicker",
   "papa-pizza-goody": "papa-pizza-goody-933",
   "riddle-transfer-2": "riddle-transfer-2-1129",
-  "tanuki-sunset-uhhhh-hhhh": "tanuki-sunset-uhhhh-hhhh-1384",
-  "bubble-tanks3": "/category/shooting/",
-  "cellar-door": "/category/arcade/",
-  "fpa4p1": "/category/arcade/",
-  "shift": "/category/arcade/",
-  "vex2": "/category/arcade/",
-  "windows-doors": "/category/arcade/",
-  "trollfacequest2": "/category/arcade/",
-  "trollfacequest3": "/category/arcade/",
-  "trollfacequest4": "/category/arcade/",
-  "trollfacequest5": "/category/arcade/",
-  "trollfacequest6": "/category/arcade/",
-  "trollfacequest7": "/category/arcade/",
-  "trollfacequest8": "/category/arcade/",
-  "trollfacequest9": "/category/arcade/",
-  "trollfacequest10": "/category/arcade/",
-  "trollfacequest11": "/category/arcade/",
-  "trollfacequest12": "/category/arcade/",
-  "trollfacequest13": "/category/arcade/"
+  "tanuki-sunset-uhhhh-hhhh": "tanuki-sunset-uhhhh-hhhh-1384"
  },
  "old_titles": {
   "cookie-clicker-357": "Cookie Clicker (Version 2)",
