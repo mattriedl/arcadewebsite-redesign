@@ -483,3 +483,4 @@ a.chip:hover { background: color-mix(in srgb, var(--cat) 26%, transparent); }
 .mentions { padding-left: 20px; margin: 8px 0 0; }
 .mentions li { color: var(--muted); margin: 4px 0; }
 .post-head picture { display: block; margin-bottom: 22px; }
+.post-body .ad-row { margin-inline: calc(-1 * clamp(18px, 3vw, 30px)); }
