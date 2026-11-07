@@ -755,15 +755,23 @@ def page_redirects():
         return
     d = json.loads(p.read_text(encoding="utf-8"))
     for old, new in d["redirects"].items():
-        if new not in G:
+        if new.startswith("/category/"):                      # no working copy: send to the game's category
+            c = C.get(new.strip("/").split("/")[-1])
+            if not c:
+                continue
+            to, name = new, f'{c["name"]} games'
+            h = head(COPY.category_title(c), COPY.category_meta(c), f"/game/{old}/", G[c["games"][0]]["thumbnail"],
+                     robots="noindex,follow", canonical=to)
+        elif new in G:
+            g, to, name = G[new], f"/game/{new}/", G[new]["title"]
+            h = head(f'{g["title"]} - Play Online for Free | {BRAND}', COPY.game_meta(g), f"/game/{old}/", g["thumbnail"],
+                     robots="noindex,follow", canonical=to)
+        else:
             continue
-        g, to = G[new], f"/game/{new}/"
-        h = head(f'{g["title"]} - Play Online for Free | {BRAND}', COPY.game_meta(g), f"/game/{old}/", g["thumbnail"],
-                 robots="noindex,follow", canonical=to)
         h = h.replace("<meta charset=\"utf-8\">", f'<meta charset="utf-8">\n<meta http-equiv="refresh" content="0; url={to}">', 1)
         body = f"""<main id="main"><div class="wrap">
   <h1 style="margin-top:28px">This game has moved</h1>
-  <p class="lede">Play it here: <a href="{to}">{e(g['title'])}</a>.</p>
+  <p class="lede">Find it here: <a href="{to}">{e(name)}</a>.</p>
 </div></main>
 <script>location.replace({json.dumps(to)});</script>
 """

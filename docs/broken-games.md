@@ -8,7 +8,9 @@ Every one of the 1,557 games was opened in a browser, played for about 20 second
 | Broken: the Flash game file can't be downloaded | 18 |
 | Showed a blank or nearly blank screen in the test | 403 |
 
-## Broken (18)
+## Broken (18), removed
+
+These 18 were removed from the site on 2026-11-06; each old address now goes to the game's category page (see `data/removed-games.json`).
 
 These Flash games show "Ruffle failed to load the Flash SWF file": the game file is hosted elsewhere and that host now refuses it. To fix one, find the game's .swf file, upload it to your server, and change the game file to load it from there. Otherwise remove the game or hide it from search with `"index": false` in `data/games.json`.
 
