@@ -72,6 +72,14 @@ Every page has its own title, description, content, FAQ and structured data, and
 
 Hand-written game descriptions live in `data/descriptions.json` as `"slug": ["what the game is", "how to play"]`. To hide a game from search engines without removing it, add `"index": false` to it in `data/games.json`.
 
+## Blog
+
+Articles live in `blog/posts/`, one Markdown file each. The build turns them into `/blog/` (the article list), `/blog/<slug>/` pages, share images, an RSS feed (`/blog/feed.xml`), sitemap entries, homepage "From the blog" cards and "Featured in" links on game pages. A post dated in the future stays hidden until that date (after the next build), and `draft: true` hides it.
+
+`blog/WRITING-GUIDE.md` is the checklist for writing a post: keyword choice, fact checks, structure, the file format and the publishing steps. `blog/topics.md` lists every keyword already used, plus a backlog of ideas. A scheduled task writes and publishes a new article every 3 days by following the guide.
+
+Blog ad spots: `blog-top`, `blog-after-intro`, `blog-mid`, `blog-side-top` (300×600), `blog-side`, `blog-before-more`, `blog-bottom`, and `blog-index-*` on the article list.
+
 ## Featured games
 
 `data/featured.json` controls the featured area on the homepage:
