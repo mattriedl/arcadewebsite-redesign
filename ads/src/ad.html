@@ -80,9 +80,9 @@
   <div class="stage" id="stage">
     <div class="msg" id="m1"><div class="big">Insert<br>coin</div><div class="small" id="m1s">Ready, player one?</div></div>
     <div class="msg" id="m2"><div class="big"><span class="stamp">Free play!</span></div><div class="small">No coins. No catch.</div></div>
-    <div class="msg" id="m3"><div class="big"><span class="y" id="count">1,562</span> games</div><div class="small">No downloads. No sign-up.</div></div>
+    <div class="msg" id="m3"><div class="big"><span class="y" id="count">1,500+</span> games</div><div class="small">No downloads. No sign-up.</div></div>
     <div class="msg" id="m4"><div class="big">Your next<br><span class="y">high score</span></div><div class="small">is one click away.</div></div>
-    <div class="msg" id="ms"><div class="big">Insert coin?<br><span class="y">Nope. Free.</span></div><div class="small">1,562 browser games. No downloads.</div></div>
+    <div class="msg" id="ms"><div class="big">Insert coin?<br><span class="y">Nope. Free.</span></div><div class="small">1,500+ browser games. No downloads.</div></div>
   </div>
   <div class="chips" id="chips">
     <span class="chip" style="background:var(--pink)">Arcade</span><span class="chip" style="background:var(--blue)">Racing</span>
@@ -132,7 +132,7 @@ if (H <= 90) {                                // wide banners: slot | message | 
   place("stage", pad + S + pad * .9, pad * .4, dx - (pad + S + pad * .9) - pad * .8, H - pad * .8);
   hide("logo", "chips");
   document.querySelectorAll(".big br").forEach(b => b.replaceWith(" "));
-  if (W < 400) { $("ms").querySelector(".big").innerHTML = 'Insert coin? <span class="y">Nah.</span>'; $("ms").querySelector(".small").textContent = ""; $("ms").insertAdjacentHTML("beforeend", '<div class="big" style="font-size:var(--fs);font-family:Onest;text-transform:none;color:var(--muted)">1,562 games, all free</div>'); }
+  if (W < 400) { $("ms").querySelector(".big").innerHTML = 'Insert coin? <span class="y">Nah.</span>'; $("ms").querySelector(".small").textContent = ""; $("ms").insertAdjacentHTML("beforeend", '<div class="big" style="font-size:var(--fs);font-family:Onest;text-transform:none;color:var(--muted)">1,500+ games, all free</div>'); }
   if (W < 460) { $("m1s").textContent = ""; document.querySelectorAll(".small").forEach(e => e.style.display = W < 400 ? "none" : ""); }
 } else if (H >= 600) {                         // tall banners: logo, slot, message, chips, button
   root.setProperty("--align", "center");
@@ -207,7 +207,7 @@ window.render = function (t) {
     show("m2", ease((t - 1.0) / .12), 1 + (1 - back((t - 1.0) / .3)) * .6);
   } else if (t < 3.55) {
     const k = ease((t - 2.1) / .8);
-    $("count").textContent = Math.round(1562 * k).toLocaleString("en-US");
+    $("count").textContent = Math.round(1500 * k).toLocaleString("en-US") + (k >= 1 ? "+" : "");   // rolls up to "1,500+"
     show("m3", ease((t - 2.1) / .2), 1, (1 - ease((t - 2.1) / .25)) * 8);
   } else {
     show("m4", ease((t - 3.55) / .25), 1, (1 - ease((t - 3.55) / .3)) * 8);

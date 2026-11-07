@@ -85,7 +85,7 @@ async def main():
             for i in range(n + 1):
                 await page.evaluate(f"render({i / FPS})")
                 frames.append(Image.open(io.BytesIO(await page.screenshot(clip={"x": 0, "y": 0, "width": w, "height": h}))).convert("RGB"))
-            gif = to_gif_frames(frames, static, colors=60 if w * h > 150000 else 80)   # the biggest size needs fewer colours to stay under MAX_KB
+            gif = to_gif_frames(frames, static, colors=56 if w * h > 150000 else 80)   # the biggest size needs fewer colours to stay under MAX_KB
             durations = [round(1000 / FPS)] * len(gif)
             durations[-1] = 1600                      # hold the last frame a little before looping
             gif[0].save(OUT / f"{name}-{w}x{h}-animated.gif", save_all=True, append_images=gif[1:], duration=durations,

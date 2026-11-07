@@ -19,7 +19,7 @@ Link every banner to `https://arcadewebsite.com/`.
 
 "Insert coin? Nope. Free." The ads open on an arcade coin slot and flip it: every game is free. Marquee lights chase around the edge like an arcade sign, and the colors, fonts and coin logo match the site, so the click lands somewhere that looks like the ad.
 
-The animation runs about 5 seconds: a coin drops into the slot, "Free play!" stamps in, a counter rolls up to 1,562 games while the category tags pop in, then "Your next high score is one click away" with the Play free button pulsing. It plays three times (about 15 seconds) and stops on that last frame, which fits common ad network rules (30 seconds and 3 loops at most).
+The animation runs about 5 seconds: a coin drops into the slot, "Free play!" stamps in, a counter rolls up to 1,500+ games while the category tags pop in, then "Your next high score is one click away" with the Play free button pulsing. It plays three times (about 15 seconds) and stops on that last frame, which fits common ad network rules (30 seconds and 3 loops at most).
 
 ## Changing them
 
@@ -29,4 +29,4 @@ The design is one page, `src/ad.html`, which lays itself out for each size. Edit
 python3 ads/make_banners.py
 ```
 
-It needs Python with Pillow and Playwright, Google Chrome, and optionally `gifsicle` (it shrinks the GIFs; install with `npm i gifsicle` or your package manager, or point the `GIFSICLE` variable at it). If the game count changes, update "1,562" in `src/ad.html`.
+It needs Python with Pillow and Playwright, Google Chrome, and optionally `gifsicle` (it shrinks the GIFs; install with `npm i gifsicle` or your package manager, or point the `GIFSICLE` variable at it). The banners say "1,500+ games" so they stay accurate as games are added or removed; to change it, edit `src/ad.html`.
