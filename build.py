@@ -156,6 +156,7 @@ def head(title, desc, path, image=None, ld=None, robots=None, preload=None, cano
 <meta name="theme-color" content="#12142e">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="New and featured games" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="ArcadeWebsite blog" href="/blog/feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=Unbounded:wght@500;600;700&display=swap" media="print" onload="this.media='all'">
@@ -169,7 +170,7 @@ def head(title, desc, path, image=None, ld=None, robots=None, preload=None, cano
 
 
 def header(active=None, cat=None):
-    nav = [("/", "Home", "home"), ("/all-games/", "All games", "all"), ("/#categories", "Categories", "cats")]
+    nav = [("/", "Home", "home"), ("/all-games/", "All games", "all"), ("/#categories", "Categories", "cats"), ("/blog/", "Blog", "blog")]
     cur = ' aria-current="page"'
     links = "".join('<a href="%s"%s>%s</a>' % (h, cur if k == active else "", t) for h, t, k in nav)
     bar = '<a class="all" href="/all-games/"%s>All %s games</a>' % (cur if active == "all" else "", f"{TOTAL:,}")
@@ -205,7 +206,7 @@ def footer():
     <nav aria-label="Categories"><h2>Categories</h2><ul>{cl}</ul></nav>
     <nav aria-label="Site"><h2>Explore</h2><ul style="columns:1">
       <li><a href="/all-games/">All games A–Z</a></li><li><a href="/search/">Search games</a></li>
-      <li><a href="/#featured">Featured games</a></li><li><a href="/sitemap/">Site map</a></li></ul></nav>
+      <li><a href="/#featured">Featured games</a></li><li><a href="/blog/">Blog</a></li><li><a href="/sitemap/">Site map</a></li></ul></nav>
   </div>
   <div class="wrap footer-base">© {TODAY.year} ArcadeWebsite.com. Games and trademarks belong to their respective owners.</div>
 </footer>
@@ -339,6 +340,14 @@ def todays_picks(rot, day=TODAY):
 # ---------------------------------------------------------------------------------------------
 # Pages
 # ---------------------------------------------------------------------------------------------
+def home_blog():
+    if not POSTS:
+        return ""
+    return (f'<section class="section" aria-labelledby="blog-h"><div class="section-head"><div><h2 id="blog-h">From the blog</h2>'
+            f'<p>Guides and top lists for the games on {BRAND}.</p></div><a class="more" href="/blog/">All articles</a></div>'
+            f'<div class="post-grid">{"".join(post_card(p) for p in POSTS[:3])}</div></section>')
+
+
 def page_home(rot):
     picks = [feat(G[s]) for s in todays_picks(rot)]
     g0 = picks[0]
@@ -396,6 +405,7 @@ def page_home(rot):
   {ad_banner("home-after-trending", "728x90", "300x250")}
   {shelf("new", "New to your rotation", "Classics worth another round.", home_picks["new"])}
   {"".join(shelves)}
+  {home_blog()}
   {ad_banner("home-bottom", "728x90", "320x50")}
 </div>
 </main>
@@ -423,6 +433,14 @@ def faq_ld(items):
 
 def game_link(s):
     return f'<a href="/game/{s}/">{e(G[s]["title"])}</a>'
+
+
+def featured_in(g):
+    ps = POSTS_BY_GAME.get(g["slug"], [])[:3]
+    if not ps:
+        return ""
+    links = "".join(f'<li><a href="/blog/{p["slug"]}/">{e(p["title"])}</a></li>' for p in ps)
+    return f'<h2 id="blog-mentions-h">Featured in</h2><ul class="mentions">{links}</ul>'
 
 
 def page_game(g):
@@ -521,6 +539,7 @@ def page_game(g):
         <div><dt>Plays on</dt><dd>Web browser</dd></div>
         <div><dt>Download</dt><dd>Not needed</dd></div>
       </dl>
+      {featured_in(g)}
       <h2 id="faq-h">{e(g['title'])} FAQ</h2>
       <div class="faq">{faq_html(faq_items, "faq-h")}</div>
       <div class="share">
@@ -793,6 +812,13 @@ def page_redirects():
 """
         write(f"/game/{old}/", h + header() + body + footer())
 
+def blog_sitemap_block():
+    if not POSTS:
+        return ""
+    items = "".join(f'<li><a href="/blog/{p["slug"]}/">{e(p["title"])}</a></li>' for p in POSTS)
+    return f'<section class="section"><h2><a href="/blog/">Blog</a> <small>({len(POSTS)})</small></h2><ul class="sitemap-list">{items}</ul></section>'
+
+
 def page_html_sitemap():
     path = "/sitemap/"
     blocks = []
@@ -805,6 +831,7 @@ def page_html_sitemap():
   <h1>Site map</h1>
   <p class="lede">Every page on ArcadeWebsite: the <a href="/">homepage</a>, the <a href="/all-games/">A–Z list of all {TOTAL:,} games</a>, and each category with all of its games.</p>
   {"".join(blocks)}
+  {blog_sitemap_block()}
 </div>
 </main>
 """
@@ -812,9 +839,242 @@ def page_html_sitemap():
                      ld=[breadcrumbs_ld([("Home", "/"), ("Site map", path)])]) + header() + body + footer())
 
 
+# ---------------------------------------------------------------------------------------------
+# Blog: one Markdown file per article in blog/posts/ (see blog/WRITING-GUIDE.md)
+# ---------------------------------------------------------------------------------------------
+BLOG_DIR = ROOT / "blog" / "posts"
+AUTHOR = {"@type": "Organization", "name": f"{BRAND} Team", "url": SITE + "/blog/"}
+PUBLISHER = {"@type": "Organization", "name": BRAND, "url": SITE + "/",
+             "logo": {"@type": "ImageObject", "url": SITE + "/favicon.svg"}}
+
+
+def read_post(f):
+    """A post is `key: value` front matter between --- lines, then Markdown."""
+    raw = f.read_text(encoding="utf-8")
+    m = re.match(r"---\n(.*?)\n---\n(.*)", raw, re.S)
+    if not m:
+        raise SystemExit(f"{f}: missing --- front matter")
+    meta = {}
+    for line in m.group(1).splitlines():
+        if ":" in line and not line.startswith("#"):
+            k, v = line.split(":", 1)
+            meta[k.strip()] = v.strip()
+    for k in ("title", "seo_title", "description", "keyword", "date"):
+        if not meta.get(k):
+            raise SystemExit(f"{f}: front matter needs '{k}'")
+    meta["slug"] = meta.get("slug") or f.stem
+    meta["games"] = [s.strip() for s in meta.get("games", "").split(",") if s.strip()]
+    missing = [s for s in meta["games"] if s not in G]
+    if missing:
+        raise SystemExit(f"{f}: games not on the site: {missing}")
+    meta["updated"] = meta.get("updated") or meta["date"]
+    meta["md"] = m.group(2).strip()
+    return meta
+
+
+def load_posts():
+    if not BLOG_DIR.exists():
+        return []
+    posts = [read_post(f) for f in sorted(BLOG_DIR.glob("*.md"))]
+    posts = [p for p in posts if p["date"] <= TODAY.isoformat() and p.get("draft", "").lower() != "true"]
+    return sorted(posts, key=lambda p: p["date"], reverse=True)
+
+
+POSTS = []          # filled in main()
+POSTS_BY_GAME = {}  # game slug -> posts that feature it, for links from game pages
+
+
+def post_image(p):
+    """A 1200x630 share image made from the first four featured games' screenshots."""
+    from PIL import Image
+    path = f"/blog/img/{p['slug']}.jpg"
+    out = OUT / path.lstrip("/")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    picks = (p["games"] or ["slope"])[:4]
+    picks += picks * 4
+    canvas = Image.new("RGB", (1200, 630), (18, 20, 46))
+    W, H, gap = 594, 312, 6
+    for i, s in enumerate(picks[:4]):
+        src = OUT / G[s]["thumbnail"].lstrip("/")
+        try:
+            im = Image.open(unquote(str(src))).convert("RGB")
+        except Exception:
+            continue
+        r = max(W / im.width, H / im.height)
+        im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
+        l, t = (im.width - W) // 2, (im.height - H) // 2
+        canvas.paste(im.crop((l, t, l + W, t + H)), ((i % 2) * (W + gap) + (0 if i % 2 else 0), (i // 2) * (H + gap)))
+    canvas.save(out, quality=86, optimize=True, progressive=True)
+    canvas.save(out.with_suffix(".webp"), quality=82)
+    return path
+
+
+def render_post_body(p):
+    """Markdown to HTML, with [[games: a, b]] lines turned into game cards and the FAQ split out."""
+    import markdown
+    md = p["md"]
+    faq, faq_items = None, []
+    m = re.search(r"^## (Frequently asked questions|FAQ)[^\n]*\n(.*?)(?=^## |\Z)", md, re.S | re.M | re.I)
+    if m:
+        faq = m.group(0)
+        for q, a in re.findall(r"^### (.+?)\n(.*?)(?=^### |\Z)", m.group(2), re.S | re.M):
+            a_html = markdown.markdown(a.strip())
+            faq_items.append((q.strip(), re.sub(r"^<p>|</p>$", "", a_html.strip())))
+        md = md.replace(faq, "")
+    grids = []
+
+    def grid_token(mm):
+        slugs = [s.strip() for s in mm.group(1).split(",") if s.strip() in G]
+        grids.append(grid(slugs, dense=True))
+        return f"\n\nGAMEGRID{len(grids) - 1}\n\n"
+    md = re.sub(r"^\[\[games:(.+?)\]\]\s*$", grid_token, md, flags=re.M)
+    conv = markdown.Markdown(extensions=["tables", "toc", "attr_list", "sane_lists"],
+                             extension_configs={"toc": {"toc_depth": "2"}})
+    body = conv.convert(md)
+    toc = [(t["id"], t["name"]) for t in conv.toc_tokens]
+    for i, gh in enumerate(grids):
+        body = body.replace(f"<p>GAMEGRID{i}</p>", gh)
+    body = re.sub(r'<table>', '<div class="table-wrap"><table>', body).replace("</table>", "</table></div>")
+    # outside links open in a new tab; links to our pages stay as they are
+    body = re.sub(r'<a href="(https?://(?!arcadewebsite\.com)[^"]+)"', r'<a href="\1" target="_blank" rel="noopener">', body)
+    # ad after the introduction and in the middle of the article
+    parts = re.split(r"(?=<h2)", body)
+    if len(parts) > 2:
+        mid = len(parts) // 2 + 1
+        parts.insert(mid, ad_banner(f"blog-mid", "728x90", "300x250"))
+        parts.insert(1, ad_banner(f"blog-after-intro", "728x90", "320x50"))
+    body = "".join(parts)
+    words = len(re.sub(r"<[^>]+>", " ", body + " ".join(q + " " + a for q, a in faq_items)).split())
+    return body, toc, faq_items, words
+
+
+def fmt_date(d):
+    x = dt.date.fromisoformat(d)
+    return f"{x:%B} {x.day}, {x.year}"
+
+
+def post_card(p):
+    img = p["image"]
+    return (f'<a class="post-card" href="/blog/{p["slug"]}/">'
+            f'<span class="thumb"><picture><source type="image/webp" srcset="{e(webp(img))}">'
+            f'<img src="{e(img)}" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture></span>'
+            f'<span class="post-meta"><time datetime="{p["date"]}">{fmt_date(p["date"])}</time></span>'
+            f'<span class="name">{e(p["title"])}</span><span class="excerpt">{e(p["description"])}</span></a>')
+
+
+def page_post(p):
+    path = f"/blog/{p['slug']}/"
+    body_html, toc, faq_items, words = render_post_body(p)
+    minutes = max(1, round(words / 230))
+    c = C[G[p["games"][0]]["category"]] if p["games"] else cats[0]
+    toc_html = ('<details class="toc"><summary>In this article</summary><nav aria-label="In this article"><ul>'
+                + "".join(f'<li><a href="#{i}">{e(n)}</a></li>' for i, n in toc) + "</ul></nav></details>") if len(toc) > 2 else ""
+    # the contents list goes after the opening answer, so the answer is the first thing readers and search engines see
+    k = body_html.find("<div class=\"ad-row")
+    k = k if k >= 0 else body_html.find("<h2")
+    if toc_html and k >= 0:
+        body_html, toc_html = body_html[:k] + toc_html + body_html[k:], ""
+    faq_block = (f'<h2 id="faq-h">Frequently asked questions</h2><div class="faq">{faq_html(faq_items, "faq-h")}</div>'
+                 if faq_items else "")
+    others = [q for q in POSTS if q["slug"] != p["slug"]][:3]
+    more_posts = (f'<section class="section" aria-labelledby="more-posts-h"><div class="section-head"><div><h2 id="more-posts-h">More from the blog</h2></div>'
+                  f'<a class="more" href="/blog/">All articles</a></div><div class="post-grid">{"".join(post_card(q) for q in others)}</div></section>') if others else ""
+    games_block = (f'<section class="section" aria-labelledby="games-h"><div class="section-head"><div><h2 id="games-h">Play the games from this article</h2>'
+                   f'<p>Every game here plays free in your browser.</p></div></div>{grid(p["games"])}</section>') if p["games"] else ""
+    updated = (f' · Updated <time datetime="{p["updated"]}">{fmt_date(p["updated"])}</time>'
+               if p["updated"] != p["date"] else "")
+    body = f"""<main id="main" class="c-{c['slug']}">
+<div class="wrap">
+  {ad_banner("blog-top", "728x90", "320x50", tight=True)}
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a><span aria-hidden="true">/</span><span aria-current="page">{e(p['title'])}</span></nav>
+  <div class="with-rail">
+    <article class="about post" aria-labelledby="post-h">
+      <header class="post-head">
+        <h1 id="post-h">{e(p['title'])}</h1>
+        <p class="byline">By <a href="/blog/">{BRAND} Team</a> · <time datetime="{p['date']}">{fmt_date(p['date'])}</time>{updated} · {minutes} min read</p>
+        <picture><source type="image/webp" srcset="{e(webp(p['image']))}"><img class="post-hero" src="{e(p['image'])}" alt="{e(p.get('image_alt') or p['title'])}" width="1200" height="630" fetchpriority="high"></picture>
+      </header>
+      {toc_html}
+      <div class="post-body">{body_html}</div>
+      {faq_block}
+    </article>
+    <aside class="side-rail" aria-label="Advertisements">{ad("blog-side-top", "300x600")}{ad("blog-side", "300x250")}</aside>
+  </div>
+  {games_block}
+  {ad_banner("blog-before-more", "728x90", "300x250")}
+  {more_posts}
+  {ad_banner("blog-bottom", "728x90", "320x50")}
+</div>
+</main>
+"""
+    ld = [{"@context": "https://schema.org", "@type": "BlogPosting", "headline": p["title"][:110],
+           "description": p["description"], "image": [SITE + p["image"]],
+           "datePublished": p["date"], "dateModified": p["updated"], "author": AUTHOR, "publisher": PUBLISHER,
+           "mainEntityOfPage": {"@type": "WebPage", "@id": SITE + path}, "url": SITE + path,
+           "keywords": ", ".join([p["keyword"]] + [k.strip() for k in p.get("keywords", "").split(",") if k.strip()]),
+           "wordCount": words, "inLanguage": "en-US",
+           "about": [{"@type": "VideoGame", "name": G[s]["title"], "url": f"{SITE}/game/{s}/"} for s in p["games"][:12]]},
+          breadcrumbs_ld([("Home", "/"), ("Blog", "/blog/"), (p["title"], path)])]
+    if faq_items:
+        ld.append(faq_ld(faq_items))
+    h = head(p["seo_title"], p["description"], path, p["image"], ld, image_alt=p.get("image_alt") or p["title"])
+    h = h.replace('<meta property="og:type" content="website">',
+                  f'<meta property="og:type" content="article">\n<meta property="article:published_time" content="{p["date"]}">'
+                  f'\n<meta property="article:modified_time" content="{p["updated"]}">', 1)
+    h = (h.replace(f'og:image:width" content="{THUMB_W}"', 'og:image:width" content="1200"', 1)
+          .replace(f'og:image:height" content="{THUMB_H}"', 'og:image:height" content="630"', 1))
+    write(path, h + header("blog") + body + footer())
+
+
+def page_blog():
+    path = "/blog/"
+    if not POSTS:
+        return
+    cards = "".join(post_card(p) for p in POSTS)
+    body = f"""<main id="main">
+<div class="wrap">
+  {ad_banner("blog-index-top", "728x90", "320x50", tight=True)}
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Blog</span></nav>
+  <div class="with-rail">
+    <div>
+      <h1>ArcadeWebsite blog: game guides, lists and tips</h1>
+      <p class="lede">Picks of the best free browser games, how-to-play guides and tips for getting more out of the {TOTAL:,} games on {BRAND}. New articles every few days.</p>
+      <div class="post-grid">{cards}</div>
+    </div>
+    <aside class="side-rail" aria-label="Advertisements">{ad("blog-index-side-top", "300x600")}{ad("blog-index-side", "300x250")}</aside>
+  </div>
+  {ad_banner("blog-index-bottom", "728x90", "320x50")}
+</div>
+</main>
+"""
+    ld = [{"@context": "https://schema.org", "@type": "Blog", "name": f"{BRAND} Blog", "url": SITE + path,
+           "publisher": PUBLISHER, "blogPost": [{"@type": "BlogPosting", "headline": p["title"][:110], "url": f"{SITE}/blog/{p['slug']}/",
+                                                  "datePublished": p["date"], "image": SITE + p["image"]} for p in POSTS[:30]]},
+          breadcrumbs_ld([("Home", "/"), ("Blog", path)])]
+    write(path, head(f"Gaming Blog - Free Game Guides & Lists | {BRAND}",
+                     f"Guides, top lists and tips for free online games you can play in your browser, from the {BRAND} team. New articles every few days.",
+                     path, POSTS[0]["image"], ld) + header("blog") + body + footer())
+    # RSS feed for the blog
+    items = "".join(f"<item><title>{e(p['title'])}</title><link>{SITE}/blog/{p['slug']}/</link><guid>{SITE}/blog/{p['slug']}/</guid>"
+                    f"<pubDate>{dt.datetime.fromisoformat(p['date']).strftime('%a, %d %b %Y 12:00:00 +0000')}</pubDate>"
+                    f"<description>{e(p['description'])}</description></item>" for p in POSTS[:30])
+    write("/blog/feed.xml", f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{BRAND} Blog</title>'
+          f'<link>{SITE}/blog/</link><description>Guides and lists for free online games.</description>{items}</channel></rss>\n')
+
+
+def build_blog():
+    POSTS[:] = load_posts()
+    for p in POSTS:
+        p["image"] = post_image(p)
+        for s in p["games"]:
+            POSTS_BY_GAME.setdefault(s, []).append(p)
+
+
 def indexable_urls():
     """Every page that should be in the sitemap (search and duplicate pages are left out)."""
     urls = ["/", "/sitemap/"] + ALL_PAGES
+    if POSTS:
+        urls += ["/blog/"] + [f"/blog/{p['slug']}/" for p in POSTS]
     urls += [cat_page_path(c, n) for c in cats for n in range(1, c.get("pages", 1) + 1)]
     urls += [f'/game/{g["slug"]}/' for g in games if g["slug"] not in CANONICAL and g.get("index") is not False]
     return urls
@@ -858,6 +1118,9 @@ def data_files(rot):
     rows = []
     for u in urls:
         img = ""
+        post = next((p for p in POSTS if u == f"/blog/{p['slug']}/"), None)
+        if post:
+            img = f'<image:image><image:loc>{e(SITE + post["image"])}</image:loc></image:image>'
         if u in slug_of:
             g = slug_of[u]
             img = f'<image:image><image:loc>{e(SITE + g["thumbnail"])}</image:loc></image:image>'
@@ -883,6 +1146,8 @@ def data_files(rot):
     lines += [f"- [{c['name']} games]({SITE}/category/{c['slug']}/): {clip(c['intro'][0], 160)} ({len(c['games']):,} games)" for c in cats]
     lines += ["", "## Popular games", ""]
     lines += [f"- [{G[s]['title']}]({SITE}/game/{s}/): {clip(COPY.game_summary(G[s]), 150)}" for s in pop]
+    if POSTS:
+        lines += ["", "## Blog articles", ""] + [f"- [{p['title']}]({SITE}/blog/{p['slug']}/): {p['description']}" for p in POSTS[:40]]
     lines += ["", "## All pages", "", f"- [All games A to Z]({SITE}/all-games/)", f"- [Site map]({SITE}/sitemap/)", f"- [XML sitemap]({SITE}/sitemap.xml)", ""]
     write("/llms.txt", "\n".join(lines))
 
@@ -900,6 +1165,7 @@ def main():
     shutil.copytree(ROOT / "public", OUT)
     shutil.copytree(ROOT / "src/assets", OUT / "assets", dirs_exist_ok=True)
     (OUT / "favicon.svg").write_text(LOGO.replace('aria-hidden="true"', 'xmlns="http://www.w3.org/2000/svg"'), encoding="utf-8")
+    build_blog()
     rot = rotation()
     page_home(rot)
     for g in games:
@@ -911,6 +1177,9 @@ def main():
     page_404()
     page_html_sitemap()
     page_redirects()
+    for p in POSTS:
+        page_post(p)
+    page_blog()
     data_files(rot)
     n = sum(1 for _ in OUT.rglob("index.html"))
     print(f"Built {n} pages into {OUT}/ ({TOTAL} games, {len(cats)} categories).")

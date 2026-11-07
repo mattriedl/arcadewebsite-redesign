@@ -25,7 +25,8 @@ SIZES = {  # name: (width, height, is_phone)
 }
 KEY_PAGES = ["/", "/game/slope/", "/game/cookie-clicker/", "/game/fireboy-and-water-girl/", "/category/racing/",
              "/category/arcade/", "/category/arcade/page/8/", "/all-games/", "/all-games/s/", "/search/?q=mario",
-             "/sitemap/", "/404.html", "/game/cookie-clicker-357/"]
+             "/sitemap/", "/404.html", "/game/cookie-clicker-357/", "/blog/",
+             "/blog/best-2-player-games-one-keyboard/"]
 
 CHECK = r"""() => {
   const out = {overflow: 0, brokenImages: [], ads: [], adProblems: []};

@@ -80,6 +80,10 @@
 - [Bob the Robber](https://arcadewebsite.com/game/bob-the-robber/): Bob the Robber is a stealth puzzle game: sneak through buildings, avoid guards and cameras, and grab the loot without getting caught.
 - [Raft Wars](https://arcadewebsite.com/game/raft-wars/): Raft Wars is a turn-based shooting game where Simon and his brother defend their buried treasure from raiders on rafts.
 
+## Blog articles
+
+- [8 Best 2 Player Games to Play on One Keyboard (Free, No Download)](https://arcadewebsite.com/blog/best-2-player-games-one-keyboard/): The 8 best 2 player games you can play on one keyboard, free in your browser: Fireboy and Watergirl, Basket Random, Gun Mayhem and more, with controls.
+
 ## All pages
 
 - [All games A to Z](https://arcadewebsite.com/all-games/)
