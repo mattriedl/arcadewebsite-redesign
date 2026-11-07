@@ -9,7 +9,8 @@ For each game it opens the game page, clicks Play, and takes three shots over ab
 clicking the game and pressing Enter and Space in between to get past splash and "press start"
 screens. It keeps the most detailed shot. Shots that are blank or nearly blank are rejected and the
 game keeps its current thumbnail. Screenshots go to public/screenshots/<slug>.webp and .jpg, and
-data/screenshots.json records which games have one (build.py uses it). Progress is saved as it goes,
+data/screenshots.json records which games have one. New screenshots appear on the site only after they're
+checked by eye and added to data/screenshot-reviewed.json (or data/screenshot-rejects.json to hide them). Progress is saved as it goes,
 so the run can be stopped and started again.
 """
 import asyncio
@@ -28,7 +29,6 @@ INDEX = ROOT / "data" / "screenshots.json"          # slug -> image path, for ga
 STATUS = ROOT / "data" / "screenshots-status.json"  # slug -> what happened, for every game tried
 BASE = "http://localhost:8765"
 WORKERS = 3
-SKIP = {"host banned the account", "files too large for the host", "files deleted or moved"}  # from tools/check_game_files.py
 RESTART_EVERY = 60   # restart the browser now and then so memory doesn't build up
 
 
@@ -148,7 +148,6 @@ if __name__ == "__main__":
         todo = sys.argv[1:]
     else:
         tried = load(STATUS)
-        checked = load(ROOT / "data" / "game-file-check.json")      # games whose files can't download can't be captured
-        todo = [g["slug"] for g in games if g["slug"] not in tried and checked.get(g["slug"]) not in SKIP]
+        todo = [g["slug"] for g in games if g["slug"] not in tried]
     print(f"{len(todo)} games to capture", flush=True)
     asyncio.run(main(todo))

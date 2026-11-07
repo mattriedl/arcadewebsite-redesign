@@ -130,3 +130,13 @@ The container `GTM-TVMCJHRM` loads at the top of every page from `src/tag-manage
 - Each game page's structured data was broken on the live site and is now a valid `VideoGame` entry, which search engines can read.
 - The unused Google Analytics placeholder script was replaced by Tag Manager.
 - `docs/broken-files.md` lists 67 files the live game files ask for that are missing on the server.
+- `docs/broken-games.md` lists the games that didn't play when every game was tested in a browser (18 definitely broken, 403 blank in the test).
+- Five game pages that couldn't play (Word documents or exact duplicates) were removed; their addresses redirect to the working version (`data/removed-games.json`).
+
+## Thumbnails
+
+Game cards use real screenshots where available, in this order:
+
+1. Screenshots you supply: put a 400×300 image in `public/screenshots/manual/<game>.jpg` (plus a `.webp`) and add it to `data/screenshots-manual.json`.
+2. Automatic screenshots from `tools/capture_screenshots.py`, once checked by eye and listed in `data/screenshot-reviewed.json` (rejected ones go in `data/screenshot-rejects.json`).
+3. Otherwise, the original thumbnail from the live site.
