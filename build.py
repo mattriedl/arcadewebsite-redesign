@@ -45,13 +45,14 @@ TOTAL = len(games)
 # except ones checked by eye and rejected (data/screenshot-rejects.json).
 _shots = load("screenshots.json") if (ROOT / "data/screenshots.json").exists() else {}
 _rejected = set(load("screenshot-rejects.json")["rejected"]) if (ROOT / "data/screenshot-rejects.json").exists() else set()
+_reviewed = set(load("screenshot-reviewed.json")["reviewed"]) if (ROOT / "data/screenshot-reviewed.json").exists() else set(_shots)
 # Screenshots supplied by hand (data/screenshots-manual.json, files in public/screenshots/manual/) win over both.
 _manual = load("screenshots-manual.json") if (ROOT / "data/screenshots-manual.json").exists() else {}
 for g in games:
     s = g["slug"]
     if s in _manual and (ROOT / "public" / _manual[s].lstrip("/")).exists():
         g["thumbnail"] = _manual[s]
-    elif s in _shots and s not in _rejected and (ROOT / "public" / _shots[s].lstrip("/")).exists():
+    elif s in _shots and s in _reviewed and s not in _rejected and (ROOT / "public" / _shots[s].lstrip("/")).exists():
         g["thumbnail"] = _shots[s]
 COPY = Copy(games, cats, load("descriptions.json"))
 # Hand-described (well-known) games first in each category, then the rest in the live site's order
