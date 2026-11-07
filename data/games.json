@@ -5452,33 +5452,6 @@
   ]
  },
  {
-  "slug": "bowl-alt",
-  "title": "Bowl (Version 2)",
-  "category": "arcade",
-  "description": "Play Bowl Alt free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play Bowl Alt free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clbowlalt.png",
-  "src": "/games/clbowlalt.html",
-  "related": [
-   "final-fantasy-viid2",
-   "final-fantasy-viid3",
-   "final-fantasy-viitheothertetrr",
-   "final-fantasy-tactics",
-   "final-ninja",
-   "fire-blob",
-   "fireboy-and-water-girl",
-   "fireboy-and-water-girl2",
-   "fireboy-and-water-girl3",
-   "fireboy-and-water-girl5",
-   "fireboy-and-water-girl6",
-   "fire-emblem",
-   "fi-squa-rium",
-   "fluid-is-m"
-  ]
- },
- {
   "slug": "box-head-nightmare",
   "title": "Boxhead: The Nightmare",
   "category": "arcade",
@@ -10974,31 +10947,6 @@
    "eaglercraft-indev-offline",
    "eaglercraft-indev-offline-6",
    "eaglercraft-l-1-9-v0-7-0-offline-signed"
-  ]
- },
- {
-  "slug": "eaglercraft-indev-offline-6",
-  "title": "Eaglercraft Indev Offline (Version 3)",
-  "category": "minecraft",
-  "description": "Play Eaglercraft Indev Offline · Edition 6 free online in the Minecraft collection. Open the embedded player, switch to fullscreen, and discover more minecraft games on ArcadeWebsite.",
-  "about": [
-   "Play Eaglercraft Indev Offline · Edition 6 free online in the Minecraft collection. Open the embedded player, switch to fullscreen, and discover more minecraft games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/Eaglercraft-Indev-Offline.png",
-  "src": "/games/Eaglercraft-Indev-Offline.html",
-  "related": [
-   "eaglercraft-x-1-8-8-u29-9",
-   "eaglercraft-z-1-11-2",
-   "minceraft-i-not-mine-v6",
-   "b3313",
-   "minecraft1-8-8",
-   "eaglercraft-1-5-2",
-   "eaglercraft-alpha-1-2-6-offline",
-   "eaglercraft-beta-1-3-offline",
-   "eaglercraft-indev-offline",
-   "eaglercraft-indev-offline-5",
-   "eaglercraft-l-1-9-v0-7-0-offline-signed",
-   "eaglercraft-x-1-8-8-u29"
   ]
  },
  {
@@ -29671,33 +29619,6 @@
    "dukenukem3d",
    "dungeon-raid",
    "dusk-child"
-  ]
- },
- {
-  "slug": "retro-bowl-fixed",
-  "title": "Retro Bowl (Version 2)",
-  "category": "arcade",
-  "description": "Play Retro Bowl Fixed free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play Retro Bowl Fixed free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clretrobowlfixed.png",
-  "src": "/games/clretrobowlfixed.html",
-  "related": [
-   "d-reader",
-   "dread-head-park-our",
-   "dubstep",
-   "duck-hunt",
-   "ducklfe5",
-   "duck-life",
-   "ducklife2",
-   "ducklife3",
-   "ducklife4",
-   "dud",
-   "dukenukem3d",
-   "dungeon-raid",
-   "dusk-child",
-   "dying-dreams"
   ]
  },
  {

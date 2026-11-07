@@ -1,10 +1,10 @@
 # ArcadeWebsite
 
-> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,539 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
+> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,536 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
 
 ## Categories
 
-- [Arcade games](https://arcadewebsite.com/category/arcade/): Arcade games are quick to learn and hard to put down. This collection has everything from classic coin-op favorites and retro console adventures to modern… (879 games)
+- [Arcade games](https://arcadewebsite.com/category/arcade/): Arcade games are quick to learn and hard to put down. This collection has everything from classic coin-op favorites and retro console adventures to modern… (877 games)
 - [Platformer games](https://arcadewebsite.com/category/platformer/): Platformer games are all about running, jumping and timing. Climb towers, dodge spikes and saw blades, wall-jump through tight corridors and race to the exit… (153 games)
 - [Battle games](https://arcadewebsite.com/category/battle/): Battle games put you head to head with an opponent, whether it's a friend on the same keyboard or the computer. Fight with fists, swords, guns or tanks in… (94 games)
 - [Shooting games](https://arcadewebsite.com/category/shooting/): Shooting games test your aim and reflexes. Take on waves of enemies, snipe from rooftops, defend your base or build and fight in fast online-style duels. (76 games)
@@ -15,7 +15,7 @@
 - [Puzzle games](https://arcadewebsite.com/category/puzzle/): Puzzle games make you think. Merge numbers, roll blocks into holes, sort colors, guess words and solve brain teasers that start easy and get tricky fast. (42 games)
 - [Idle/Clicker games](https://arcadewebsite.com/category/idle-clicker/): Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away. (24 games)
 - [Horror games](https://arcadewebsite.com/category/horror/): Horror games are built to make you jump. Escape haunted houses, survive the night against animatronics and explore unsettling places like the Backrooms. (19 games)
-- [Minecraft games](https://arcadewebsite.com/category/minecraft/): Minecraft-style games let you mine, craft and build in block worlds right in your browser. This collection includes Eaglercraft versions and other… (13 games)
+- [Minecraft games](https://arcadewebsite.com/category/minecraft/): Minecraft-style games let you mine, craft and build in block worlds right in your browser. This collection includes Eaglercraft versions and other… (12 games)
 
 ## Popular games
 
@@ -75,7 +75,7 @@
 - [Learn to Fly 2](https://arcadewebsite.com/game/learn-to-fly2/): Learn to Fly 2 sends the penguin back up the ramp with new upgrades, a story mode and a sandbox.
 - [Learn to Fly 3](https://arcadewebsite.com/game/learn-to-fly3/): Learn to Fly 3 takes the penguin into space with a modular rocket builder and many more goals.
 - [Learn to Fly Idle](https://arcadewebsite.com/game/learn-to-fly-idle/): Learn to Fly Idle is the idle version of the series: your penguin keeps launching and earning while you invest in upgrades.
-- [Earn to Die](https://arcadewebsite.com/game/earn-to-die/): Earn to Die is a zombie driving game: build up your car, drive as far as you can through crowds of zombies, and spend your earnings on armor…
+- [Earn to Die](https://arcadewebsite.com/game/earn-to-die/): Earn to Die is a zombie driving game: drive as far as you can through crowds of zombies. Spend your earnings on armor, engines and guns to get…
 - [Earn to Die 2](https://arcadewebsite.com/game/earntodie2/): Earn to Die 2 continues the zombie road trip with new vehicles, longer levels and more upgrades.
 - [Bob the Robber](https://arcadewebsite.com/game/bob-the-robber/): Bob the Robber is a stealth puzzle game: sneak through buildings, avoid guards and cameras, and grab the loot without getting caught.
 - [Raft Wars](https://arcadewebsite.com/game/raft-wars/): Raft Wars is a turn-based shooting game where Simon and his brother defend their buried treasure from raiders on rafts.

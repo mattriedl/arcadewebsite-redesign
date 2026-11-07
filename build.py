@@ -223,13 +223,15 @@ def ad(slot, size, cls=""):
 
 def ad_banner(slot, big="728x90", small="320x50", tight=False):
     """A wide banner on desktop that becomes a phone-sized banner on small screens."""
-    return (f'<div class="ad-row{" tight" if tight else ""}">{ad(slot, big, "only-desktop")}'
-            f'{ad(slot + "-mobile", small, "only-mobile")}</div>')
+    mid = ad(slot + "-tablet", "468x60", "ad-mid") if small == "320x50" else ""   # rows between 468 and 727px wide
+    narrow = "ad-narrow after-mid" if mid else "ad-narrow"
+    return (f'<div class="ad-row{" tight" if tight else ""}">{ad(slot, big, "ad-wide")}{mid}'
+            f'{ad(slot + "-mobile", small, narrow)}</div>')
 
 
 def ad_tile(slot):
     """A full-width ad row inside a game grid: a leaderboard on desktop, a rectangle on phones."""
-    return f'<div class="ad-tile">{ad(slot, "728x90", "only-desktop")}{ad(slot + "-mobile", "300x250", "only-mobile")}</div>'
+    return f'<div class="ad-tile">{ad(slot, "728x90", "ad-wide")}{ad(slot + "-mobile", "300x250", "ad-narrow")}</div>'
 
 
 def webp(path):
@@ -250,11 +252,24 @@ def card(g, lazy=True):
             f'<span class="name">{e(g["title"])}</span><span class="cat">{e(c["name"])}</span></a>')
 
 
-def grid(slugs, ad_prefix=None, every=0, gid=None, dense=False, eager=0):
+SPONSORED_AT = (5, 27, 49)   # positions in a category page's grid where a labeled sponsored tile goes
+
+
+def sponsored_tile(slot):
+    """A clearly labeled ad the size of a game card, sitting in the game grid (native advertising)."""
+    return (f'<div class="card sponsored" role="complementary" aria-label="Advertisement">'
+            f'<span class="sp-label">Ad</span>'
+            f'<aside class="ad ad-250x250 ad-sponsored" data-slot="{slot}" data-size="250x250">'
+            f'<span>Advertisement</span></aside></div>')
+
+
+def grid(slugs, ad_prefix=None, every=0, gid=None, dense=False, eager=0, sponsored=None):
     parts = []
     for i, s in enumerate(slugs):
         if ad_prefix and every and i and i % every == 0:
             parts.append(ad_tile(f"{ad_prefix}-{i // every}"))
+        if sponsored and i in SPONSORED_AT:
+            parts.append(sponsored_tile(f"{sponsored}-{SPONSORED_AT.index(i) + 1}"))
         parts.append(card(G[s], lazy=i >= eager))
     gid = f' id="{gid}"' if gid else ""
     return f'<div class="grid{" dense" if dense else ""}"{gid}>{"".join(parts)}</div>'
@@ -449,7 +464,8 @@ def page_game(g):
     canon = f'/game/{CANONICAL[g["slug"]]}/' if g["slug"] in CANONICAL else None
     ld = [{"@context": "https://schema.org", "@type": "VideoGame", "name": g["title"], "url": SITE + path,
            "description": COPY.game_summary(g), "genre": c["name"], "gamePlatform": "Web browser",
-           "operatingSystem": "Any", "applicationCategory": "Game", "inLanguage": "en",
+           "operatingSystem": "Any", "applicationCategory": "GameApplication", "inLanguage": "en",
+           "screenshot": SITE + g["thumbnail"], "keywords": f'{g["title"]}, {g["title"]} online, play {g["title"]} free, {g["title"]} unblocked, {g["title"]} Chromebook, {c["name"].lower()} games',
            "isAccessibleForFree": True, "playMode": "SinglePlayer",
            "image": {"@type": "ImageObject", "url": SITE + g["thumbnail"], "width": THUMB_W, "height": THUMB_H},
            "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/InStock"},
@@ -497,7 +513,7 @@ def page_game(g):
     <article class="about" aria-labelledby="about-h">
       <h2 id="about-h">About {e(g['title'])}</h2>
       {about}
-      <h2 id="howto-h">How to play {e(g['title'])}</h2>
+      <h2 id="howto-h">How to play {e(g['title'])}: controls and tips</h2>
       <p>{howto}</p>
       <dl class="facts">
         <div><dt>Category</dt><dd><a href="/category/{c['slug']}/">{e(c['name'])}</a></dd></div>
@@ -617,7 +633,7 @@ def page_category(c):
       <div class="filter"><label class="sr-only" for="f">Filter {e(c['name'])} games</label>
         <input id="f" type="search" placeholder="Filter all {n:,} {e(c['name'].lower())} games" {filter_attr} autocomplete="off"><output data-default="{showing}">{showing}</output></div>
       <div id="cat-results">
-        {grid(chunk, "category-in-grid", 20, gid="cat-grid", eager=12)}
+        {grid(chunk, "category-in-grid", 20, gid="cat-grid", eager=12, sponsored="category-sponsored")}
         {pager(pages, p, lambda k: cat_page_path(c, k), c["name"] + " games")}
       </div>
     </div>

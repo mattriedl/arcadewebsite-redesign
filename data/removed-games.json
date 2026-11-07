@@ -5,7 +5,10 @@
   "cookie-clicker-359": "cookie-clicker",
   "papa-pizza-goody": "papa-pizza-goody-933",
   "riddle-transfer-2": "riddle-transfer-2-1129",
-  "tanuki-sunset-uhhhh-hhhh": "tanuki-sunset-uhhhh-hhhh-1384"
+  "tanuki-sunset-uhhhh-hhhh": "tanuki-sunset-uhhhh-hhhh-1384",
+  "bowl-alt": "retro-bowl",
+  "retro-bowl-fixed": "retro-bowl",
+  "eaglercraft-indev-offline-6": "eaglercraft-indev-offline"
  },
  "old_titles": {
   "cookie-clicker-357": "Cookie Clicker (Version 2)",
@@ -30,7 +33,10 @@
   "trollfacequest10": "Trollface Quest 10",
   "trollfacequest11": "Trollface Quest 11",
   "trollfacequest12": "Trollface Quest 12",
-  "trollfacequest13": "Trollface Quest 13"
+  "trollfacequest13": "Trollface Quest 13",
+  "bowl-alt": "Bowl (Version 2)",
+  "retro-bowl-fixed": "Retro Bowl (Version 2)",
+  "eaglercraft-indev-offline-6": "Eaglercraft Indev Offline (Version 3)"
  },
  "broken_flash": {
   "bubble-tanks3": "Bubble Tanks 3",
@@ -51,5 +57,10 @@
   "trollfacequest11": "Trollface Quest 11",
   "trollfacequest12": "Trollface Quest 12",
   "trollfacequest13": "Trollface Quest 13"
+ },
+ "notes": {
+  "bowl-alt": "Retro Bowl copy site-locked by Poki: sent the whole window to poki.com",
+  "retro-bowl-fixed": "Retro Bowl copy site-locked by Poki: sent the whole window to poki.com",
+  "eaglercraft-indev-offline-6": "Redirected itself to a file that doesn't exist"
  }
 }

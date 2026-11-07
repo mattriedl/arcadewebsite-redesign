@@ -116,7 +116,7 @@ p { margin: 0; }
 }
 .ad > span { letter-spacing: .04em; }
 .ad > small { font-size: .7rem; opacity: .8; }
-.ad.filled { background: none; border: 0; }
+.ad.filled { border-style: solid; border-color: transparent; }   /* keeps the quiet placeholder behind the banner, in case an ad fails to load */
 .ad .ad-content { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
 .ad-970x250 { width: 970px; height: 250px; }
 .ad-970x90  { width: 970px; height: 90px; }
@@ -125,15 +125,27 @@ p { margin: 0; }
 .ad-300x600 { width: 300px; height: 600px; }
 .ad-160x600 { width: 160px; height: 600px; }
 .ad-320x100 { width: 320px; height: 100px; }
+.ad-468x60  { width: 468px; height: 60px; }
 .ad-320x50  { width: 320px; height: 50px; }
-.ad-row { display: flex; justify-content: center; margin: 28px 0; }
+.ad-row { display: flex; justify-content: center; margin: 28px 0; container-type: inline-size; }
 .ad-row.tight { margin: 18px 0; }
 .only-mobile { display: none !important; }
 @media (max-width: 760px) {
   .only-desktop { display: none !important; }
   .only-mobile { display: flex !important; }
 }
-.ad-tile { grid-column: 1 / -1; display: flex; justify-content: center; padding: 6px 0; }
+.ad-tile { grid-column: 1 / -1; display: flex; justify-content: center; padding: 6px 0; container-type: inline-size; }
+/* Banner rows pick their ad by the space they actually have (not the screen width), so a 728x90 is
+   never squeezed: it shows only where its row is at least 728px wide, otherwise the smaller ad shows. */
+.ad.ad-narrow, .ad.ad-mid { display: none; }
+@container (max-width: 727px) {
+  .ad.ad-wide { display: none; }
+  .ad.ad-narrow { display: flex; }
+}
+@container (min-width: 468px) and (max-width: 727px) {   /* tablets: a 468x60 full banner instead of the phone banner */
+  .ad.ad-mid { display: flex; }
+  .ad.ad-narrow.after-mid { display: none; }
+}
 
 /* ---------- Page heads ---------- */
 .crumbs { display: flex; flex-wrap: wrap; gap: 6px; font-size: .85rem; color: var(--faint); margin: 22px 0 14px; }
@@ -191,7 +203,8 @@ a.chip:hover { background: color-mix(in srgb, var(--cat) 26%, transparent); }
 @media (min-width: 1100px) { .shelf { grid-auto-columns: calc((100% - 5 * 16px) / 6); } }
 
 .section { margin-top: clamp(36px, 5vw, 56px); }
-.section-head { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 18px; }
+.section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 10px 16px; margin-bottom: 18px; }
+@media (max-width: 560px) { .arrows button { display: none; } }   /* phones swipe the rows instead */
 .section-head p { color: var(--muted); margin-top: 4px; font-size: .95rem; }
 .section-head .more { flex-shrink: 0; font-weight: 600; font-size: .9rem; color: var(--cat, var(--text)); text-decoration: none; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); }
 .section-head .more:hover { background: var(--rail); }
@@ -253,8 +266,7 @@ a.chip:hover { background: color-mix(in srgb, var(--cat) 26%, transparent); }
 .lineup li small { color: var(--muted); font-size: .76rem; }
 
 /* Category tiles */
-.tiles-row { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: stretch; }
-.tiles-row .ad { height: 100%; min-height: 250px; }
+.tiles-row { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 20px; align-items: center; }
 .cat-tiles { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
 @media (max-width: 1100px) { .tiles-row { grid-template-columns: 1fr; } .tiles-row .ad { display: none; } .cat-tiles { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .cat-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -404,8 +416,7 @@ a.chip:hover { background: color-mix(in srgb, var(--cat) 26%, transparent); }
 .section h2 small { color: var(--faint); font-size: .8em; font-weight: 500; }
 
 /* Long pages: let the browser skip drawing cards and sections that are off screen */
-.grid .card { content-visibility: auto; contain-intrinsic-size: auto 200px; }
-.letter-head + .grid, .site-footer, .cat-about { content-visibility: auto; contain-intrinsic-size: auto 600px; }
+.grid .card { content-visibility: auto; contain-intrinsic-size: auto 190px; }
 
 /* ---------- Numbered pages ---------- */
 .pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; margin: 32px 0 8px; }
@@ -419,3 +430,13 @@ a.chip:hover { background: color-mix(in srgb, var(--cat) 26%, transparent); }
 .page-no { display: block; font-size: .5em; color: var(--muted); font-weight: 500; margin-top: 6px; }
 .letters a[aria-current] { background: var(--coin); color: var(--ink); }
 #filter-results { margin-bottom: 20px; }
+
+/* ---------- Sponsored tiles: ads the size of a game card, labeled "Ad" ---------- */
+.card.sponsored { position: relative; display: flex; align-items: center; justify-content: center; min-height: 150px;
+  border-radius: var(--r-md); background: var(--deck); box-shadow: inset 0 0 0 1px var(--line); overflow: hidden; }
+.sponsored .sp-label { position: absolute; top: 8px; left: 8px; z-index: 2; padding: 3px 8px; border-radius: 6px;
+  background: rgba(10, 11, 30, .85); color: var(--text); font: 700 .7rem/1 var(--body); letter-spacing: .04em; pointer-events: none; }
+.sponsored .ad.ad-sponsored { position: absolute; inset: 0; width: auto; height: auto; max-width: none; border: 0; border-radius: 0; background: none; }   /* takes the row's height from the game cards beside it */
+.sponsored .ad-content, .sponsored .ad-content > div, .sponsored .ad-content a { height: 100%; width: 100%; display: flex; align-items: center; justify-content: center; }
+/* the banner keeps its square shape: scaled evenly to the tile's height, never stretched */
+.sponsored .ad-content img { height: 100%; width: auto; max-width: 100%; object-fit: contain; display: block; }

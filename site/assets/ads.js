@@ -12,8 +12,8 @@
    Note: <script> tags pasted inside ad code will not run; put the script URL in networkScript.
 
    Ads come from BannerPromote. Sizes used on the site and their BannerPromote names:
-     728x90  leaderboard        300x250 medium-rectangle   300x600 half-page
-     160x600 skyscraper         320x50  mobile-banner
+     728x90  leaderboard        468x60  full-banner        300x250 medium-rectangle   300x600 half-page
+     160x600 skyscraper         320x50  mobile-banner      250x250 square (sponsored tiles, scaled to card size)
    Slot names are listed in README.md.
    ===================================================================================== */
 const spot = name => `<div data-gb-spot="${name}"></div>`;
@@ -24,9 +24,11 @@ window.ARCADE_ADS = {
   hidePlaceholders: false,
   bySize: {
     '728x90':  spot('leaderboard'),
+    '468x60':  spot('full-banner'),
     '300x250': spot('medium-rectangle'),
     '300x600': spot('half-page'),
     '160x600': spot('skyscraper'),
+    '250x250': spot('square'),          // sponsored tiles inside category grids, shown at card size
     '320x50':  spot('mobile-banner')
   },
   bySlot: {

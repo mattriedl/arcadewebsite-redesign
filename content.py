@@ -94,6 +94,40 @@ def series_key(title):
     return t.lower().strip()
 
 
+# What people type when looking for each kind of game: the category's own name plus the
+# synonyms with the most searches. Used in category titles, descriptions and copy.
+CAT_KEYWORDS = {
+    "arcade": ("Arcade Games", ["classic arcade games", "retro games", "online games"]),
+    "platformer": ("Platform Games", ["platformer games", "jumping games", "parkour games"]),
+    "battle": ("Fighting Games", ["battle games", "2 player games", "fighting games online"]),
+    "shooting": ("Shooting Games", ["gun games", "shooter games", "sniper games"]),
+    "racing": ("Car Games", ["racing games", "driving games", "car racing games"]),
+    "casual": ("Casual Games", ["relaxing games", "easy games", "quick games"]),
+    "strategy": ("Strategy Games", ["tower defense games", "war games", "thinking games"]),
+    "sports": ("Sports Games", ["basketball games", "soccer games", "football games"]),
+    "puzzle": ("Puzzle Games", ["brain games", "logic games", "word games"]),
+    "idle-clicker": ("Clicker Games", ["idle games", "incremental games", "tycoon games"]),
+    "horror": ("Horror Games", ["scary games", "FNAF games", "survival horror games"]),
+    "minecraft": ("Minecraft Games", ["Eaglercraft", "block building games", "Minecraft online"]),
+}
+
+
+CAT_TITLES = {
+    "arcade": "Arcade Games - Play Free Classic Arcade Games Online",
+    "platformer": "Platform Games - Play Free Platformer Games Online",
+    "battle": "Fighting Games - Play Free 2 Player Battle Games",
+    "shooting": "Shooting Games - Play Free Gun Games Online",
+    "racing": "Car Games - Play Free Racing & Driving Games",
+    "casual": "Casual Games - Play Free Relaxing Games Online",
+    "strategy": "Strategy Games - Free Tower Defense & War Games",
+    "sports": "Sports Games - Free Basketball & Soccer Games",
+    "puzzle": "Puzzle Games - Play Free Brain & Logic Games",
+    "idle-clicker": "Clicker Games - Play Free Idle Games Online",
+    "horror": "Horror Games - Play Free Scary Games Online",
+    "minecraft": "Minecraft Games - Play Eaglercraft Free Online",
+}
+
+
 class Copy:
     def __init__(self, games, cats, written):
         self.G = {g["slug"]: g for g in games}
@@ -111,9 +145,15 @@ class Copy:
 
     # --- game pages ---------------------------------------------------------------------------
     def game_title(self, g):
+        """Fits in Google's ~60-character title space: the game name first, then play intent, then the brand."""
         t = g["title"]
-        full = f"{t} - Play Online for Free | ArcadeWebsite"
-        return full if len(full) <= 65 else f"{t} - Play Free Online"
+        for pattern in ("{t} - Play Online for Free | ArcadeWebsite", "{t} - Play Free Online | ArcadeWebsite",
+                        "{t} - Play Free Online", "{t} - Free Online Game"):
+            if len(pattern.format(t=t)) <= 62:
+                return pattern.format(t=t)
+        m = re.match(r"(.*?)(\s*\(Version \d+\))$", t)       # keep "(Version 2)" so versions stay distinct
+        base, suffix = (m.group(1), m.group(2)) if m else (t, "")
+        return clip(base, 48 - len(suffix)) + suffix + " - Play Free"
 
     def game_summary(self, g):
         if g["slug"] in self.written:
@@ -125,13 +165,23 @@ class Copy:
         t, cat = g["title"], NOUN[g["category"]]
         if g["slug"] in self.written:
             lead = first_sentence(self.written[g["slug"]][0])
-            return clip(f"{lead} Play {t} free online, no download needed.", 158)
+            # always a whole sentence, then the longest call to action that still fits in 158 characters
+            for tail in (f" Play {t} free online, no download needed. Works on Chromebook, PC and Mac.",
+                         f" Play {t} free online, no download needed.", " Free online, no download needed.",
+                         " Play free online.", ""):
+                if len(lead) + len(tail) <= 158:
+                    return lead + tail
+            return clip(lead, 158)
         options = [
             f"Play {t} online for free. {t} is a {cat} game that runs right in your browser on ArcadeWebsite, with no download or sign-up needed.",
             f"Play {t} free in your browser. Jump into this {cat} game on ArcadeWebsite instantly, with no download, then discover more {cat} games.",
             f"{t} is a free {cat} game you can play online at ArcadeWebsite. No download, no sign-up: just click Play and start.",
         ]
-        return clip(pick(options, g["slug"]), 158)
+        first = pick(options, g["slug"])
+        for o in [first] + options + [f"Play {t} free online at ArcadeWebsite. No download needed.", f"Play {t} free online. No download needed."]:
+            if len(o) <= 158:
+                return o
+        return clip(f"Play {t} free online.", 158)
 
     def game_paragraphs(self, g, related_titles):
         """The 'About' section: what the game is, plus context that's true for this game."""
@@ -158,8 +208,10 @@ class Copy:
     def game_faq(self, g, related):
         t, cat = g["title"], self.C[g["category"]]
         faq = [
-            (f"Is {t} free to play?", f"Yes. {t} is free to play on ArcadeWebsite, with no sign-up needed."),
-            (f"Do I need to download {t}?", f"No. {t} runs in your web browser. Click Play on this page to start."),
+            (f"Is {t} free to play?", f"Yes. {t} is free to play online on ArcadeWebsite, with no sign-up needed."),
+            (f"Do I need to download {t}?", f"No. {t} runs in your web browser, so there's nothing to download or install. Click Play on this page to start."),
+            (f"Can I play {t} on a Chromebook?", f"Yes. Because {t} plays in the browser, it works on Chromebooks as well as Windows PCs, Macs and most tablets. "
+             "Whether it's unblocked on a school or work network depends on that network's own filters."),
             (f"What kind of game is {t}?", f"{t} is in our {cat['name']} collection of {len(cat['games']):,} free games."),
         ]
         if related:
@@ -167,10 +219,19 @@ class Copy:
         return faq
 
     # --- category pages ------------------------------------------------------------------------
+    def category_keywords(self, c):
+        return CAT_KEYWORDS.get(c["slug"], (f"{c['name']} Games", []))
+
     def category_title(self, c):
-        return f"{c['name']} Games - Play Free Online {c['name']} Games | ArcadeWebsite" if len(c["name"]) < 9 else f"{c['name']} Games - Play Free Online | ArcadeWebsite"
+        """The highest-volume phrase first, then its closest synonyms; the brand only if it still fits."""
+        stem = CAT_TITLES.get(c["slug"], f"{c['name']} Games - Play Free Online")
+        full = f"{stem} | ArcadeWebsite"
+        return full if len(full) <= 65 else stem
 
     def category_meta(self, c):
         top = [self.G[s]["title"] for s in c["games"] if s in self.written][:3]
         extra = f" Includes {', '.join(top)} and more." if top else ""
-        return clip(f"Play {len(c['games']):,} free {c['name'].lower()} games online at ArcadeWebsite, no download needed.{extra}", 158)
+        main, syn = self.category_keywords(c)
+        words = ", ".join([main.lower()] + [s for s in syn[:2]])
+        full = f"Play {len(c['games']):,} free {words} online at ArcadeWebsite. No download needed.{extra}"
+        return full if len(full) <= 158 else clip(f"Play {len(c['games']):,} free {words} online at ArcadeWebsite. No download needed.", 158)

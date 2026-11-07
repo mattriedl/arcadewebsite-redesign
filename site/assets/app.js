@@ -123,8 +123,8 @@
   $$("[data-filter]").forEach(input => {
     const grid = document.getElementById(input.dataset.filter);
     const out = input.parentElement.querySelector("output");
-    const cards = $$(".card", grid);
-    const extras = $$(".ad-tile, .letter-head", grid.parentElement);
+    const cards = $$(".card[data-name]", grid);
+    const extras = $$(".ad-tile, .letter-head, .sponsored", grid.parentElement);
     const total = cards.length;
     input.addEventListener("input", () => {
       const terms = input.value.toLowerCase().trim().split(/\s+/).filter(Boolean);

@@ -1,0 +1,24 @@
+# Security and caching headers. Cloudflare (Pages / Workers static assets) applies this file automatically.
+# For an Apache server, the same headers are in docs/security.md as .htaccess lines.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'; upgrade-insecure-requests; object-src 'none'; base-uri 'self'; form-action 'self'
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), payment=(), usb=(), serial=(), bluetooth=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+/assets/*
+  Cache-Control: public, max-age=300
+
+/thumbnails/*
+  Cache-Control: public, max-age=2592000
+
+/screenshots/*
+  Cache-Control: public, max-age=2592000
+
+/games/*
+  Cache-Control: public, max-age=86400
+  X-Robots-Tag: noindex
