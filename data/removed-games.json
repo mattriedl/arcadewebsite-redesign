@@ -1,8 +1,8 @@
 {
- "_help": "Game pages removed from the site. 'redirects': pages removed because their file couldn't play but a working copy of the same game exists; the old address forwards there. 'broken_flash': games removed completely (their Flash file can't be downloaded); their old addresses show the 404 page.",
+ "_help": "Game pages removed from the site. 'redirects': pages removed because their file couldn't play but a working copy of the same game exists; the old address forwards there. 'broken_flash': games removed completely (their file can't be downloaded or doesn't play); their old addresses show the 404 page.",
  "redirects": {
-  "cookie-clicker-357": "cookie-clicker",
-  "cookie-clicker-359": "cookie-clicker",
+  "cookie-clicker-357": "cookie-clicker-cool",
+  "cookie-clicker-359": "cookie-clicker-cool",
   "papa-pizza-goody": "papa-pizza-goody-933",
   "riddle-transfer-2": "riddle-transfer-2-1129",
   "tanuki-sunset-uhhhh-hhhh": "tanuki-sunset-uhhhh-hhhh-1384",
@@ -36,7 +36,9 @@
   "trollfacequest13": "Trollface Quest 13",
   "bowl-alt": "Bowl (Version 2)",
   "retro-bowl-fixed": "Retro Bowl (Version 2)",
-  "eaglercraft-indev-offline-6": "Eaglercraft Indev Offline (Version 3)"
+  "eaglercraft-indev-offline-6": "Eaglercraft Indev Offline (Version 3)",
+  "cookie-clicker": "Cookie Clicker",
+  "cookie-clicker-358": "Cookie Clicker (Version 3)"
  },
  "broken_flash": {
   "bubble-tanks3": "Bubble Tanks 3",
@@ -56,7 +58,9 @@
   "trollfacequest10": "Trollface Quest 10",
   "trollfacequest11": "Trollface Quest 11",
   "trollfacequest12": "Trollface Quest 12",
-  "trollfacequest13": "Trollface Quest 13"
+  "trollfacequest13": "Trollface Quest 13",
+  "cookie-clicker": "Cookie Clicker",
+  "cookie-clicker-358": "Cookie Clicker (Version 3)"
  },
  "notes": {
   "bowl-alt": "Retro Bowl copy site-locked by Poki: sent the whole window to poki.com",

@@ -7774,60 +7774,6 @@
   ]
  },
  {
-  "slug": "cookie-clicker",
-  "title": "Cookie Clicker",
-  "category": "idle-clicker",
-  "description": "Play Cookie Clicker · Edition 356 free online in the Idle/Clicker collection. Open the embedded player, switch to fullscreen, and discover more idle/clicker games on ArcadeWebsite.",
-  "about": [
-   "Play Cookie Clicker · Edition 356 free online in the Idle/Clicker collection. Open the embedded player, switch to fullscreen, and discover more idle/clicker games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clcookieclicker%281%29.png",
-  "src": "/games/clcookieclicker.html",
-  "related": [
-   "cs-go-clicker",
-   "doge-miner",
-   "dogeminer2",
-   "factory-balls",
-   "factory-balls-2",
-   "factory-balls-3",
-   "factory-balls-4",
-   "hardware-tycoon",
-   "idle-breakout",
-   "idle-dice",
-   "idle-idle-gamedev",
-   "idle-miner-tycoon",
-   "idleminorzamnshes12",
-   "learn-to-fly-idle"
-  ]
- },
- {
-  "slug": "cookie-clicker-358",
-  "title": "Cookie Clicker (Version 3)",
-  "category": "idle-clicker",
-  "description": "Play Cookie Clicker · Edition 358 free online in the Idle/Clicker collection. Open the embedded player, switch to fullscreen, and discover more idle/clicker games on ArcadeWebsite.",
-  "about": [
-   "Play Cookie Clicker · Edition 358 free online in the Idle/Clicker collection. Open the embedded player, switch to fullscreen, and discover more idle/clicker games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clcookieclicker.png",
-  "src": "/games/clcookieclicker.html",
-  "related": [
-   "dogeminer2",
-   "factory-balls",
-   "factory-balls-2",
-   "factory-balls-3",
-   "factory-balls-4",
-   "hardware-tycoon",
-   "idle-breakout",
-   "idle-dice",
-   "idle-idle-gamedev",
-   "idle-miner-tycoon",
-   "idleminorzamnshes12",
-   "learn-to-fly-idle",
-   "mega-miner",
-   "noob-miner"
-  ]
- },
- {
   "slug": "cookie-clicker-cool",
   "title": "Cookie Clicker (Version 5)",
   "category": "idle-clicker",

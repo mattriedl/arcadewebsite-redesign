@@ -15,9 +15,9 @@ These are candidate keywords, chosen because the site has strong games for them 
 | Main keyword | Intent | Games to feature (check they still play) |
 |---|---|---|
 | games like slope | list | slope, slope2-player, run-3, moto-x3m, tunnel-rush, stickman-hook |
-| best free games to play on a chromebook | list | slope, retro-bowl, cookie-clicker, 2048, run-3, smash-karts, paper-io, fireboy-and-water-girl |
+| best free games to play on a chromebook | list | slope, retro-bowl, cookie-clicker-cool, 2048, run-3, smash-karts, paper-io, fireboy-and-water-girl |
 | fireboy and watergirl games in order | guide | fireboy-and-water-girl, fireboy-and-water-girl2, fireboy-and-water-girl3, fireboy-and-water-girl5, fireboy-and-water-girl6 |
-| best idle clicker games online | list | cookie-clicker, spacebar-clicker, and the idle-clicker category |
+| best idle clicker games online | list | cookie-clicker-cool, spacebar-clicker, and the idle-clicker category |
 | best io games to play in browser | list | slither-io, paper-io, hole-io, state-io, territorial-io, smash-karts |
 | moto x3m games in order | guide | moto-x3m, motox3m2, motox3m3, moto-x3m-winter, moto-x3m-pool-party, moto-x3m-spooky-land |
 | retro bowl tips | how-to | retro-bowl |

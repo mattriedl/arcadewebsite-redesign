@@ -1,6 +1,6 @@
 # ArcadeWebsite
 
-> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,536 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
+> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,534 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
 
 ## Categories
 
@@ -13,7 +13,7 @@
 - [Strategy games](https://arcadewebsite.com/category/strategy/): Strategy games reward planning. Build defenses, manage resources, command armies and outthink your opponent in tower defense, real-time strategy and… (56 games)
 - [Sports games](https://arcadewebsite.com/category/sports/): Sports games bring basketball, soccer, football, baseball, golf, tennis and more to your browser. Play realistic matches, arcade-style showdowns or silly… (47 games)
 - [Puzzle games](https://arcadewebsite.com/category/puzzle/): Puzzle games make you think. Merge numbers, roll blocks into holes, sort colors, guess words and solve brain teasers that start easy and get tricky fast. (42 games)
-- [Idle/Clicker games](https://arcadewebsite.com/category/idle-clicker/): Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away. (24 games)
+- [Idle/Clicker games](https://arcadewebsite.com/category/idle-clicker/): Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away. (22 games)
 - [Horror games](https://arcadewebsite.com/category/horror/): Horror games are built to make you jump. Escape haunted houses, survive the night against animatronics and explore unsettling places like the Backrooms. (19 games)
 - [Minecraft games](https://arcadewebsite.com/category/minecraft/): Minecraft-style games let you mine, craft and build in block worlds right in your browser. This collection includes Eaglercraft versions and other… (12 games)
 
@@ -26,7 +26,6 @@
 - [Run 2](https://arcadewebsite.com/game/run2/): Run 2 is the second game in the Run series: guide the alien through space tunnels full of holes, rotating the tunnel to find solid ground.
 - [Run](https://arcadewebsite.com/game/run/): Run is the original space-tunnel runner that started the Run series. Run along the walls of a floating tunnel and jump over the gaps.
 - [2048](https://arcadewebsite.com/game/2048/): 2048 is the classic number puzzle: slide numbered tiles on a 4×4 grid, and when two tiles with the same number touch, they merge into one. Keep…
-- [Cookie Clicker](https://arcadewebsite.com/game/cookie-clicker/): Cookie Clicker is the idle game that made clicking famous. Click the giant cookie to bake, then spend your cookies on cursors, grandmas, farms and…
 - [Moto X3M](https://arcadewebsite.com/game/moto-x3m/): Moto X3M is a stunt bike racing game with short, obstacle-packed levels full of loops, ramps, saws and explosives. Finish fast for three stars, and…
 - [Moto X3M 2](https://arcadewebsite.com/game/motox3m2/): Moto X3M 2 adds new tracks and tougher stunts to the stunt bike series, with more traps and timed jumps to master.
 - [Moto X3M 3](https://arcadewebsite.com/game/motox3m3/): Moto X3M 3 brings another set of stunt bike levels with new obstacles and bike unlocks.
@@ -79,6 +78,7 @@
 - [Earn to Die 2](https://arcadewebsite.com/game/earntodie2/): Earn to Die 2 continues the zombie road trip with new vehicles, longer levels and more upgrades.
 - [Bob the Robber](https://arcadewebsite.com/game/bob-the-robber/): Bob the Robber is a stealth puzzle game: sneak through buildings, avoid guards and cameras, and grab the loot without getting caught.
 - [Raft Wars](https://arcadewebsite.com/game/raft-wars/): Raft Wars is a turn-based shooting game where Simon and his brother defend their buried treasure from raiders on rafts.
+- [Raft Wars 2](https://arcadewebsite.com/game/raftwars2/): Raft Wars 2 sends the brothers to a water park for more turn-based battles, new weapons and upgrades.
 
 ## Blog articles
 
