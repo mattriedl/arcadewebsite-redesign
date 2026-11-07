@@ -1,6 +1,6 @@
 # ArcadeWebsite
 
-> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,534 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
+> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,533 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
 
 ## Categories
 
@@ -13,7 +13,7 @@
 - [Strategy games](https://arcadewebsite.com/category/strategy/): Strategy games reward planning. Build defenses, manage resources, command armies and outthink your opponent in tower defense, real-time strategy and… (56 games)
 - [Sports games](https://arcadewebsite.com/category/sports/): Sports games bring basketball, soccer, football, baseball, golf, tennis and more to your browser. Play realistic matches, arcade-style showdowns or silly… (47 games)
 - [Puzzle games](https://arcadewebsite.com/category/puzzle/): Puzzle games make you think. Merge numbers, roll blocks into holes, sort colors, guess words and solve brain teasers that start easy and get tricky fast. (42 games)
-- [Idle/Clicker games](https://arcadewebsite.com/category/idle-clicker/): Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away. (22 games)
+- [Idle/Clicker games](https://arcadewebsite.com/category/idle-clicker/): Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away. (21 games)
 - [Horror games](https://arcadewebsite.com/category/horror/): Horror games are built to make you jump. Escape haunted houses, survive the night against animatronics and explore unsettling places like the Backrooms. (19 games)
 - [Minecraft games](https://arcadewebsite.com/category/minecraft/): Minecraft-style games let you mine, craft and build in block worlds right in your browser. This collection includes Eaglercraft versions and other… (12 games)
 

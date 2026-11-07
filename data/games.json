@@ -7775,7 +7775,7 @@
  },
  {
   "slug": "cookie-clicker-cool",
-  "title": "Cookie Clicker (Version 5)",
+  "title": "Cookie Clicker",
   "category": "idle-clicker",
   "description": "Play Cookie Clicker Cool free online in the Idle/Clicker collection. Open the embedded player, switch to fullscreen, and discover more idle/clicker games on ArcadeWebsite.",
   "about": [
@@ -7798,33 +7798,6 @@
    "noob-miner",
    "omega-nugget-clicker",
    "room-clicker"
-  ]
- },
- {
-  "slug": "cookie-clicker-good",
-  "title": "Cookie Clicker (Version 6)",
-  "category": "idle-clicker",
-  "description": "Play Cookie Clicker Good free online in the Idle/Clicker collection. Open the embedded player, switch to fullscreen, and discover more idle/clicker games on ArcadeWebsite.",
-  "about": [
-   "Play Cookie Clicker Good free online in the Idle/Clicker collection. Open the embedded player, switch to fullscreen, and discover more idle/clicker games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clcookieclickergood.png",
-  "src": "/games/clcookieclickergood.html",
-  "related": [
-   "factory-balls-3",
-   "factory-balls-4",
-   "hardware-tycoon",
-   "idle-breakout",
-   "idle-dice",
-   "idle-idle-gamedev",
-   "idle-miner-tycoon",
-   "idleminorzamnshes12",
-   "learn-to-fly-idle",
-   "mega-miner",
-   "noob-miner",
-   "omega-nugget-clicker",
-   "room-clicker",
-   "spacebar-clicker"
   ]
  },
  {

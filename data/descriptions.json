@@ -28,10 +28,6 @@
   "2048 is the classic number puzzle: slide numbered tiles on a 4×4 grid, and when two tiles with the same number touch, they merge into one. Keep combining until you build a 2048 tile, or go further for a high score.",
   "Use the arrow keys (or swipe on a touch screen) to move every tile at once. Plan ahead so the board doesn't fill up."
  ],
- "cookie-clicker": [
-  "Cookie Clicker is the idle game that made clicking famous. Click the giant cookie to bake, then spend your cookies on cursors, grandmas, farms and factories that bake even more for you.",
-  "Click the big cookie to start, then buy buildings and upgrades from the store on the right. Your bakery keeps producing while you watch."
- ],
  "moto-x3m": [
   "Moto X3M is a stunt bike racing game with short, obstacle-packed levels full of loops, ramps, saws and explosives. Finish fast for three stars, and flip in the air to cut time off the clock.",
   "Accelerate with the up arrow, brake or reverse with the down arrow, and lean back and forward with the left and right arrows to land safely and do flips."
@@ -683,5 +679,9 @@
  "bubble-tanks2": [
   "Bubble Tanks 2 continues the bubble shooter with new tanks and bigger worlds.",
   "Move with WASD and aim and shoot with the mouse."
+ ],
+ "cookie-clicker-cool": [
+  "Cookie Clicker is the idle game that made clicking famous. Click the giant cookie to bake, then spend your cookies on cursors, grandmas, farms and factories that bake even more for you.",
+  "Click the big cookie to start, then buy buildings and upgrades from the store on the right. Your bakery keeps producing while you watch."
  ]
 }
