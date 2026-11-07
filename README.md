@@ -19,8 +19,10 @@ src/         Styles, scripts, ad settings and the Tag Manager snippet.
 public/      Game files, thumbnails and robots.txt, copied into site/ as-is.
 build.py     Turns data/ + src/ + public/ into site/.
 content.py   Writes page titles, descriptions, how-to-play text and FAQs (see docs/seo.md).
-tools/       seo_check.py checks every page for search engines; indexnow.py notifies Bing.
-docs/        SEO guide, game name changes, copyright review list, files the live site is missing.
+tools/       seo_check.py checks every page for search engines; site_test.py checks pages in Chrome,
+             Firefox and Safari at 8 screen sizes; indexnow.py notifies Bing.
+docs/        SEO guide, security review, game name changes, copyright review list, broken games,
+             files the live site is missing.
 ```
 
 ## Preview it on your computer
@@ -43,6 +45,7 @@ To test on the real server before switching over, upload `site/` to a test locat
 3. Upload everything **inside** `site/` to the web root, replacing the old files. The game files and thumbnails are the same as the live ones.
 4. Point your server's 404 page at `/404.html` if it isn't picked up automatically.
 5. In Google Search Console, resubmit `https://arcadewebsite.com/sitemap.xml`.
+6. Add the security headers. Cloudflare reads `public/_headers` automatically; for Apache, copy the `.htaccess` block in `docs/security.md`.
 
 ## Editing games
 
@@ -92,12 +95,14 @@ Ads come from BannerPromote. Every ad spot reads from `src/assets/ads.js`, which
 | Size | BannerPromote name |
 |---|---|
 | 728×90 | `leaderboard` |
+| 468×60 | `full-banner` (tablets and small laptops, where 728 doesn't fit) |
 | 300×250 | `medium-rectangle` |
 | 300×600 | `half-page` |
 | 160×600 | `skyscraper` |
 | 320×50 | `mobile-banner` |
+| 250×250 | `square` (sponsored tiles, shown at game-card size) |
 
-To show a different banner in one spot, add it under `bySlot`, for example `'game-beside-about': spot('large-rectangle')`. Wide banners swap for a phone-sized spot on small screens (named the same with `-mobile` on the end), and spots that are hidden at the current screen size don't request a banner.
+To show a different banner in one spot, add it under `bySlot`, for example `'game-beside-about': spot('large-rectangle')`. Wide banners swap for a phone-sized spot on small screens (named the same with `-mobile` on the end, and `-tablet` for the 468×60 in-between size), and spots that are hidden at the current screen size don't request a banner.
 
 | Page | Spot name | Size |
 |---|---|---|
@@ -113,6 +118,7 @@ To show a different banner in one spot, add it under `bySlot`, for example `'gam
 | Category | `category-below-header`, `category-bottom` / `-mobile` | 728×90 / 320×50 |
 | Category | `category-side-top`, `category-side` | 300×600, 300×250 |
 | Category | `category-in-grid-N` / `-mobile` (every 20 games) | 728×90 / 300×250 |
+| Category | `category-sponsored-N` (sponsored tiles in the game grid, 6th, 28th and 50th spot, labeled "Ad") | 250×250 scaled to card size |
 | All games | `all-side-top`, `all-side` | 300×600, 300×250 |
 | All games | `all-in-grid-N` / `-mobile` (every 60 games on a letter page) | 728×90 / 300×250 |
 | Search | `search-side-top`, `search-side`, `search-bottom` | 300×600, 300×250, 728×90 |
