@@ -1,0 +1,114 @@
+<title>ArcadeWebsite Banner Ads</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;700&family=Unbounded:wght@700;800&display=swap">
+<style>
+/* Layout: one row per banner size, static and animated side by side on the site's arcade-night palette */
+:root {
+  --ink: #12142e; --deck: #1a1d40; --line: #30356b; --text: #f2f3ff; --muted: #a8acd8; --coin: #ffc83d;
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif; --body: "Onest", system-ui, sans-serif;
+  color-scheme: dark;
+}
+body { background: var(--ink); color: var(--text); font: 400 15px/1.5 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 56px; }
+.wrap { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+.intro h1 { font: 800 clamp(1.6rem, 1.1rem + 2vw, 2.4rem)/1.1 var(--display); text-wrap: balance; }
+.intro h1 span { color: var(--coin); }
+.intro p { color: var(--muted); max-width: 66ch; margin-top: 10px; }
+.intro ul { color: var(--muted); max-width: 66ch; margin: 12px 0 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px; }
+.size { display: flex; flex-direction: column; gap: 14px; padding-top: 28px; border-top: 1px solid var(--line); }
+.size header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; }
+.size h2 { font: 700 1.05rem/1.2 var(--display); }
+.size header p { display: flex; gap: 10px; align-items: baseline; }
+.dim { color: var(--muted); font-variant-numeric: tabular-nums; }
+code { font: 600 .82rem/1 ui-monospace, Menlo, monospace; color: var(--coin); background: var(--deck); padding: 4px 8px; border-radius: 6px; }
+.pair { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.wide .pair { flex-direction: column; }
+figure { margin: 0; display: flex; flex-direction: column; gap: 8px; min-width: 0; max-width: 100%; }
+.frame { background: var(--deck); box-shadow: 0 0 0 1px var(--line); }
+.frame img { display: block; width: 100%; height: auto; }
+figcaption { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: .9rem; }
+.replay { font: 600 .8rem/1 var(--body); color: var(--ink); background: var(--coin); border: 0; border-radius: 99px; padding: 6px 12px; cursor: pointer; }
+.replay:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+</style>
+<div class="wrap">
+  <div class="intro">
+    <h1>Insert coin? <span>Nope. Free.</span></h1>
+    <p>Banner ads for arcadewebsite.com in all eight BannerPromote sizes, each as a static PNG and an animated GIF. Every file is under 150 KB.</p>
+    <ul>
+      <li>The animation runs about 5 seconds: a coin drops into the slot, “Free play!” stamps in, a counter rolls up to 1,562 games, and the button pulses.</li>
+      <li>It plays three times (about 15 seconds) and stops on the “Play free” frame, which fits common ad network rules.</li>
+    </ul>
+  </div>
+  <section class="size wide" aria-labelledby="h-leaderboard">
+  <header><h2 id="h-leaderboard">Leaderboard</h2><p><span class="dim">728 × 90</span> <code>leaderboard</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:728px;max-width:100%;aspect-ratio:728/90"><img src="banners/leaderboard-728x90-static.png" width="728" height="90" alt="Leaderboard static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">47 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:728px;max-width:100%;aspect-ratio:728/90"><img class="anim" data-src="banners/leaderboard-728x90-animated.gif" src="banners/leaderboard-728x90-animated.gif" width="728" height="90" alt="Leaderboard animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">123 KB</span> <button type="button" class="replay" aria-label="Replay the Leaderboard animation">Replay</button></figcaption></figure>
+  </div>
+</section><section class="size wide" aria-labelledby="h-full-banner">
+  <header><h2 id="h-full-banner">Full Banner</h2><p><span class="dim">468 × 60</span> <code>full-banner</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:468px;max-width:100%;aspect-ratio:468/60"><img src="banners/full-banner-468x60-static.png" width="468" height="60" alt="Full Banner static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">28 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:468px;max-width:100%;aspect-ratio:468/60"><img class="anim" data-src="banners/full-banner-468x60-animated.gif" src="banners/full-banner-468x60-animated.gif" width="468" height="60" alt="Full Banner animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">76 KB</span> <button type="button" class="replay" aria-label="Replay the Full Banner animation">Replay</button></figcaption></figure>
+  </div>
+</section><section class="size wide" aria-labelledby="h-mobile-banner">
+  <header><h2 id="h-mobile-banner">Mobile Banner</h2><p><span class="dim">320 × 50</span> <code>mobile-banner</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:320px;max-width:100%;aspect-ratio:320/50"><img src="banners/mobile-banner-320x50-static.png" width="320" height="50" alt="Mobile Banner static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">16 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:320px;max-width:100%;aspect-ratio:320/50"><img class="anim" data-src="banners/mobile-banner-320x50-animated.gif" src="banners/mobile-banner-320x50-animated.gif" width="320" height="50" alt="Mobile Banner animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">48 KB</span> <button type="button" class="replay" aria-label="Replay the Mobile Banner animation">Replay</button></figcaption></figure>
+  </div>
+</section><section class="size box" aria-labelledby="h-medium-rectangle">
+  <header><h2 id="h-medium-rectangle">Medium Rectangle</h2><p><span class="dim">300 × 250</span> <code>medium-rectangle</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:300px;max-width:100%;aspect-ratio:300/250"><img src="banners/medium-rectangle-300x250-static.png" width="300" height="250" alt="Medium Rectangle static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">55 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:300px;max-width:100%;aspect-ratio:300/250"><img class="anim" data-src="banners/medium-rectangle-300x250-animated.gif" src="banners/medium-rectangle-300x250-animated.gif" width="300" height="250" alt="Medium Rectangle animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">103 KB</span> <button type="button" class="replay" aria-label="Replay the Medium Rectangle animation">Replay</button></figcaption></figure>
+  </div>
+</section><section class="size box" aria-labelledby="h-large-rectangle">
+  <header><h2 id="h-large-rectangle">Large Rectangle</h2><p><span class="dim">336 × 280</span> <code>large-rectangle</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:336px;max-width:100%;aspect-ratio:336/280"><img src="banners/large-rectangle-336x280-static.png" width="336" height="280" alt="Large Rectangle static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">63 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:336px;max-width:100%;aspect-ratio:336/280"><img class="anim" data-src="banners/large-rectangle-336x280-animated.gif" src="banners/large-rectangle-336x280-animated.gif" width="336" height="280" alt="Large Rectangle animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">113 KB</span> <button type="button" class="replay" aria-label="Replay the Large Rectangle animation">Replay</button></figcaption></figure>
+  </div>
+</section><section class="size box" aria-labelledby="h-square">
+  <header><h2 id="h-square">Square</h2><p><span class="dim">250 × 250</span> <code>square</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:250px;max-width:100%;aspect-ratio:250/250"><img src="banners/square-250x250-static.png" width="250" height="250" alt="Square static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">47 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:250px;max-width:100%;aspect-ratio:250/250"><img class="anim" data-src="banners/square-250x250-animated.gif" src="banners/square-250x250-animated.gif" width="250" height="250" alt="Square animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">85 KB</span> <button type="button" class="replay" aria-label="Replay the Square animation">Replay</button></figcaption></figure>
+  </div>
+</section><section class="size tall" aria-labelledby="h-half-page">
+  <header><h2 id="h-half-page">Half Page</h2><p><span class="dim">300 × 600</span> <code>half-page</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:300px;max-width:100%;aspect-ratio:300/600"><img src="banners/half-page-300x600-static.png" width="300" height="600" alt="Half Page static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">104 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:300px;max-width:100%;aspect-ratio:300/600"><img class="anim" data-src="banners/half-page-300x600-animated.gif" src="banners/half-page-300x600-animated.gif" width="300" height="600" alt="Half Page animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">149 KB</span> <button type="button" class="replay" aria-label="Replay the Half Page animation">Replay</button></figcaption></figure>
+  </div>
+</section><section class="size tall" aria-labelledby="h-skyscraper">
+  <header><h2 id="h-skyscraper">Skyscraper</h2><p><span class="dim">160 × 600</span> <code>skyscraper</code></p></header>
+  <div class="pair">
+    <figure><div class="frame" style="width:160px;max-width:100%;aspect-ratio:160/600"><img src="banners/skyscraper-160x600-static.png" width="160" height="600" alt="Skyscraper static banner: Insert coin? Nope. Free. 1,562 browser games, Play free"></div>
+      <figcaption>Static PNG <span class="dim">66 KB</span></figcaption></figure>
+    <figure><div class="frame" style="width:160px;max-width:100%;aspect-ratio:160/600"><img class="anim" data-src="banners/skyscraper-160x600-animated.gif" src="banners/skyscraper-160x600-animated.gif" width="160" height="600" alt="Skyscraper animated banner: a coin drops into a slot, Free play, 1,562 games, Play free"></div>
+      <figcaption>Animated GIF <span class="dim">110 KB</span> <button type="button" class="replay" aria-label="Replay the Skyscraper animation">Replay</button></figcaption></figure>
+  </div>
+</section>
+</div>
+<script>
+document.querySelectorAll(".replay").forEach(b => b.addEventListener("click", () => {
+  const img = b.closest("figure").querySelector("img.anim");
+  img.src = img.dataset.src + "?r=" + Date.now();
+}));
+</script>

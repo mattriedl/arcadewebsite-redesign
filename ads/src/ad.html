@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ArcadeWebsite banner</title>
+<link rel="stylesheet" href="fonts.css">
+<style>
+  /* Brand palette from the site */
+  :root {
+    --ink: #12142e; --deck: #1a1d40; --rail: #24285a; --text: #f2f3ff; --muted: #b9bce6;
+    --coin: #ffc83d; --coin-dark: #c98a00; --coin-ink: #2a1d00;
+    --pink: #ff5c8a; --teal: #22d3b6; --orange: #ff8a3d; --blue: #3d9bff; --purple: #b07cff; --green: #9ad94a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: var(--w); height: var(--h); overflow: hidden; background: var(--ink); }
+  body { font-family: "Onest", sans-serif; color: var(--text); -webkit-font-smoothing: antialiased; }
+
+  .ad { position: relative; width: var(--w); height: var(--h); overflow: hidden;
+        background: radial-gradient(120% 90% at 50% 0%, #2a2470 0%, var(--ink) 62%); }
+  /* faint arcade grid floor */
+  .floor { position: absolute; inset: auto 0 0 0; height: 45%; opacity: .35;
+           background:
+             repeating-linear-gradient(90deg, transparent 0 calc(var(--u) * 7 - 1px), var(--purple) calc(var(--u) * 7 - 1px) calc(var(--u) * 7)),
+             repeating-linear-gradient(0deg, transparent 0 calc(var(--u) * 5 - 1px), var(--purple) calc(var(--u) * 5 - 1px) calc(var(--u) * 5));
+           -webkit-mask: linear-gradient(transparent, #000); mask: linear-gradient(transparent, #000); }
+
+  /* Marquee lights around the edge */
+  .bulbs { position: absolute; inset: 0; pointer-events: none; }
+  .bulb { position: absolute; width: var(--bs); height: var(--bs); border-radius: 50%; background: #5a4a20; }
+  .bulb.on { background: #fff4c2; box-shadow: 0 0 calc(var(--bs) * .6) calc(var(--bs) * .2) var(--coin); }
+  .frame { position: absolute; inset: calc(var(--bs) * 2.2); border: 1px solid rgba(255, 200, 61, .25); border-radius: calc(var(--u) * 3); }
+
+  /* Coin slot unit */
+  .slot { position: absolute; border-radius: calc(var(--s) * .14);
+          background: linear-gradient(180deg, #3a3f86, #1d2150); box-shadow: inset 0 0 0 calc(var(--s) * .03) #5c63b8, 0 calc(var(--s) * .05) 0 #0b0c22; }
+  .slot .mouth { position: absolute; left: 50%; top: 56%; width: 62%; height: 8%; translate: -50% 0; border-radius: 99px; z-index: 2;
+                 background: #050616; box-shadow: inset 0 0 0 calc(var(--s) * .02) #8a90e0, 0 0 0 calc(var(--s) * .05) #2a2f6e; }
+  .slot .label { position: absolute; left: 0; right: 0; bottom: 12%; text-align: center; font: 800 calc(var(--s) * .12)/1 "Unbounded";
+                 letter-spacing: .04em; color: #6c72c4; }
+  .slot.lit .label { color: var(--coin); text-shadow: 0 0 calc(var(--s) * .08) var(--coin); }
+  .slot.lit .mouth { box-shadow: inset 0 0 0 calc(var(--s) * .02) #fff4c2, 0 0 calc(var(--s) * .2) calc(var(--s) * .05) var(--coin); }
+  .coin-clip { position: absolute; left: -200%; right: -200%; top: -400%; bottom: 40%; overflow: hidden; }   /* hides the coin below the slit */
+  .coin-clip .coin { left: 50%; }
+  .coin { position: absolute; left: 50%; width: calc(var(--s) * .46); height: calc(var(--s) * .46); translate: -50% 0; border-radius: 50%;
+          background: radial-gradient(circle at 35% 30%, #fff1b0 0 12%, var(--coin) 13% 62%, var(--coin-dark) 63% 100%);
+          box-shadow: 0 0 calc(var(--s) * .12) rgba(255, 200, 61, .7), inset 0 0 0 calc(var(--s) * .025) #ffe17a;
+          display: grid; place-items: center; font: 800 calc(var(--s) * .24)/1 "Unbounded"; color: var(--coin-ink); }
+
+  /* Messages (stacked; the script shows one at a time) */
+  .stage { position: absolute; }
+  .msg { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: calc(var(--u) * 1.2); }
+  .big { font: 800 var(--fb)/1.02 "Unbounded"; letter-spacing: -0.01em; text-transform: uppercase; }
+  .small { font: 600 var(--fs)/1.25 "Onest"; color: var(--muted); }
+  .y { color: var(--coin); text-shadow: 0 0 calc(var(--fb) * .35) rgba(255, 200, 61, .55); }
+  .stamp { display: inline-block; align-self: var(--align, flex-start); margin-bottom: .12em; padding: .12em .42em .16em; border: .09em solid var(--coin); border-radius: .22em;
+           color: var(--coin); transform: rotate(-4deg); box-shadow: 0 0 calc(var(--fb) * .4) rgba(255, 200, 61, .45), inset 0 0 calc(var(--fb) * .3) rgba(255, 200, 61, .35); }
+
+  /* Category chips */
+  .chips { position: absolute; display: flex; flex-wrap: wrap; gap: calc(var(--u) * 1.4); }
+  .chip { font: 700 var(--fc)/1 "Onest"; padding: .45em .8em; border-radius: 99px; color: var(--ink); white-space: nowrap; }
+
+  /* Call to action */
+  .cta { position: absolute; display: flex; align-items: center; justify-content: center; gap: .45em; border-radius: 99px;
+         background: var(--coin); color: var(--coin-ink); font: 800 var(--fcta)/1 "Unbounded"; letter-spacing: .02em;
+         box-shadow: 0 calc(var(--fcta) * .25) 0 var(--coin-dark), 0 0 calc(var(--fcta) * 1.2) rgba(255, 200, 61, .45); white-space: nowrap; }
+  .cta svg { width: .8em; height: .8em; }
+  .domain { position: absolute; font: 700 var(--fd)/1 "Onest"; color: var(--text); opacity: .85; letter-spacing: .01em; white-space: nowrap; }
+  .logo { position: absolute; display: flex; align-items: center; gap: .4em; font: 800 var(--fl)/1 "Unbounded"; white-space: nowrap; }
+  .logo svg { width: 1.6em; height: 1.6em; }
+  .logo span { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="ad" id="ad">
+  <div class="floor"></div>
+  <div class="frame"></div>
+  <div class="bulbs" id="bulbs"></div>
+  <div class="logo" id="logo"><svg viewBox="0 0 40 40"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff5c8a"/><stop offset="1" stop-color="#8e7cff"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lg)"/><circle cx="20" cy="20" r="11" fill="#ffc83d"/><path d="M15 26l5-13 5 13M16.8 21.5h6.4" fill="none" stroke="#2a1d00" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><b style="font-weight:inherit">Arcade<span>Website</span></b></div>
+  <div class="slot" id="slot"><div class="mouth"></div><div class="coin-clip"><div class="coin" id="coin">A</div></div><div class="label" id="slotlabel">25¢</div></div>
+  <div class="stage" id="stage">
+    <div class="msg" id="m1"><div class="big">Insert<br>coin</div><div class="small" id="m1s">Ready, player one?</div></div>
+    <div class="msg" id="m2"><div class="big"><span class="stamp">Free play!</span></div><div class="small">No coins. No catch.</div></div>
+    <div class="msg" id="m3"><div class="big"><span class="y" id="count">1,562</span> games</div><div class="small">No downloads. No sign-up.</div></div>
+    <div class="msg" id="m4"><div class="big">Your next<br><span class="y">high score</span></div><div class="small">is one click away.</div></div>
+    <div class="msg" id="ms"><div class="big">Insert coin?<br><span class="y">Nope. Free.</span></div><div class="small">1,562 browser games. No downloads.</div></div>
+  </div>
+  <div class="chips" id="chips">
+    <span class="chip" style="background:var(--pink)">Arcade</span><span class="chip" style="background:var(--blue)">Racing</span>
+    <span class="chip" style="background:var(--teal)">Platformer</span><span class="chip" style="background:var(--orange)">Battle</span>
+    <span class="chip" style="background:var(--purple)">Puzzle</span><span class="chip" style="background:var(--green)">Sports</span>
+  </div>
+  <div class="cta" id="cta">Play free<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg></div>
+  <div class="domain" id="domain">arcadewebsite.com</div>
+</div>
+
+<script>
+/* ---------- Layout for each banner size ---------- */
+const P = new URLSearchParams(location.search);
+const W = +P.get("w"), H = +P.get("h");
+const root = document.documentElement.style;
+root.setProperty("--w", W + "px"); root.setProperty("--h", H + "px");
+root.setProperty("--u", Math.min(W, H) / 100 + "px");
+const $ = id => document.getElementById(id);
+const place = (id, x, y, w, h) => { const s = $(id).style; s.left = x + "px"; s.top = y + "px"; if (w != null) s.width = w + "px"; if (h != null) s.height = h + "px"; };
+const hide = (...ids) => ids.forEach(i => $(i).style.display = "none");
+let chipsShown = 6;
+
+// L: per-size settings. bs = bulb size, s = coin slot size, fb/fs = big/small text, fc = chip text, fcta, fd = domain, fl = logo
+const L = {
+  "728x90":  { bs: 4, s: 62, fb: 22, fs: 13, fc: 11, fcta: 16, fd: 12, chips: 0 },
+  "468x60":  { bs: 3, s: 42, fb: 15, fs: 10, fc: 9,  fcta: 12, fd: 10, chips: 0 },
+  "320x50":  { bs: 2.5, s: 34, fb: 11, fs: 8.5, fc: 8, fcta: 10, fd: 8, chips: 0 },
+  "300x250": { bs: 4, s: 84, fb: 19, fs: 12, fc: 10, fcta: 15, fd: 10, fl: 11, chips: 4 },
+  "336x280": { bs: 4, s: 96, fb: 21, fs: 13, fc: 11, fcta: 16, fd: 11, fl: 12, chips: 4 },
+  "250x250": { bs: 3.5, s: 64, fb: 18, fs: 11, fc: 9,  fcta: 13, fd: 9,  fl: 10, chips: 3 },
+  "160x600": { bs: 3.5, s: 84, fb: 20, fs: 12, fc: 11, fcta: 14, fd: 10, fl: 10, chips: 6 },
+  "300x600": { bs: 4.5, s: 120, fb: 32, fs: 16, fc: 14, fcta: 20, fd: 14, fl: 15, chips: 6 },
+};
+const c = L[W + "x" + H];
+for (const k of ["bs", "s", "fb", "fs", "fc", "fcta", "fd", "fl"]) if (c[k]) root.setProperty("--" + k, c[k] + "px");
+const pad = c.bs * 4.5;                       // space inside the marquee lights
+const S = c.s;
+
+if (H <= 90) {                                // wide banners: slot | message | button
+  const ctaW = W >= 700 ? 168 : W >= 460 ? 112 : 84, ctaH = Math.round(H * .5);
+  place("slot", pad, (H - S) / 2, S, S);
+  place("cta", W - pad - ctaW, (H - ctaH) / 2 - (W >= 700 ? 6 : 3), ctaW, ctaH);
+  const dx = W - pad - ctaW;
+  place("domain", dx, (H + ctaH) / 2 + (W >= 700 ? 3 : 1));
+  $("domain").style.width = ctaW + "px"; $("domain").style.textAlign = "center";
+  if (W < 460) hide("domain");
+  place("stage", pad + S + pad * .9, pad * .4, dx - (pad + S + pad * .9) - pad * .8, H - pad * .8);
+  hide("logo", "chips");
+  document.querySelectorAll(".big br").forEach(b => b.replaceWith(" "));
+  if (W < 400) { $("ms").querySelector(".big").innerHTML = 'Insert coin? <span class="y">Nah.</span>'; $("ms").querySelector(".small").textContent = ""; $("ms").insertAdjacentHTML("beforeend", '<div class="big" style="font-size:var(--fs);font-family:Onest;text-transform:none;color:var(--muted)">1,562 games, all free</div>'); }
+  if (W < 460) { $("m1s").textContent = ""; document.querySelectorAll(".small").forEach(e => e.style.display = W < 400 ? "none" : ""); }
+} else if (H >= 600) {                         // tall banners: logo, slot, message, chips, button
+  root.setProperty("--align", "center");
+  const inner = W - pad * 2;
+  place("logo", 0, pad + 6, W); $("logo").style.justifyContent = "center";
+  const slotY = pad + 6 + c.fl * 1.6 + (W > 200 ? 30 : 22);
+  place("slot", (W - S) / 2, slotY, S, S);
+  const stY = slotY + S + (W > 200 ? 26 : 18), stH = W > 200 ? 170 : 150;
+  place("stage", pad, stY, inner, stH);
+  document.querySelectorAll(".msg").forEach(m => { m.style.alignItems = "center"; m.style.textAlign = "center"; });
+  const chY = stY + stH + (W > 200 ? 14 : 10);
+  place("chips", pad, chY, inner); $("chips").style.justifyContent = "center";
+  const ctaH = Math.round(c.fcta * 3), ctaW = Math.min(inner, W > 200 ? 220 : 128);
+  place("cta", (W - ctaW) / 2, H - pad - 22 - ctaH, ctaW, ctaH);
+  place("domain", 0, H - pad - 14, W); $("domain").style.textAlign = "center";
+} else {                                       // boxes: logo, slot + message, chips, button
+  const inner = W - pad * 2;
+  place("logo", pad + 2, pad + 2);
+  place("slot", pad + 2, pad + c.fl * 1.6 + 14, S, S);
+  const stX = pad + 2 + S + 14;
+  place("stage", stX, pad + c.fl * 1.6 + 14, W - stX - pad, S);
+  const ctaH = Math.round(c.fcta * 2.9), ctaW = Math.round(inner * .58);
+  const rowEnd = pad + c.fl * 1.6 + 14 + S, ctaTop = H - pad - 4 - ctaH;
+  const chY = rowEnd + (ctaTop - rowEnd - c.fc * 2.2) / 2;
+  place("chips", pad + 2, chY, inner);
+  place("cta", pad + 2, H - pad - 4 - ctaH, ctaW, ctaH);
+  place("domain", pad + 2 + ctaW + 10, H - pad - 4 - ctaH / 2 - c.fd / 2);
+  $("domain").style.width = (inner - ctaW - 10) + "px"; $("domain").style.textAlign = "center"; $("domain").style.whiteSpace = "normal";
+  $("domain").innerHTML = "arcade<br>website.com";
+  $("domain").style.lineHeight = "1.25";
+}
+[...$("chips").children].forEach((ch, i) => { if (i >= c.chips) ch.style.display = "none"; });
+
+/* Marquee bulbs evenly spaced around the edge */
+const bulbs = [];
+{
+  const g = c.bs * 3.2, m = c.bs * .8;
+  const perim = [];
+  for (let x = m; x <= W - m - c.bs; x += g) perim.push([x, m]);
+  for (let y = m + g; y <= H - m - c.bs; y += g) perim.push([W - m - c.bs, y]);
+  for (let x = W - m - c.bs - g; x >= m; x -= g) perim.push([x, H - m - c.bs]);
+  for (let y = H - m - c.bs - g; y > m; y -= g) perim.push([m, y]);
+  for (const [x, y] of perim) { const b = document.createElement("div"); b.className = "bulb"; b.style.left = x + "px"; b.style.top = y + "px"; $("bulbs").append(b); bulbs.push(b); }
+}
+
+/* ---------- Animation: render(t) draws the ad at time t (seconds) ---------- */
+const T = 5.0;
+const clamp = v => Math.max(0, Math.min(1, v));
+const ease = v => 1 - Math.pow(1 - clamp(v), 3);
+const easeIn = v => Math.pow(clamp(v), 2);
+const back = v => { v = clamp(v); const k = 1.9; return 1 + (k + 1) * Math.pow(v - 1, 3) + k * Math.pow(v - 1, 2); };
+function show(id, a, scale = 1, dy = 0) { const s = $(id).style; s.opacity = a; s.transform = `translateY(${dy}px) scale(${scale})`; s.transformOrigin = H >= 600 ? "center" : "left center"; }
+function chase(t) { const step = Math.floor(t * 3); bulbs.forEach((b, i) => b.classList.toggle("on", (i + step) % 3 === 0)); }
+
+window.render = function (t) {
+  chase(t);
+  ["m1", "m2", "m3", "m4", "ms"].forEach(id => show(id, 0));
+  // coin drops into the slot
+  const coin = $("coin").style;
+  const drop = easeIn((t - .2) / .7);                     // 0.2s – 0.9s
+  const off = S * 4;                                       // coin-clip box starts 4 slot-heights above the slot
+  const coinTop = off - S * .9 + drop * (S * .9 + S * .6); // ends sunk into the slit
+  coin.top = coinTop + "px";
+  coin.opacity = 1;
+  coin.transform = `rotateY(${(1 - drop) * 720}deg)`;
+  const lit = t >= 1.0;
+  $("slot").classList.toggle("lit", lit);
+  $("slotlabel").textContent = lit ? "FREE" : "25¢";
+  if (t < 1.0) {
+    show("m1", Math.floor(t * 4) % 2 === 0 ? 1 : .25);
+  } else if (t < 2.1) {
+    show("m2", ease((t - 1.0) / .12), 1 + (1 - back((t - 1.0) / .3)) * .6);
+  } else if (t < 3.55) {
+    const k = ease((t - 2.1) / .8);
+    $("count").textContent = Math.round(1562 * k).toLocaleString("en-US");
+    show("m3", ease((t - 2.1) / .2), 1, (1 - ease((t - 2.1) / .25)) * 8);
+  } else {
+    show("m4", ease((t - 3.55) / .25), 1, (1 - ease((t - 3.55) / .3)) * 8);
+  }
+  // chips pop in one by one and then stay
+  [...$("chips").children].forEach((ch, i) => {
+    const k = back((t - 2.35 - i * .12) / .3);
+    ch.style.opacity = clamp((t - 2.35 - i * .12) / .1);
+    ch.style.transform = `scale(${Math.max(0, k)})`;
+  });
+  // button: always visible, gives a "press" bounce at the end
+  const pulse = t > 3.6 ? Math.sin(clamp((t - 3.6) / 1.2) * Math.PI * 3) : 0;
+  $("cta").style.transform = `scale(${1 + Math.max(0, pulse) * .07})`;
+};
+
+/* The static banner: everything at once, with the coin halfway into the slot */
+window.renderStatic = function () {
+  chase(0);
+  bulbs.forEach((b, i) => b.classList.toggle("on", i % 2 === 0));
+  ["m1", "m2", "m3", "m4"].forEach(id => show(id, 0));
+  show("ms", 1);
+  $("slot").classList.add("lit"); $("slotlabel").textContent = "FREE";
+  const coin = $("coin").style; coin.top = (S * 4 + S * .56 - S * .46 * .62) + "px"; coin.opacity = 1; coin.transform = "none";
+  [...$("chips").children].forEach(ch => { ch.style.opacity = 1; ch.style.transform = "none"; });
+  $("cta").style.transform = "none";
+};
+window.DURATION = T;
+</script>
+</body>
+</html>
