@@ -1,0 +1,17 @@
+{
+ "_help": "Game pages that were removed because their game file couldn't play (a Word document or a duplicate). Each old address now sends visitors and search engines to the working version.",
+ "redirects": {
+  "cookie-clicker-357": "cookie-clicker",
+  "cookie-clicker-359": "cookie-clicker",
+  "papa-pizza-goody": "papa-pizza-goody-933",
+  "riddle-transfer-2": "riddle-transfer-2-1129",
+  "tanuki-sunset-uhhhh-hhhh": "tanuki-sunset-uhhhh-hhhh-1384"
+ },
+ "old_titles": {
+  "cookie-clicker-357": "Cookie Clicker (Version 2)",
+  "cookie-clicker-359": "Cookie Clicker (Version 4)",
+  "papa-pizza-goody": "Papa's Pizzeria (Version 2)",
+  "riddle-transfer-2": "Riddle Transfer 2",
+  "tanuki-sunset-uhhhh-hhhh": "Tanuki Sunset (Version 2)"
+ }
+}

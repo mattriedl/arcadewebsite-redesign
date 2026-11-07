@@ -747,6 +747,28 @@ def page_404():
     write("/404.html", head(f"Page not found | {BRAND}", "This page could not be found.", "/404.html", robots="noindex") + header() + body + footer())
 
 
+
+def page_redirects():
+    """Removed games: their old address sends people (and search engines) to the working version."""
+    p = ROOT / "data" / "removed-games.json"
+    if not p.exists():
+        return
+    d = json.loads(p.read_text(encoding="utf-8"))
+    for old, new in d["redirects"].items():
+        if new not in G:
+            continue
+        g, to = G[new], f"/game/{new}/"
+        h = head(f'{g["title"]} - Play Online for Free | {BRAND}', COPY.game_meta(g), f"/game/{old}/", g["thumbnail"],
+                 robots="noindex,follow", canonical=to)
+        h = h.replace("<meta charset=\"utf-8\">", f'<meta charset="utf-8">\n<meta http-equiv="refresh" content="0; url={to}">', 1)
+        body = f"""<main id="main"><div class="wrap">
+  <h1 style="margin-top:28px">This game has moved</h1>
+  <p class="lede">Play it here: <a href="{to}">{e(g['title'])}</a>.</p>
+</div></main>
+<script>location.replace({json.dumps(to)});</script>
+"""
+        write(f"/game/{old}/", h + header() + body + footer())
+
 def page_html_sitemap():
     path = "/sitemap/"
     blocks = []
@@ -864,6 +886,7 @@ def main():
     page_search()
     page_404()
     page_html_sitemap()
+    page_redirects()
     data_files(rot)
     n = sum(1 for _ in OUT.rglob("index.html"))
     print(f"Built {n} pages into {OUT}/ ({TOTAL} games, {len(cats)} categories).")

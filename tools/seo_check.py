@@ -74,8 +74,9 @@ sitemap = re.findall(r"<loc>([^<]+)</loc>", (ROOT / "sitemap.xml").read_text())
 page_locs = [u for u in sitemap if "/thumbnails/" not in u]
 rp = urllib.robotparser.RobotFileParser(); rp.parse((ROOT / "robots.txt").read_text().splitlines())
 
-titles = Counter(p.title for p in pages.values())
-descs = Counter(p.meta.get("description", "") for p in pages.values())
+shown = [p for p in pages.values() if "noindex" not in p.meta.get("robots", "")]   # pages search engines may list
+titles = Counter(p.title for p in shown)
+descs = Counter(p.meta.get("description", "") for p in shown)
 stats = Counter(); words = []
 for url, p in pages.items():
     robots = p.meta.get("robots", "")
