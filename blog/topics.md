@@ -7,6 +7,7 @@ One row per keyword. Check here first so no two posts target the same search.
 | Date | Main keyword | Post |
 |---|---|---|
 | 2026-11-06 | 2 player games on one keyboard | /blog/best-2-player-games-one-keyboard/ |
+| 2026-11-07 | games like snow rider 3d | /blog/games-like-snow-rider-3d/ |
 
 ## Backlog
 
