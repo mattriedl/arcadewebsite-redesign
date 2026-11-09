@@ -115,16 +115,16 @@ CAT_KEYWORDS = {
 CAT_TITLES = {
     "arcade": "Arcade Games - Play Free Classic Arcade Games Online",
     "platformer": "Platform Games - Play Free Platformer Games Online",
-    "battle": "Fighting Games - Play Free 2 Player Battle Games",
-    "shooting": "Shooting Games - Play Free Gun Games Online",
-    "racing": "Car Games - Play Free Racing & Driving Games",
+    "battle": "Fighting Games Unblocked - Free 2 Player Battle Games",
+    "shooting": "Shooting Games Unblocked - Free Gun Games Online",
+    "racing": "Car Games Unblocked - Free Racing & Driving Games",
     "casual": "Casual Games - Play Free Relaxing Games Online",
-    "strategy": "Strategy Games - Free Tower Defense & War Games",
-    "sports": "Sports Games - Free Basketball & Soccer Games",
+    "strategy": "Tower Defense Games - Free Strategy & War Games",
+    "sports": "Sports Games Unblocked - Free Football & Basketball",
     "puzzle": "Puzzle Games - Play Free Brain & Logic Games",
-    "idle-clicker": "Clicker Games - Play Free Idle Games Online",
+    "idle-clicker": "Clicker Games Unblocked - Free Idle Games Online",
     "horror": "Horror Games - Play Free Scary Games Online",
-    "minecraft": "Minecraft Games - Play Eaglercraft Free Online",
+    "minecraft": "Eaglercraft Unblocked - Play Minecraft Free Online",
 }
 
 
@@ -147,8 +147,10 @@ class Copy:
     def game_title(self, g):
         """Fits in Google's ~60-character title space: the game name first, then play intent, then the brand."""
         t = g["title"]
-        for pattern in ("{t} - Play Online for Free | ArcadeWebsite", "{t} - Play Free Online | ArcadeWebsite",
-                        "{t} - Play Free Online", "{t} - Free Online Game"):
+        # "<game> unblocked" is often searched more than the name alone, and those results are winnable
+        for pattern in ("{t} Unblocked - Play Free Online | ArcadeWebsite", "{t} Unblocked - Play Free | ArcadeWebsite",
+                        "{t} Unblocked - Play Free Online", "{t} Unblocked - Free Online Game",
+                        "{t} - Play Free Online | ArcadeWebsite", "{t} - Play Free Online", "{t} - Free Online Game"):
             if len(pattern.format(t=t)) <= 62:
                 return pattern.format(t=t)
         m = re.match(r"(.*?)(\s*\(Version \d+\))$", t)       # keep "(Version 2)" so versions stay distinct
@@ -166,16 +168,17 @@ class Copy:
         if g["slug"] in self.written:
             lead = first_sentence(self.written[g["slug"]][0])
             # always a whole sentence, then the longest call to action that still fits in 158 characters
-            for tail in (f" Play {t} free online, no download needed. Works on Chromebook, PC and Mac.",
+            for tail in (f" Play {t} unblocked and free online, no download needed. Works on Chromebook, PC and Mac.",
+                         f" Play {t} unblocked and free online, no download needed.",
                          f" Play {t} free online, no download needed.", " Free online, no download needed.",
                          " Play free online.", ""):
                 if len(lead) + len(tail) <= 158:
                     return lead + tail
             return clip(lead, 158)
         options = [
-            f"Play {t} online for free. {t} is a {cat} game that runs right in your browser on ArcadeWebsite, with no download or sign-up needed.",
-            f"Play {t} free in your browser. Jump into this {cat} game on ArcadeWebsite instantly, with no download, then discover more {cat} games.",
-            f"{t} is a free {cat} game you can play online at ArcadeWebsite. No download, no sign-up: just click Play and start.",
+            f"Play {t} unblocked and free online. {t} is a {cat} game that runs right in your browser on ArcadeWebsite, with no download or sign-up needed.",
+            f"Play {t} unblocked and free in your browser. Jump into this {cat} game on ArcadeWebsite instantly, with no download, then find more {cat} games.",
+            f"{t} is a free {cat} game you can play unblocked online at ArcadeWebsite. No download, no sign-up: just click Play and start.",
         ]
         first = pick(options, g["slug"])
         for o in [first] + options + [f"Play {t} free online at ArcadeWebsite. No download needed.", f"Play {t} free online. No download needed."]:

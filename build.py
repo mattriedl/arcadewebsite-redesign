@@ -592,6 +592,14 @@ def pager(pages, current, path_for, label):
     return f'<nav class="pager" aria-label="{label} pages">{prev}<span class="nums">{"".join(parts)}</span>{nxt}</nav>'
 
 
+CAT_H1 = {   # headings matched to what people search for (see docs/seo.md)
+    "racing": "Car games and racing games", "minecraft": "Eaglercraft and Minecraft games",
+    "battle": "Fighting games and 2 player battle games", "shooting": "Shooting games and gun games",
+    "strategy": "Strategy and tower defense games", "idle-clicker": "Clicker games and idle games",
+    "horror": "Horror games and scary games", "platformer": "Platformer games",
+}
+
+
 def page_category(c):
     n = len(c["games"])
     pages = -(-n // PER_PAGE) if n > PAGINATE_OVER else 1
@@ -624,7 +632,7 @@ def page_category(c):
                       + (f'<span aria-current="page">{e(c["name"])} games</span>' if p == 1 else
                          f'<a href="{cat_page_path(c, 1)}">{e(c["name"])} games</a><span aria-hidden="true">/</span><span aria-current="page">Page {p}</span>')
                       + "</nav>")
-        h1 = f'{e(c["name"])} games' + (f' <span class="page-no">page {p} of {pages}</span>' if p > 1 else "")
+        h1 = e(CAT_H1.get(c["slug"], f'{c["name"]} games')) + (f' <span class="page-no">page {p} of {pages}</span>' if p > 1 else "")
         showing = f"Showing {first}–{last_n} of {n:,} games" if pages > 1 else f"{n:,} games"
         filter_attr = f'data-filter-remote="{c["slug"]}"' if pages > 1 else 'data-filter="cat-grid"'
         about = f"""<section class="section cat-about" aria-labelledby="cat-about-h">
