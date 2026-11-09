@@ -3,8 +3,9 @@ title: 8 Best 2 Player Games to Play on One Keyboard (Free, No Download)
 seo_title: 8 Best 2 Player Games on One Keyboard (Free) | ArcadeWebsite
 description: The 8 best 2 player games you can play on one keyboard, free in your browser: Fireboy and Watergirl, Basket Random, Gun Mayhem and more, with controls.
 keyword: 2 player games on one keyboard
-keywords: 2 player games, two player games, same keyboard games, 2 player games online free, games to play with a friend on one computer, local multiplayer browser games
+keywords: 2 player games, 2 player games unblocked, two player games, same keyboard games, 2 player games online free, games to play with a friend on one computer, local multiplayer browser games
 date: 2026-11-06
+updated: 2026-11-08
 games: fireboy-and-water-girl, basket-random, stickman-duel, basket-bros, gun-mayhem, boxhead2-playrooms, volley-random, slope2-player, fireboy-and-water-girl2, smash-karts, 1v1-lol
 image_alt: Screenshots of Fireboy and Watergirl, Basket Random, Stickman Duel and Basket Bros
 ---
@@ -131,6 +132,9 @@ Yes. All of them are free to play in your web browser on ArcadeWebsite, with no 
 
 ### Do these games work on a Chromebook?
 Yes. They run in the Chrome browser, so they work on Chromebooks as well as Windows PCs and Macs. Some school or work networks block game websites, so whether you can open them there depends on your network's settings.
+
+### Are these 2 player games unblocked?
+They're free on ArcadeWebsite with no download, sign-up or plug-in, so they open in any up-to-date browser. Some school and work networks block game sites, though, and whether these pages open there depends on that network's rules.
 
 ### What are good 2 player games to play online with a friend on another computer?
 Smash Karts and 1v1.LOL both let you play with a friend online from separate computers. Create a private match or party and share the code.
