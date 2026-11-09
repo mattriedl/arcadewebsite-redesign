@@ -579,7 +579,8 @@ def pager(pages, current, path_for, label):
     """Previous / 1 2 3 … / Next links."""
     if pages <= 1:
         return ""
-    show = sorted({1, 2, pages - 1, pages, current - 1, current, current + 1} & set(range(1, pages + 1)))
+    # every page number is linked (up to 25 pages), so each game is at most two clicks from its category
+    show = list(range(1, pages + 1)) if pages <= 25 else sorted({1, 2, pages - 1, pages, current - 1, current, current + 1} & set(range(1, pages + 1)))
     parts, last = [], 0
     for n in show:
         if n - last > 1:
@@ -686,6 +687,16 @@ def all_page_path(k):
     return "/all-games/" if k in ("#", "A") else f"/all-games/{k.lower()}/"
 
 
+def small_letter_extra(idx, count):
+    """Letters with only a few games also get popular picks and the categories, so the page isn't thin."""
+    if not idx or count >= 24:
+        return ""
+    cl = ", ".join(f'<a href="/category/{c["slug"]}/">{e(c["name"].lower())} games</a>' for c in cats)
+    return (f'<section class="section" aria-labelledby="pop-h"><div class="section-head"><div><h2 id="pop-h">Popular games to try next</h2>'
+            f'<p>Only a few games start with this letter, so here are some of the most played games on {BRAND}. '
+            f'You can also browse by category: {cl}.</p></div></div>{grid(home_picks["spotlight"][:12], dense=True)}</section>')
+
+
 def page_all():
     ordered = sorted(games, key=lambda g: g["title"].lower())
     groups = {}
@@ -738,7 +749,7 @@ def page_all():
     <input id="f" type="search" placeholder="Filter all {TOTAL:,} games by name" data-filter-remote="all" autocomplete="off"><output data-default="{count} games on this page">{count} games on this page</output></div>
   <nav class="letters" aria-label="Jump to letter">{nav}</nav>
   <div class="with-rail">
-    <div id="cat-results">{"".join(sections)}{step}</div>
+    <div id="cat-results">{"".join(sections)}{step}{small_letter_extra(idx, count)}</div>
     <aside class="side-rail" aria-label="Advertisements">{ad("all-side-top", "300x600")}{ad("all-side", "300x250")}</aside>
   </div>
 </div>

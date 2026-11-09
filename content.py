@@ -151,7 +151,7 @@ class Copy:
         for pattern in ("{t} Unblocked - Play Free Online | ArcadeWebsite", "{t} Unblocked - Play Free | ArcadeWebsite",
                         "{t} Unblocked - Play Free Online", "{t} Unblocked - Free Online Game",
                         "{t} - Play Free Online | ArcadeWebsite", "{t} - Play Free Online", "{t} - Free Online Game"):
-            if len(pattern.format(t=t)) <= 62:
+            if len(pattern.format(t=t)) <= 60:
                 return pattern.format(t=t)
         m = re.match(r"(.*?)(\s*\(Version \d+\))$", t)       # keep "(Version 2)" so versions stay distinct
         base, suffix = (m.group(1), m.group(2)) if m else (t, "")
@@ -229,7 +229,7 @@ class Copy:
         """The highest-volume phrase first, then its closest synonyms; the brand only if it still fits."""
         stem = CAT_TITLES.get(c["slug"], f"{c['name']} Games - Play Free Online")
         full = f"{stem} | ArcadeWebsite"
-        return full if len(full) <= 65 else stem
+        return full if len(full) <= 60 else stem
 
     def category_meta(self, c):
         top = [self.G[s]["title"] for s in c["games"] if s in self.written][:3]
