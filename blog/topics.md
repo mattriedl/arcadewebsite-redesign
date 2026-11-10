@@ -8,6 +8,7 @@ One row per keyword. Check here first so no two posts target the same search.
 |---|---|---|
 | 2026-11-06 | 2 player games on one keyboard | /blog/best-2-player-games-one-keyboard/ |
 | 2026-11-07 | games like snow rider 3d | /blog/games-like-snow-rider-3d/ |
+| 2026-11-10 | how to play solitaire (also: solitaire rules, solitaire setup, how to set up solitaire) | /blog/how-to-play-solitaire/ |
 
 ## Backlog
 
@@ -15,7 +16,6 @@ These are ordered by opportunity, using OpenSEO keyword data (US, November 2026)
 
 | Main keyword | Volume | KD | Intent | Games to feature (check they still play) |
 |---|---|---|---|---|
-| how to play solitaire (also: solitaire rules 9,900) | 60,500 | 8 | how-to, with rules, setup, scoring and tips; play it on the page | solitaire |
 | uno rules (also: how to play uno 27,100) | 49,500 | 7 | how-to: official card rules, special cards, house rules | uno |
 | how to play checkers (also: checkers rules 22,200) | 33,100 | 5 | how-to: board setup, moves, jumps, kings, winning | checkers |
 | eaglercraft unblocked / how to play eaglercraft (eaglercraft: 450,000, KD 16) | 27,100 | 3 | guide: what Eaglercraft is, versions on the site, controls, singleplayer vs servers | the minecraft category: eaglercraft-x-1-8-8-u29, eaglercraft-1-5-2, minecraft1-8-8, eaglercraft-z-1-11-2 |
@@ -32,6 +32,7 @@ These are ordered by opportunity, using OpenSEO keyword data (US, November 2026)
 | games like minecraft free | 720 | 13 | list | the minecraft category |
 | games like slither io | 720 | 20 | list | io games |
 | retro bowl tips | 320 | 0 | how-to | retro-bowl |
+| solitaire strategy / how to win solitaire (1,600 each, KD 2-4) | 1,600 | 2 | strategy guide; only as an update to the solitaire how-to unless it grows | solitaire |
 
 Low-volume ideas, only worth doing as part of a bigger article: games like slope (210, KD 45), moto x3m games (1,900, KD 49), fireboy and watergirl games in order (50), games like drift boss (90).
 
