@@ -66,6 +66,13 @@ All game info is in `data/games.json`, one entry per game:
 
 To add a game, put its file in `public/games/` and its 480×320 thumbnail in `public/thumbnails/`, add an entry, and run `python3 build.py`. Categories, their descriptions and their game order are in `data/categories.json`.
 
+**Removing a game:** take it out of `data/games.json` and add it to `data/removed-games.json`.
+- **A working copy of the same game exists:** put the game under `redirects`, with the working copy's slug. Its old address forwards to that copy.
+- **No working copy:** put the game under `broken_flash`, and under `removed_category` with the category it was in. The build writes a permanent (301) redirect to that category into `site/_redirects`, so visitors from old links, bookmarks or search results land on similar games instead of a dead page.
+
+Any other missing address shows the site's own `404.html`, with search and popular games. That's switched on by `not_found_handling` in `wrangler.jsonc`.
+
+
 ## Search engines
 
 Every page has its own title, description, content, FAQ and structured data, and there's an XML sitemap, a site map page, robots.txt and llms.txt for AI assistants. See `docs/seo.md` for what was done and the steps to take when the site goes live. After each build, run `python3 tools/seo_check.py`; it should end with `Problems: 0`.
