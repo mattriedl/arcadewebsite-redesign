@@ -431,6 +431,19 @@ def faq_ld(items):
                             "acceptedAnswer": {"@type": "Answer", "text": _re.sub(r"<[^>]+>", "", a)}} for q, a in items]}
 
 
+def link_name(h, s):
+    """Link the first mention of a game's name, as a whole word and never inside an existing link or tag
+    (so a game called "1" doesn't turn the "1" in "EaglercraftX 1.8" into a link)."""
+    name = e(G[s]["title"])
+    pat = re.compile(r"(?<![\w.])" + re.escape(name) + r"(?![\w]|\.\d)")
+    parts = re.split(r"(<a\b.*?</a>|<[^>]+>)", h)
+    for i in range(0, len(parts), 2):            # even items are plain text
+        if pat.search(parts[i]):
+            parts[i] = pat.sub(game_link(s), parts[i], count=1)
+            return "".join(parts)
+    return h
+
+
 def game_link(s):
     return f'<a href="/game/{s}/">{e(G[s]["title"])}</a>'
 
@@ -466,8 +479,8 @@ def page_game(g):
     about = ""
     for p in paras:
         h = e(p)
-        for s in more[:3]:
-            h = h.replace(e(G[s]["title"]), game_link(s), 1)
+        for s in sorted(more[:3], key=lambda s: -len(G[s]["title"])):
+            h = link_name(h, s)
         h = h.replace(f"{e(c['name'])} collection", f'<a href="/category/{c["slug"]}/">{e(c["name"])} collection</a>', 1)
         about += f"<p>{h}</p>"
     howto = e(COPY.game_howto(g))
@@ -475,8 +488,8 @@ def page_game(g):
     faq_items = []
     for q, a in faq:
         ah = e(a)
-        for s in more[:4]:
-            ah = ah.replace(e(G[s]["title"]), game_link(s), 1)
+        for s in sorted(more[:4], key=lambda s: -len(G[s]["title"])):
+            ah = link_name(ah, s)
         ah = ah.replace(f"{e(c['name'])} collection", f'<a href="/category/{c["slug"]}/">{e(c["name"])} collection</a>', 1)
         faq_items.append((q, ah))
     canon = f'/game/{CANONICAL[g["slug"]]}/' if g["slug"] in CANONICAL else None
