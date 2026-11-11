@@ -9988,33 +9988,6 @@
   ]
  },
  {
-  "slug": "drive-mad",
-  "title": "Drive Mad",
-  "category": "racing",
-  "description": "Play Drive Mad free online in the Racing collection. Open the embedded player, switch to fullscreen, and discover more racing games on ArcadeWebsite.",
-  "about": [
-   "Play Drive Mad free online in the Racing collection. Open the embedded player, switch to fullscreen, and discover more racing games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/cldrivemad.png",
-  "src": "/games/cldrivemad.html",
-  "related": [
-   "wheel-y6",
-   "wheel-y7",
-   "wheel-y8",
-   "marble-racer",
-   "cartoon-network-table-tennis-ultimate-tournament",
-   "metal-sonic-hyperdrive",
-   "ultimatecardrivingsimulator",
-   "ben10-racing",
-   "blum-gi-racers",
-   "bouncy-motors",
-   "bridge-race",
-   "car-crash-3",
-   "car-drawing",
-   "care-atscar2-deluxe"
-  ]
- },
- {
   "slug": "driven-wild",
   "title": "Driven Wild",
   "category": "racing",
@@ -10777,33 +10750,6 @@
    "obby-99-will-lose",
    "obby-only-up",
    "obey-the-game"
-  ]
- },
- {
-  "slug": "earthbound",
-  "title": "EarthBound",
-  "category": "arcade",
-  "description": "Play Earthbound free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play Earthbound free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clearthbound.png",
-  "src": "/games/clearthbound.html",
-  "related": [
-   "nfs-most-wanted",
-   "nfs-porche-unleashed",
-   "nfs-underground",
-   "nfs-underground-2",
-   "ngon",
-   "nhl2002",
-   "nhlhitz2003",
-   "nightclub-showdown",
-   "nightfire",
-   "nintendo-world-cup",
-   "no-more-game-asdsadfagfggdfs",
-   "not-your-pawn",
-   "n-plus",
-   "null-kevin"
   ]
  },
  {
@@ -12104,7 +12050,7 @@
  },
  {
   "slug": "ff6",
-  "title": "Final Fantasy VI (Version 2)",
+  "title": "Final Fantasy III",
   "category": "arcade",
   "description": "Play Ff6 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
   "about": [
@@ -12343,33 +12289,6 @@
    "pokeblazeblack2redux",
    "poke-blue",
    "poke-diamond"
-  ]
- },
- {
-  "slug": "fifa07",
-  "title": "FIFA 07",
-  "category": "arcade",
-  "description": "Play FIFA07 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play FIFA07 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clFIFA07.png",
-  "src": "/games/clFIFA07.html",
-  "related": [
-   "ancient-sins",
-   "angry-birds",
-   "angry-birds-showdown",
-   "angry-birds-space",
-   "animal-crossing-wild-world",
-   "another-world",
-   "apo-tris",
-   "apple-worm",
-   "archery-world-tour",
-   "are-we-there-yet",
-   "armor-mayhem-2",
-   "arson-ate",
-   "ascent",
-   "a-small-world-cup"
   ]
  },
  {
@@ -12670,33 +12589,6 @@
   ]
  },
  {
-  "slug": "fifastreet2",
-  "title": "FIFA Street 2",
-  "category": "arcade",
-  "description": "Play FIFAstreet2 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play FIFAstreet2 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clFIFAstreet2.png",
-  "src": "/games/clFIFAstreet2.html",
-  "related": [
-   "arson-ate",
-   "ascent",
-   "a-small-world-cup",
-   "asteroids",
-   "attack-hole",
-   "avalanche",
-   "awesome-planes",
-   "bacon-may-die",
-   "bad-ice-cream",
-   "bad-monday-simulator",
-   "bad-parenting",
-   "bad-piggies",
-   "bad-times-im",
-   "bad-time-simulator"
-  ]
- },
- {
   "slug": "final-earth-2",
   "title": "Final Earth 2",
   "category": "arcade",
@@ -12829,87 +12721,6 @@
    "picos-school",
    "pieces-of-cake",
    "pik-wip"
-  ]
- },
- {
-  "slug": "final-fantasy-vii",
-  "title": "Final Fantasy VII",
-  "category": "arcade",
-  "description": "Play Final Fantasy VII free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play Final Fantasy VII free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfinalfantasyVII.png",
-  "src": "/games/clfinalfantasyVII.html",
-  "related": [
-   "person-a2alt",
-   "persona-alt",
-   "p-has-ma",
-   "pheonix-justice-for-all",
-   "pheonix-trials-and-year-trh-fasd",
-   "pico8",
-   "pico-driller",
-   "pico-hot",
-   "pico-life",
-   "pico-night-punk-in",
-   "picos-school",
-   "pieces-of-cake",
-   "pik-wip",
-   "ping-pong-chaos"
-  ]
- },
- {
-  "slug": "final-fantasy-viid2",
-  "title": "Final Fantasy VII (Disc 2)",
-  "category": "arcade",
-  "description": "Play Final Fantasy VIId2 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play Final Fantasy VIId2 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfinalfantasyVIId2.png",
-  "src": "/games/clfinalfantasyVIId2.html",
-  "related": [
-   "persona-alt",
-   "p-has-ma",
-   "pheonix-justice-for-all",
-   "pheonix-trials-and-year-trh-fasd",
-   "pico8",
-   "pico-driller",
-   "pico-hot",
-   "pico-life",
-   "pico-night-punk-in",
-   "picos-school",
-   "pieces-of-cake",
-   "pik-wip",
-   "ping-pong-chaos",
-   "pitfall"
-  ]
- },
- {
-  "slug": "final-fantasy-viid3",
-  "title": "Final Fantasy VII (Disc 3)",
-  "category": "arcade",
-  "description": "Play Final Fantasy VIId3 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play Final Fantasy VIId3 free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfinalfantasyVIId3.png",
-  "src": "/games/clfinalfantasyVIId3.html",
-  "related": [
-   "p-has-ma",
-   "pheonix-justice-for-all",
-   "pheonix-trials-and-year-trh-fasd",
-   "pico8",
-   "pico-driller",
-   "pico-hot",
-   "pico-life",
-   "pico-night-punk-in",
-   "picos-school",
-   "pieces-of-cake",
-   "pik-wip",
-   "ping-pong-chaos",
-   "pitfall",
-   "pixel-quest-lost-idols"
   ]
  },
  {
@@ -13345,114 +13156,6 @@
   ]
  },
  {
-  "slug": "fnaf",
-  "title": "Five Nights at Freddy's",
-  "category": "horror",
-  "description": "Play FNAF free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clFNAF.png",
-  "src": "/games/clFNAF.html",
-  "related": [
-   "fnaf2",
-   "fnaf3",
-   "fnaf4",
-   "backrooms",
-   "backrooms2d",
-   "five-nights-at-bald-is-redone",
-   "five-nights-at-shrek-s-hotel",
-   "fnaf4-halloween",
-   "fnaf-animatronics",
-   "fnaf-ps",
-   "fnaf-sl",
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny"
-  ]
- },
- {
-  "slug": "fnaf-animatronics",
-  "title": "FNAF Animatronics",
-  "category": "horror",
-  "description": "Play FNAF Animatronics free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF Animatronics free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfnafanimatronics.png",
-  "src": "/games/clfnafanimatronics.html",
-  "related": [
-   "fnaf-ps",
-   "fnaf-sl",
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny",
-   "granny-2",
-   "granny-22",
-   "granny-3",
-   "skibidi-in-the-backrooms",
-   "fnaf",
-   "fnaf2",
-   "fnaf3",
-   "fnaf4",
-   "backrooms"
-  ]
- },
- {
-  "slug": "fnaf-ps",
-  "title": "Five Nights at Freddy's: Pizzeria Simulator",
-  "category": "horror",
-  "description": "Play FNAF Ps free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF Ps free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfnafps.png",
-  "src": "/games/clfnafps.html",
-  "related": [
-   "fnaf-sl",
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny",
-   "granny-2",
-   "granny-22",
-   "granny-3",
-   "skibidi-in-the-backrooms",
-   "fnaf",
-   "fnaf2",
-   "fnaf3",
-   "fnaf4",
-   "backrooms",
-   "backrooms2d"
-  ]
- },
- {
-  "slug": "fnaf-sl",
-  "title": "Five Nights at Freddy's: Sister Location",
-  "category": "horror",
-  "description": "Play FNAF Sl free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF Sl free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfnafsl.png",
-  "src": "/games/clfnafsl.html",
-  "related": [
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny",
-   "granny-2",
-   "granny-22",
-   "granny-3",
-   "skibidi-in-the-backrooms",
-   "fnaf",
-   "fnaf2",
-   "fnaf3",
-   "fnaf4",
-   "backrooms",
-   "backrooms2d",
-   "five-nights-at-bald-is-redone"
-  ]
- },
- {
   "slug": "fnaf-ucn",
   "title": "Ultimate Custom Night",
   "category": "horror",
@@ -13477,141 +13180,6 @@
    "backrooms2d",
    "five-nights-at-bald-is-redone",
    "five-nights-at-shrek-s-hotel"
-  ]
- },
- {
-  "slug": "fnaf-world",
-  "title": "FNaF World",
-  "category": "horror",
-  "description": "Play FNAF World free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF World free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfnafworld.png",
-  "src": "/games/clfnafworld.html",
-  "related": [
-   "granny",
-   "granny-2",
-   "granny-22",
-   "granny-3",
-   "skibidi-in-the-backrooms",
-   "fnaf",
-   "fnaf2",
-   "fnaf3",
-   "fnaf4",
-   "backrooms",
-   "backrooms2d",
-   "five-nights-at-bald-is-redone",
-   "five-nights-at-shrek-s-hotel",
-   "fnaf4-halloween"
-  ]
- },
- {
-  "slug": "fnaf2",
-  "title": "Five Nights at Freddy's 2",
-  "category": "horror",
-  "description": "Play FNAF2 free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF2 free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clFNAF2.png",
-  "src": "/games/clFNAF2.html",
-  "related": [
-   "fnaf3",
-   "fnaf4",
-   "backrooms",
-   "backrooms2d",
-   "five-nights-at-bald-is-redone",
-   "five-nights-at-shrek-s-hotel",
-   "fnaf4-halloween",
-   "fnaf-animatronics",
-   "fnaf-ps",
-   "fnaf-sl",
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny",
-   "granny-2"
-  ]
- },
- {
-  "slug": "fnaf3",
-  "title": "Five Nights at Freddy's 3",
-  "category": "horror",
-  "description": "Play FNAF3 free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF3 free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clFNAF3.png",
-  "src": "/games/clFNAF3.html",
-  "related": [
-   "fnaf4",
-   "backrooms",
-   "backrooms2d",
-   "five-nights-at-bald-is-redone",
-   "five-nights-at-shrek-s-hotel",
-   "fnaf4-halloween",
-   "fnaf-animatronics",
-   "fnaf-ps",
-   "fnaf-sl",
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny",
-   "granny-2",
-   "granny-22"
-  ]
- },
- {
-  "slug": "fnaf4",
-  "title": "Five Nights at Freddy's 4",
-  "category": "horror",
-  "description": "Play FNAF4 free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play FNAF4 free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clFNAF4.png",
-  "src": "/games/clFNAF4.html",
-  "related": [
-   "backrooms",
-   "backrooms2d",
-   "five-nights-at-bald-is-redone",
-   "five-nights-at-shrek-s-hotel",
-   "fnaf4-halloween",
-   "fnaf-animatronics",
-   "fnaf-ps",
-   "fnaf-sl",
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny",
-   "granny-2",
-   "granny-22",
-   "granny-3"
-  ]
- },
- {
-  "slug": "fnaf4-halloween",
-  "title": "Five Nights at Freddy's 4: Halloween",
-  "category": "horror",
-  "description": "Play Fnaf4 Halloween free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite.",
-  "about": [
-   "Play Fnaf4 Halloween free online in the Horror collection. Open the embedded player, switch to fullscreen, and discover more horror games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfnaf4halloween.png",
-  "src": "/games/clfnaf4halloween.html",
-  "related": [
-   "fnaf-animatronics",
-   "fnaf-ps",
-   "fnaf-sl",
-   "fnaf-ucn",
-   "fnaf-world",
-   "granny",
-   "granny-2",
-   "granny-22",
-   "granny-3",
-   "skibidi-in-the-backrooms",
-   "fnaf",
-   "fnaf2",
-   "fnaf3",
-   "fnaf4"
   ]
  },
  {
@@ -13801,33 +13369,6 @@
    "pokemon-mystery-dungeon",
    "pokemon-quetzal",
    "pokemon-ruby"
-  ]
- },
- {
-  "slug": "free-gem-as",
-  "title": "Free Gem As",
-  "category": "arcade",
-  "description": "Play Free Gem As free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite.",
-  "about": [
-   "Play Free Gem As free online in the Arcade collection. Open the embedded player, switch to fullscreen, and discover more arcade games on ArcadeWebsite. The player uses the original game file. Follow any on-screen instructions for controls; keyboard or touch support depends on the game."
-  ],
-  "thumbnail": "/thumbnails/clfreegemas.png",
-  "src": "/games/clfreegemas.html",
-  "related": [
-   "pokemon-emerald-imperium",
-   "pokemon-emerald-kai-zo",
-   "pokemon-emerald-mini",
-   "pokemon-emerald-seaglass",
-   "pokemon-energized-emerald",
-   "pokemon-evolved-sf-dgs-dfs",
-   "pokemon-firered",
-   "pokemon-firered-randomized",
-   "pokemon-gold",
-   "pokemon-leafgreen",
-   "pokemon-mystery-dungeon",
-   "pokemon-quetzal",
-   "pokemon-ruby",
-   "pokemon-sapphire"
   ]
  },
  {
