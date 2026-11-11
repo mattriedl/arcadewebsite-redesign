@@ -821,6 +821,14 @@ def page_redirects():
     if not p.exists():
         return
     d = json.loads(p.read_text(encoding="utf-8"))
+    # Games removed completely: a permanent (301) redirect to the category they were in, so a visitor arriving from
+    # an old link, bookmark or search result lands on similar games instead of a dead page. Cloudflare reads _redirects.
+    lines = ["# Removed games -> their category (built from data/removed-games.json)"]
+    for slug, cat in sorted(d.get("removed_category", {}).items()):
+        if slug in G or slug in d["redirects"] or cat not in C:
+            continue
+        lines += [f"/game/{slug}/ /category/{cat}/ 301", f"/game/{slug} /category/{cat}/ 301"]
+    (OUT / "_redirects").write_text("\n".join(lines) + "\n", encoding="utf-8")
     for old, new in d["redirects"].items():
         if new.startswith("/category/"):                      # no working copy: send to the game's category
             c = C.get(new.strip("/").split("/")[-1])

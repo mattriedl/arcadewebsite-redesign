@@ -1,0 +1,11 @@
+// Cloudflare Workers settings for arcadewebsite.com (static site in ./site)
+{
+  "name": "arcadewebsite-redesign",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site",
+    // Show our own 404.html (search box + popular games) instead of the browser's blank error page
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
