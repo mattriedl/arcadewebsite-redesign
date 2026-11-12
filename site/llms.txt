@@ -1,20 +1,20 @@
 # ArcadeWebsite
 
-> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,503 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
+> ArcadeWebsite (arcadewebsite.com) is a free browser game website with 1,492 games in 12 categories. Every game has its own page with a description, how-to-play notes and an FAQ, and plays in the browser with no download or sign-up.
 
 ## Categories
 
-- [Arcade games](https://arcadewebsite.com/category/arcade/): Arcade games are quick to learn and hard to put down. This collection has everything from classic coin-op favorites and retro console adventures to modern… (861 games)
+- [Arcade games](https://arcadewebsite.com/category/arcade/): Arcade games are quick to learn and hard to put down. This collection has everything from classic coin-op favorites and retro console adventures to modern… (853 games)
 - [Platformer games](https://arcadewebsite.com/category/platformer/): Platformer games are all about running, jumping and timing. Climb towers, dodge spikes and saw blades, wall-jump through tight corridors and race to the exit… (152 games)
 - [Battle games](https://arcadewebsite.com/category/battle/): Battle games put you head to head with an opponent, whether it's a friend on the same keyboard or the computer. Fight with fists, swords, guns or tanks in… (94 games)
 - [Shooting games](https://arcadewebsite.com/category/shooting/): Shooting games test your aim and reflexes. Take on waves of enemies, snipe from rooftops, defend your base or build and fight in fast online-style duels. (73 games)
 - [Racing games](https://arcadewebsite.com/category/racing/): Racing games let you drift around corners, launch off ramps and race against the clock. Drive stunt bikes, supercars, monster trucks and even a car with an… (76 games)
-- [Casual games](https://arcadewebsite.com/category/casual/): Casual games are relaxed and easy to pick up, perfect for a short break. Drop fruit, stack blocks, draw lines, bounce balls and solve light puzzles at your… (59 games)
+- [Casual games](https://arcadewebsite.com/category/casual/): Casual games are relaxed and easy to pick up, perfect for a short break. Drop fruit, stack blocks, draw lines, bounce balls and solve light puzzles at your… (58 games)
 - [Strategy games](https://arcadewebsite.com/category/strategy/): Strategy games reward planning. Build defenses, manage resources, command armies and outthink your opponent in tower defense, real-time strategy and… (55 games)
-- [Sports games](https://arcadewebsite.com/category/sports/): Sports games bring basketball, soccer, football, baseball, golf, tennis and more to your browser. Play realistic matches, arcade-style showdowns or silly… (47 games)
+- [Sports games](https://arcadewebsite.com/category/sports/): Sports games bring basketball, soccer, football, baseball, golf, tennis and more to your browser. Play realistic matches, arcade-style showdowns or silly… (46 games)
 - [Puzzle games](https://arcadewebsite.com/category/puzzle/): Puzzle games make you think. Merge numbers, roll blocks into holes, sort colors, guess words and solve brain teasers that start easy and get tricky fast. (42 games)
 - [Idle/Clicker games](https://arcadewebsite.com/category/idle-clicker/): Idle and clicker games are about watching numbers grow. Click to earn, buy upgrades and helpers, and let your empire keep producing even when you step away. (21 games)
-- [Horror games](https://arcadewebsite.com/category/horror/): Horror games are built to make you jump. Escape haunted houses, survive the night against animatronics and explore unsettling places like the Backrooms. (10 games)
+- [Horror games](https://arcadewebsite.com/category/horror/): Horror games are built to make you jump. Escape haunted houses, survive the night against animatronics and explore unsettling places like the Backrooms. (9 games)
 - [Minecraft games](https://arcadewebsite.com/category/minecraft/): Minecraft-style games let you mine, craft and build in block worlds right in your browser. This collection includes Eaglercraft versions and other… (13 games)
 
 ## Popular games
