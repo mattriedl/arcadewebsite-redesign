@@ -9,6 +9,7 @@ One row per keyword. Check here first so no two posts target the same search.
 | 2026-11-06 | 2 player games on one keyboard | /blog/best-2-player-games-one-keyboard/ |
 | 2026-11-07 | games like snow rider 3d | /blog/games-like-snow-rider-3d/ |
 | 2026-11-10 | how to play solitaire (also: solitaire rules, solitaire setup, how to set up solitaire) | /blog/how-to-play-solitaire/ |
+| 2026-11-12 | uno rules (also: how to play uno, uno card game rules, official uno rules, uno stacking rules, uno draw 4 rules, uno rules 2 players) | /blog/uno-rules-how-to-play/ |
 
 ## Backlog
 
@@ -16,7 +17,6 @@ These are ordered by opportunity, using OpenSEO keyword data (US, November 2026)
 
 | Main keyword | Volume | KD | Intent | Games to feature (check they still play) |
 |---|---|---|---|---|
-| uno rules (also: how to play uno 27,100) | 49,500 | 7 | how-to: official card rules, special cards, house rules | uno |
 | how to play checkers (also: checkers rules 22,200) | 33,100 | 5 | how-to: board setup, moves, jumps, kings, winning | checkers |
 | eaglercraft unblocked / how to play eaglercraft (eaglercraft: 450,000, KD 16) | 27,100 | 3 | guide: what Eaglercraft is, versions on the site, controls, singleplayer vs servers | the minecraft category: eaglercraft-x-1-8-8-u29, eaglercraft-1-5-2, minecraft1-8-8, eaglercraft-z-1-11-2 |
 | games like wordle | 14,800 | 0 | list | word-le and word/puzzle games on the site |
@@ -33,6 +33,8 @@ These are ordered by opportunity, using OpenSEO keyword data (US, November 2026)
 | games like slither io | 720 | 20 | list | io games |
 | retro bowl tips | 320 | 0 | how-to | retro-bowl |
 | solitaire strategy / how to win solitaire (1,600 each, KD 2-4) | 1,600 | 2 | strategy guide; only as an update to the solitaire how-to unless it grows | solitaire |
+
+Uno sub-questions already answered by the Uno rules post (update it rather than writing new posts): uno stacking rules 2,400 KD 7, can you stack draw 2 in uno 1,600 KD 0, how many cards do you start with in uno 2,900 KD 7, uno wild card rules 1,300 KD 4, uno house rules 1,000 KD 0. "play uno online free" (9,900, KD 44) and "uno online" (60,500, KD 48) are too hard for now.
 
 Low-volume ideas, only worth doing as part of a bigger article: games like slope (210, KD 45), moto x3m games (1,900, KD 49), fireboy and watergirl games in order (50), games like drift boss (90).
 
