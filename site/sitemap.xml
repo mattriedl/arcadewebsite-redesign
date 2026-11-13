@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-<url><loc>https://arcadewebsite.com/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://arcadewebsite.com/sitemap/</loc><lastmod>2026-11-12</lastmod></url>
+<url><loc>https://arcadewebsite.com/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://arcadewebsite.com/sitemap/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://arcadewebsite.com/all-games/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://arcadewebsite.com/all-games/b/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://arcadewebsite.com/all-games/c/</loc><lastmod>2026-11-11</lastmod></url>
@@ -28,11 +28,12 @@
 <url><loc>https://arcadewebsite.com/all-games/x/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://arcadewebsite.com/all-games/y/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://arcadewebsite.com/all-games/z/</loc><lastmod>2026-11-11</lastmod></url>
-<url><loc>https://arcadewebsite.com/blog/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://arcadewebsite.com/blog/uno-rules-how-to-play/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/uno-rules-how-to-play.jpg?v=8f83b6b7</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/blog/how-to-play-solitaire/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/how-to-play-solitaire.jpg?v=8a0a447d</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/blog/games-like-snow-rider-3d/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/games-like-snow-rider-3d.jpg?v=2e99d68b</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/blog/best-2-player-games-one-keyboard/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/best-2-player-games-one-keyboard.jpg?v=2858733e</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/blog/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://arcadewebsite.com/blog/how-to-play-checkers/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/how-to-play-checkers.jpg?v=6b275ad9</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/blog/uno-rules-how-to-play/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/uno-rules-how-to-play.jpg?v=8f83b6b7</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/blog/how-to-play-solitaire/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/how-to-play-solitaire.jpg?v=8a0a447d</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/blog/games-like-snow-rider-3d/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/games-like-snow-rider-3d.jpg?v=2e99d68b</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/blog/best-2-player-games-one-keyboard/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/blog/img/best-2-player-games-one-keyboard.jpg?v=2858733e</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/category/arcade/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://arcadewebsite.com/category/arcade/page/2/</loc><lastmod>2026-11-11</lastmod></url>
 <url><loc>https://arcadewebsite.com/category/arcade/page/3/</loc><lastmod>2026-11-11</lastmod></url>
@@ -68,7 +69,7 @@
 <url><loc>https://arcadewebsite.com/game/12-minibattles/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/12-minibattles.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/1v1-lol/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/1v1-lol.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/1v1maybeidk/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/1v1maybeidk.jpg</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/2048/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/2048.jpg</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/2048/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/2048.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/2048-cupcakes/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/2048-cupcakes.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/2d-shooting/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/2d-shooting.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/2dshooting/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/2dshooting.jpg</image:loc></image:image></url>
@@ -79,7 +80,7 @@
 <url><loc>https://arcadewebsite.com/game/60-seconds-burger-run/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/60-seconds-burger-run.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/60-seconds-santa-run/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/cl60secondssantarun.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/60secsantarun/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/60secsantarun.jpg</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/8-ball-pool/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/8-ball-pool.jpg</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/8-ball-pool/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/8-ball-pool.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/8b-all-classic/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/cl8ballclassic.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/9007199254740992/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/9007199254740992.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/99-balls/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/99-balls.jpg</image:loc></image:image></url>
@@ -299,10 +300,10 @@
 <url><loc>https://arcadewebsite.com/game/celeste/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/celeste.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/celeste-2/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/celeste-2.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/chaos-faction-2/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/chaos-faction-2.jpg</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/checkers/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/checkers.jpg</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/checkers/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/checkers.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/cheese-chompers3d/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clcheesechompers3d.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/cheshire-in-a-chat-room/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/cheshire-in-a-chat-room.jpg</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/chess/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/chess.jpg</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/chess/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/chess.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/chess-classic/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clchessclassic.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/chibi-knight/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/chibi-knight.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/chicken-scream/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/manual/chicken-scream.jpg</image:loc></image:image></url>
@@ -1203,7 +1204,7 @@
 <url><loc>https://arcadewebsite.com/game/soccer-random/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clsoccerrandom.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/soccer-random-good/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clsoccerrandomgood.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/solar-smash/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/solar-smash.jpg</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/solitaire/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/solitaire.jpg</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/solitaire/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/solitaire.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/sonic-advance/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/sonic-advance.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/sonic-advance-2/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clsonicadvance2.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/sonic-advance-2sp/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clsonicadvance2sp.png</image:loc></image:image></url>
@@ -1270,7 +1271,7 @@
 <url><loc>https://arcadewebsite.com/game/stick-min-flee-complex/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/stick-min-flee-complex.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/stick-rpg-complete/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/stick-rpg-complete.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/stick-slasher/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clstickslasher.png</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/stick-war/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clstickwar.png</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/stick-war/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clstickwar.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/stick-war2/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/stick-war2.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/stickman-duel/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/stickman-duel.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/stickman-gta-city/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/stickman-gta-city.jpg</image:loc></image:image></url>
@@ -1456,7 +1457,7 @@
 <url><loc>https://arcadewebsite.com/game/unfair-mario/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clunfairmario.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/unfair-mario-work-question-mark/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/unfair-mario-work-question-mark.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/unicycle-hero/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/unicycle-hero.jpg</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/uno/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/cluno.png</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/uno/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/cluno.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/up-slash/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clupslash.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/upgrade-complete/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/upgrade-complete.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/upgrade-complete-2/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/upgrade-complete-2.jpg</image:loc></image:image></url>
@@ -1510,7 +1511,7 @@
 <url><loc>https://arcadewebsite.com/game/wolfenstein/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clwolfenstein.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/wolfenstein-3d/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clwolfenstein3d.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/woodworm/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/woodworm.jpg</image:loc></image:image></url>
-<url><loc>https://arcadewebsite.com/game/word-le/</loc><lastmod>2026-11-12</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/word-le.jpg</image:loc></image:image></url>
+<url><loc>https://arcadewebsite.com/game/word-le/</loc><lastmod>2026-11-13</lastmod><image:image><image:loc>https://arcadewebsite.com/screenshots/word-le.jpg</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/world-cup-98/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clworldcup98.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/worlds-hardest-game/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clworldshardestgame.png</image:loc></image:image></url>
 <url><loc>https://arcadewebsite.com/game/worlds-hardest-game-2/</loc><lastmod>2026-11-11</lastmod><image:image><image:loc>https://arcadewebsite.com/thumbnails/clworldshardestgame2.png</image:loc></image:image></url>

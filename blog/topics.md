@@ -10,6 +10,7 @@ One row per keyword. Check here first so no two posts target the same search.
 | 2026-11-07 | games like snow rider 3d | /blog/games-like-snow-rider-3d/ |
 | 2026-11-10 | how to play solitaire (also: solitaire rules, solitaire setup, how to set up solitaire) | /blog/how-to-play-solitaire/ |
 | 2026-11-12 | uno rules (also: how to play uno, uno card game rules, official uno rules, uno stacking rules, uno draw 4 rules, uno rules 2 players) | /blog/uno-rules-how-to-play/ |
+| 2026-11-13 | how to play checkers (also: checkers rules, rules of checkers, checkers setup, how to set up checkers, checkers king rules, do you have to jump in checkers, how to win checkers, checkers strategy) | /blog/how-to-play-checkers/ |
 
 ## Backlog
 
@@ -17,7 +18,6 @@ These are ordered by opportunity, using OpenSEO keyword data (US, November 2026)
 
 | Main keyword | Volume | KD | Intent | Games to feature (check they still play) |
 |---|---|---|---|---|
-| how to play checkers (also: checkers rules 22,200) | 33,100 | 5 | how-to: board setup, moves, jumps, kings, winning | checkers |
 | eaglercraft unblocked / how to play eaglercraft (eaglercraft: 450,000, KD 16) | 27,100 | 3 | guide: what Eaglercraft is, versions on the site, controls, singleplayer vs servers | the minecraft category: eaglercraft-x-1-8-8-u29, eaglercraft-1-5-2, minecraft1-8-8, eaglercraft-z-1-11-2 |
 | games like wordle | 14,800 | 0 | list | word-le and word/puzzle games on the site |
 | games to play when bored | 9,900 | 17 | list | a mix of the most popular games |
@@ -39,3 +39,5 @@ Uno sub-questions already answered by the Uno rules post (update it rather than 
 Low-volume ideas, only worth doing as part of a bigger article: games like slope (210, KD 45), moto x3m games (1,900, KD 49), fireboy and watergirl games in order (50), games like drift boss (90).
 
 **Don't write a separate post for "2 player games unblocked" (18,100, KD 20).** Update the existing 2-player article to cover it instead, so the two pages don't compete.
+
+Checkers sub-questions already answered by the checkers post (update it rather than writing new posts): checkers setup 8,100 KD 4, how to set up checkers 4,400 KD 0, how to win checkers 3,600 KD 0, checkers king rules 1,600 KD 0, how many pieces in checkers 1,600 KD 8, checkers strategy 1,300 KD 0, do you have to jump in checkers 720 KD 0, can you jump backwards in checkers 480 KD 0. "play checkers online" (5,400, KD 31) and "checkers online free" (2,400, KD 41) are harder.
