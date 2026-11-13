@@ -236,7 +236,8 @@ def ad_tile(slot):
 
 
 def webp(path):
-    return path.rsplit(".", 1)[0] + ".webp"
+    base, _, query = path.partition("?")
+    return base.rsplit(".", 1)[0] + ".webp" + (f"?{query}" if query else "")
 
 
 def picture(src, alt="", lazy=True, extra=""):
@@ -925,28 +926,67 @@ POSTS_BY_GAME = {}  # game slug -> posts that feature it, for links from game pa
 
 
 def post_image(p):
-    """A 1200x630 share image made from the first four featured games' screenshots."""
-    from PIL import Image
+    """A 1200x630 share image, different for every article: the article's main game large on the left, the next
+    two games stacked on the right, and the article title across the bottom."""
+    from PIL import Image, ImageDraw, ImageFont
     path = f"/blog/img/{p['slug']}.jpg"
     out = OUT / path.lstrip("/")
     out.parent.mkdir(parents=True, exist_ok=True)
-    picks = (p["games"] or ["slope"])[:4]
-    picks += picks * 4
+    picks = (p["games"] or ["slope"])[:3]
+    picks += picks * 3
     canvas = Image.new("RGB", (1200, 630), (18, 20, 46))
-    W, H, gap = 594, 312, 6
-    for i, s in enumerate(picks[:4]):
-        src = OUT / G[s]["thumbnail"].lstrip("/")
+
+    def tile(slug, w, h):
         try:
-            im = Image.open(unquote(str(src))).convert("RGB")
+            im = Image.open(unquote(str(OUT / G[slug]["thumbnail"].lstrip("/")))).convert("RGB")
         except Exception:
-            continue
-        r = max(W / im.width, H / im.height)
+            return Image.new("RGB", (w, h), (36, 40, 90))
+        r = max(w / im.width, h / im.height)
         im = im.resize((round(im.width * r), round(im.height * r)), Image.LANCZOS)
-        l, t = (im.width - W) // 2, (im.height - H) // 2
-        canvas.paste(im.crop((l, t, l + W, t + H)), ((i % 2) * (W + gap) + (0 if i % 2 else 0), (i // 2) * (H + gap)))
+        l, t = (im.width - w) // 2, (im.height - h) // 2
+        return im.crop((l, t, l + w, t + h))
+
+    canvas.paste(tile(picks[0], 780, 630), (0, 0))
+    canvas.paste(tile(picks[1], 414, 312), (786, 0))
+    canvas.paste(tile(picks[2], 414, 312), (786, 318))
+    # dark fade at the bottom so the title is readable on any picture
+    fade = Image.new("L", (1, 630))
+    for y in range(630):
+        fade.putpixel((0, y), 0 if y < 300 else min(235, int((y - 300) / 330 * 300)))
+    canvas.paste(Image.new("RGB", (1200, 630), (12, 13, 32)), (0, 0), fade.resize((1200, 630)))
+    d = ImageDraw.Draw(canvas)
+    font_path = "/usr/share/fonts/truetype/google-fonts/Poppins-Bold.ttf"
+    title = p.get("image_title") or p["title"]
+    lines, size = [title], 60
+    for size in range(60, 30, -2):
+        try:
+            font = ImageFont.truetype(font_path, size)
+        except OSError:
+            font = ImageFont.load_default()
+            break
+        words, lines, cur = title.split(), [], ""
+        for w in words:
+            test = (cur + " " + w).strip()
+            if d.textlength(test, font=font) <= 1100:
+                cur = test
+            else:
+                lines.append(cur); cur = w
+        lines.append(cur)
+        if len(lines) <= 3:
+            break
+    lh = int(size * 1.18)
+    y = 630 - 42 - lh * len(lines)
+    for line in lines:
+        d.text((50, y), line, font=font, fill=(255, 255, 255))
+        y += lh
+    try:
+        small = ImageFont.truetype(font_path, 26)
+    except OSError:
+        small = ImageFont.load_default()
+    d.text((50, 630 - 40 - lh * len(lines) - 40), "ARCADEWEBSITE.COM", font=small, fill=(255, 196, 61))
     canvas.save(out, quality=86, optimize=True, progressive=True)
     canvas.save(out.with_suffix(".webp"), quality=82)
-    return path
+    return path + "?v=" + hashlib.sha1(out.read_bytes()).hexdigest()[:8]   # new picture, new address: no stale caches
 
 
 def render_post_body(p):
