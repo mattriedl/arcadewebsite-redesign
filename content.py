@@ -107,7 +107,7 @@ CAT_KEYWORDS = {
     "sports": ("Sports Games", ["basketball games", "soccer games", "football games"]),
     "puzzle": ("Puzzle Games", ["brain games", "logic games", "word games"]),
     "idle-clicker": ("Clicker Games", ["idle games", "incremental games", "tycoon games"]),
-    "horror": ("Horror Games", ["scary games", "FNAF games", "survival horror games"]),
+    "horror": ("Horror Games", ["scary games", "creepy games", "survival horror games"]),
     "minecraft": ("Minecraft Games", ["Eaglercraft", "block building games", "Minecraft online"]),
 }
 

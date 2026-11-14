@@ -86,4 +86,6 @@ The build makes everything else:
 
 ## 6. Publish
 
-Commit the post, the rebuilt `site/` and the `topics.md` update to `main` and push. Cloudflare deploys the push to arcadewebsite.com within a couple of minutes.
+Commit the post, the rebuilt `site/` and the `topics.md` update to `main` and push.
+
+If OpenSEO tools are available (names starting `mcp__OpenSEO__`), save the post's `keyword` and every phrase in `keywords:` with `save_keywords` to the project "arcadewebsite.com" (projectId `c9c05793-b6d3-42a0-afa0-d6eeede10ead`). That way every keyword the site targets is ready for rank tracking. Saving uses no credits. Cloudflare deploys the push to arcadewebsite.com within a couple of minutes.
