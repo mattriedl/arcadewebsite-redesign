@@ -12,6 +12,7 @@ One row per keyword. Check here first so no two posts target the same search.
 | 2026-11-12 | uno rules (also: how to play uno, uno card game rules, official uno rules, uno stacking rules, uno draw 4 rules, uno rules 2 players) | /blog/uno-rules-how-to-play/ |
 | 2026-11-13 | how to play checkers (also: checkers rules, rules of checkers, checkers setup, how to set up checkers, checkers king rules, do you have to jump in checkers, how to win checkers, checkers strategy) | /blog/how-to-play-checkers/ |
 | 2026-11-14 | games to play when bored (also: fun games to play when bored, games to play when you're bored, best games to play when bored, boredom games, online games to play when bored, browser games to play when bored, games to play when bored on laptop) | /blog/games-to-play-when-bored/ |
+| 2026-11-16 | best io games (also: popular io games, io games list, best io games to play, what are io games, io games like slither io, games like agar io, games like territorial io) | /blog/best-io-games/ |
 
 ## Backlog
 
@@ -22,7 +23,6 @@ These are ordered by opportunity, using OpenSEO keyword data (US, November 2026)
 | eaglercraft unblocked / how to play eaglercraft (eaglercraft: 450,000, KD 16) | 27,100 | 3 | guide: what Eaglercraft is, versions on the site, controls, singleplayer vs servers | the minecraft category: eaglercraft-x-1-8-8-u29, eaglercraft-1-5-2, minecraft1-8-8, eaglercraft-z-1-11-2 |
 | games like wordle | 14,800 | 0 | list | word-le and word/puzzle games on the site |
 | free horror games | 6,600 | 7 | list | the horror category |
-| best io games | 5,400 | 13 | list | slither-io, paper-io, hole-io, state-io, territorial-io, smash-karts |
 | best idle games / best clicker games (1,300) | 3,600 | 0 | list | cookie-clicker-cool and the idle-clicker category |
 | games to play on chromebook | 3,600 | 3 | list | slope, retro-bowl, cookie-clicker-cool, 2048, run-3, smash-karts, paper-io, fireboy-and-water-girl |
 | 2048 strategy (also: how to play 2048 720, games like 2048 1,300) | 1,600 | 7 | how-to | 2048, 2048-cupcakes |
@@ -34,6 +34,8 @@ These are ordered by opportunity, using OpenSEO keyword data (US, November 2026)
 | retro bowl tips | 320 | 0 | how-to | retro-bowl |
 | word games like wordle | 1,300 | 5 | list; fold into "games like wordle" | needs more verified word games first (mini-crossword and zen-word failed the auto test) |
 | solitaire strategy / how to win solitaire (1,600 each, KD 2-4) | 1,600 | 2 | strategy guide; only as an update to the solitaire how-to unless it grows | solitaire |
+| christmas games online (also: free christmas games 1,900, KD 16) | 6,600 | 17 | seasonal list; publish in early December | check the site for winter/Christmas games first (snowball-io, moto-x3m-winter, snow-rider) |
+| thanksgiving games online | 480 | 0 | seasonal list; only if the site has enough fitting games | none checked yet |
 
 Uno sub-questions already answered by the Uno rules post (update it rather than writing new posts): uno stacking rules 2,400 KD 7, can you stack draw 2 in uno 1,600 KD 0, how many cards do you start with in uno 2,900 KD 7, uno wild card rules 1,300 KD 4, uno house rules 1,000 KD 0. "play uno online free" (9,900, KD 44) and "uno online" (60,500, KD 48) are too hard for now.
 
@@ -44,3 +46,6 @@ Low-volume ideas, only worth doing as part of a bigger article: games like slope
 **Don't write a separate post for "2 player games unblocked" (18,100, KD 20).** Update the existing 2-player article to cover it instead, so the two pages don't compete.
 
 Checkers sub-questions already answered by the checkers post (update it rather than writing new posts): checkers setup 8,100 KD 4, how to set up checkers 4,400 KD 0, how to win checkers 3,600 KD 0, checkers king rules 1,600 KD 0, how many pieces in checkers 1,600 KD 8, checkers strategy 1,300 KD 0, do you have to jump in checkers 720 KD 0, can you jump backwards in checkers 480 KD 0. "play checkers online" (5,400, KD 31) and "checkers online free" (2,400, KD 41) are harder.
+
+
+Horror note (2026-11-16): skipped "free horror games" again: almost every horror game on the site (Granny, FNAF, Baldi, Shrek fan games) is on the copyright review list, leaving too few original games. io keyword data (2026-11-16): io games list 4,400 KD 39, popular io games 590 KD 20, games like agar io 720 KD 10, games like territorial io 590 KD 1, io games like slither io 720 KD 17; "io games" (165,000, KD 77) and "free io games" (KD 83) are too hard.
