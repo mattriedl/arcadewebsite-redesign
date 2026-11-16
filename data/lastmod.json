@@ -1,6 +1,6 @@
 {
 "/": [
-"cc47dbbec993d423",
+"be646ac14859b476",
 "2026-11-16"
 ],
 "/all-games/": [
@@ -108,35 +108,39 @@
 "2026-11-11"
 ],
 "/blog/": [
-"6f9658ca3d98a957",
+"82283901e4c1afcd",
 "2026-11-16"
 ],
 "/blog/best-2-player-games-one-keyboard/": [
-"69dd56f962ffafa4",
+"91096b7b94c048c4",
+"2026-11-16"
+],
+"/blog/best-idle-games/": [
+"8abd8fe9bf63c58c",
 "2026-11-16"
 ],
 "/blog/best-io-games/": [
-"de70a7627034754c",
+"f039b6c751ee8b23",
 "2026-11-16"
 ],
 "/blog/games-like-snow-rider-3d/": [
-"6e853103336503f7",
+"6bf80ff4a1b355cc",
 "2026-11-16"
 ],
 "/blog/games-to-play-when-bored/": [
-"6014a584a48710a3",
+"d90e4c7026c37288",
 "2026-11-16"
 ],
 "/blog/how-to-play-checkers/": [
-"46369705ee0a8d3a",
+"c22e8c38563f0cec",
 "2026-11-16"
 ],
 "/blog/how-to-play-solitaire/": [
-"612cb7ec362a7392",
+"18c27cef7f61fd3a",
 "2026-11-16"
 ],
 "/blog/uno-rules-how-to-play/": [
-"b1f94b549908bb8e",
+"2b4b6780dfd0a4d3",
 "2026-11-16"
 ],
 "/category/arcade/": [
@@ -400,8 +404,8 @@
 "2026-11-11"
 ],
 "/game/adark-room/": [
-"077e86ff9a1d616e",
-"2026-11-11"
+"c85ac9eff7ebc76a",
+"2026-11-16"
 ],
 "/game/adofai/": [
 "e9df4d4585933fb6",
@@ -1124,8 +1128,8 @@
 "2026-11-11"
 ],
 "/game/capybara-clicker/": [
-"53560cc9f09196e2",
-"2026-11-11"
+"d17ca6e813815ac2",
+"2026-11-16"
 ],
 "/game/car-crash-3/": [
 "79cfa06379c51ef3",
@@ -1352,8 +1356,8 @@
 "2026-11-11"
 ],
 "/game/cookie-clicker-cool/": [
-"4da2ecda4c151b66",
-"2026-11-14"
+"ef21066031e07e0b",
+"2026-11-16"
 ],
 "/game/cooking-mama/": [
 "38bde34ca8689f8e",
@@ -1584,8 +1588,8 @@
 "2026-11-11"
 ],
 "/game/dogeminer2/": [
-"c50cce64439cc448",
-"2026-11-11"
+"1e985905a9ca43a1",
+"2026-11-16"
 ],
 "/game/donkey-kong-country-2/": [
 "75bcee1102722197",
@@ -2612,16 +2616,16 @@
 "2026-11-11"
 ],
 "/game/idle-breakout/": [
-"ef0bb6730f27f7f7",
-"2026-11-11"
+"800432b3980564ae",
+"2026-11-16"
 ],
 "/game/idle-dice/": [
-"0133b79b3f3c629b",
-"2026-11-11"
+"b1e5683e5ab9227d",
+"2026-11-16"
 ],
 "/game/idle-idle-gamedev/": [
-"a7dd2c3ecb81496e",
-"2026-11-11"
+"eb26e9f3b1a79817",
+"2026-11-16"
 ],
 "/game/idle-miner-tycoon/": [
 "c326844c367131cb",
@@ -4432,8 +4436,8 @@
 "2026-11-11"
 ],
 "/game/revolution-idle/": [
-"32d8ba2ab1fd0bf5",
-"2026-11-11"
+"9cf3a878437c568d",
+"2026-11-16"
 ],
 "/game/rhyth-y-my-m-heaven/": [
 "2ac687168b6fc437",
@@ -4988,8 +4992,8 @@
 "2026-11-11"
 ],
 "/game/spacebar-clicker/": [
-"6170a0296ea7d41b",
-"2026-11-11"
+"788cf0c91af3242a",
+"2026-11-16"
 ],
 "/game/speed-stars/": [
 "8fa7d8db3450200e",
@@ -6156,7 +6160,7 @@
 "2026-11-11"
 ],
 "/sitemap/": [
-"d192560fc890f11a",
+"bc6ea6a973f7f9ca",
 "2026-11-16"
 ]
 }
