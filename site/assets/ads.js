@@ -39,10 +39,22 @@ window.ARCADE_ADS = {
 
 (() => {
   const cfg = window.ARCADE_ADS;
+  let loads = 0;
+  // The network's script scans the page for its spots once each time it runs, so it is loaded again whenever
+  // new spots have been filled in (spots it already handled are marked and skipped).
+  const runNetwork = () => {
+    if (!cfg.networkScript || loads > 6) return;
+    loads++;
+    const s = document.createElement('script');
+    s.async = true; s.dataset.adNetwork = '1';
+    s.src = cfg.networkScript + (loads > 1 ? (cfg.networkScript.includes('?') ? '&' : '?') + 'r=' + loads : '');
+    if (cfg.adsense) s.crossOrigin = 'anonymous';
+    document.head.append(s);
+  };
   const fill = () => {
     // Check which spots are shown first, then fill them, so the page is measured only once
     const shown = [...document.querySelectorAll('.ad[data-slot]')]
-      .filter(slot => !slot.dataset.done && slot.getClientRects().length);   // hidden at this screen size: skip
+      .filter(slot => !slot.dataset.done && slot.getClientRects().length);   // hidden at this screen size: skip for now
     shown.forEach(slot => {
       slot.dataset.done = '1';
       const html = cfg.bySlot[slot.dataset.slot] || cfg.bySize[slot.dataset.size] || '';
@@ -54,13 +66,22 @@ window.ARCADE_ADS = {
         try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { console.warn('Ad could not start', e); }
       }
     });
-    // Load the network script after the spots exist, so it finds all of them
-    if (cfg.networkScript && !document.querySelector('script[data-ad-network]')) {
-      const s = document.createElement('script');
-      s.async = true; s.src = cfg.networkScript; s.dataset.adNetwork = '1';
-      if (cfg.adsense) s.crossOrigin = 'anonymous';
-      document.head.append(s);
-    }
+    if (shown.length) runNetwork();
   };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fill); else fill();
+  // A banner request that failed leaves its spot empty: give those spots one more try
+  const retryEmpty = () => {
+    const empty = [...document.querySelectorAll('.ad.filled [data-gb-spot]')]
+      .filter(el => !el.children.length && el.getClientRects().length);
+    if (!empty.length) return;
+    empty.forEach(el => el.removeAttribute('data-gb-loaded'));
+    runNetwork();
+  };
+  const start = () => {
+    fill();
+    setTimeout(retryEmpty, 5000);
+    // Spots that only appear at another screen size (window resized, phone turned) get filled when they show up
+    let t = 0;
+    addEventListener('resize', () => { clearTimeout(t); t = setTimeout(() => { fill(); setTimeout(retryEmpty, 5000); }, 300); });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
